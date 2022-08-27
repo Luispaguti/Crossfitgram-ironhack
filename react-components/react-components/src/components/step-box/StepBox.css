@@ -1,0 +1,8 @@
+.step-box{
+  width: 100%;
+  max-width: 200px;
+}
+
+.step-box > img{
+  max-height: 100px;
+}
