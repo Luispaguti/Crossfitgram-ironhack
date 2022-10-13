@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as streamService from '../../../../services/crossfit-service';
 import WoodItem from '../wood-item/WoodItem';
-import '../wood-list/WoodList.css'
+// import '../wood-list/WoodList.css'
 
 
 function WoodList() {

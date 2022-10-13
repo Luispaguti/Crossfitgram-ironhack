@@ -2,36 +2,35 @@ import axios from "axios";
 
 const http = axios.create({
   baseURL: "http://127.0.0.1:3001/api/v1",
-  withCredentials: true, // con esto cookie que recibe, cookie que manda xq por defecto no lo hace
+  withCredentials: true, // con esto axios cookie que recibe, cookie que manda xq por defecto no lo hace
 });
 
 
-//axios.interceptor ; me permite definir una función por la que van a pasar todas las respuestas que reciba
+// axios.interceptor ; me permite definir una función por la que van a pasar todas las respuestas que reciba
 
-// http.interceptors.response.use(
-//   function (response) {
-//     // que hacer con la respuesta en el caso de que haya ido bien
-//     return response.data;
-//     // con esto puedo hacer que me llegue el res.data directamente y me puedo cargar el de las peticiones de abajo
-//   },
-//   function (error) {
-//     if (error?.response?.status === 401) { // es lo unico que veo del backend, no autenticado
-//       // que hacer con el error en el caso de que haya habido
-//       console.error("unauthenticated, redirect to login");
-       
-//       // window.location.replace("/login"); // con esto consigo el cambio de ruta
-//     }
-
-//     return Promise.reject(error);
-//   }
-// );
+http.interceptors.response.use(
+  function (response) {
+    // que hacer con la respuesta en el caso de que haya ido bien
+    return response.data;
+    // con esto puedo hacer que me llegue el res.data directamente y me puedo cargar el de las peticiones de abajo
+  },
+  function (error) {
+    if (error?.response?.status === 401) { // es lo unico que veo del backend, no autenticado
+      // que hacer con el error en el caso de que haya habido
+      console.error("he pasado por el interceptor");
+   
+      // window.location.replace("/login"); // con esto consigo el cambio de ruta
+    }
+    return Promise.reject(error);
+  }
+);
 
 
 export function getRegister() {
   return http.get("/register");
 }
 
-export function authenticate(data) {
+export function authenticate(data) { // data es un objeto que tiene el email y la contraseña
   return http.post("/authenticate", data);
 }
 

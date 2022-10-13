@@ -1,8 +1,8 @@
-import { useContext } from "react";
+import { useContext } from "react";// para que cualquier hijo o nieto pueda acceder al value de alguno de sus contextos ascendientes utilizo el hook useContext 
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../../contexts/AuthContext";
-import * as streamService from '../../services/crossfit-service'
+import { authenticate } from '../../services/crossfit-service'
 
 function LoginScreen() {
   const navigation = useNavigate(); // para poder redirigir al usuario sin refrescar la página
@@ -18,11 +18,10 @@ function LoginScreen() {
   } = useForm({ mode: "onTouched" });
 
   const handleLogin = (data) => {
-    streamService.authenticate(data)
-    // si hago un console.log de data me llega el email y el password del usuario
-      .then((response) => {
-        value.setUser(response.data);
-        //response.data= datos del usuario, esto lo guardo en el estado del contexto gracias al value
+    authenticate(data)
+      .then((data) => { // si hago un console.log de data me llega el email y el password del usuario
+        value.setUser(data);
+        //data= datos del usuario, esto lo guardo en el estado del contexto gracias al value
         navigation("/");
       })
       .catch((error) => {

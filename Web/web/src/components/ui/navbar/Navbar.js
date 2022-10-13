@@ -1,7 +1,7 @@
 
 import '../navbar/Navbar.css'
 import { Link, NavLink } from 'react-router-dom'
-import { useContext } from 'react'
+import React, { useContext } from 'react'
 import { AuthContext } from '../../../contexts/AuthContext'
 import Button from '../button/Button';
 
@@ -10,18 +10,18 @@ import Button from '../button/Button';
 //para ello tengo que usar el hook useContext( import { useContext } from 'react')
 // y al hook useContext le paso el contexto(authcontext) y me devuelve el value  =>  const value = useContext(AuthContext);
 
-function Navbar({ label, primary, Icon3, Icon4, Icon5, Icon0  }) {
+function Navbar({ label, primary }) {
 
-  const { user } = useContext(AuthContext);
+  const value = useContext(AuthContext);
 
-  // if (!user){
+  // if (!value){
   //   return null;
   // }
 
   return (
     <div className="navbar-container">
       <div className="navbar">
-        <div className="logo-section hoverable">Crossfitgram</div>
+        <div className="logo-section hoverable">Crossfitgram {value.user.name}</div>
         <i class="fa fa-plus"></i>
         <i class="fa fa-heart"></i>
 

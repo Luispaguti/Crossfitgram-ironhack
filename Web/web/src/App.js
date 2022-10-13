@@ -2,54 +2,36 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import Navbar from "./components/ui/navbar/Navbar"
 import { HomeScreen, CreateStreamScreen,CreateWoodScreen, StreamScreen, StreamDetailScreen, WoodScreen, LoginScreen, UserProfileScreen  } from "./screens"
 import AboutScreen from './screens/about/Aboutscreen'
-import { useContext} from 'react'
-import { AuthContext } from './contexts/AuthContext'
+import { useContext } from "react";
+import { AuthContext } from './contexts/AuthContext';
 
 
-// le paso este AuthGuard a todas las rutas que sean privadas
-function AuthGuard({ children }){
-  const { user } = useContext( AuthContext);
 
-  if(!user) {
-    return <Navigate to="/login"/>
-  }
 
-  return children;
-  // esto es dejar pasar, pintar lo que hay dentro
-
-}
 
 
 function App() {
 
-  const value = useContext(AuthContext);
-  // este auth tiene el usuario y la contraseña
+  const value =useContext(AuthContext);
 
   return (
     <>
-      {/* {value.user && <Navbar/>} */}
-      <Navbar Icon1="Crosfitgram" Icon4="Foto del usuario"/>
+    {value.user && <Navbar />} 
+      
 
       <div className='container py-2'>
+
         <Routes> 
           <Route path='/login' element={<LoginScreen/>} />
           <Route path='/' element={<HomeScreen/>} />
           <Route 
             path='/create-stream' 
-            element={
-              <AuthGuard>
-                <CreateStreamScreen/>
-              </AuthGuard>
-            } 
+            element={<CreateStreamScreen/>} 
             />
           <Route path='/stream/:id' element={<StreamDetailScreen/>} />
           <Route 
             path='/create-wood' 
-            element={
-            <AuthGuard>
-              <CreateWoodScreen/>
-            </AuthGuard>
-            } 
+            element={<CreateWoodScreen/>} 
             />
           <Route path='/about' element={<AboutScreen/>} />
           <Route path='/streams' element={<StreamScreen/>} />
@@ -57,9 +39,7 @@ function App() {
           <Route path='/streams/:id' element={<StreamDetailScreen/>} />
           <Route path='/profile' element={<UserProfileScreen/>} />
         </Routes>
-        
-        {/* <Navbar Icon2="home" Icon3={<i className='fa fa-plus' />} icon0={<i className='fa fa-plus' />}/> */}
-
+      
       </div>
     </>
   );

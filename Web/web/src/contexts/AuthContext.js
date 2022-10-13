@@ -1,5 +1,5 @@
-import { createContext, useState, useEffect } from "react";
-import * as streamService from '../services/crossfit-service'
+const { createContext, useState } = require("react") ;
+// import * as streamService from '../services/crossfit-service'
 
 
 // los contextos es un componente tuneado de tal forma que cualquier componente que este hacia abajo, va a poder recibir como propiedad algo que este le envie
@@ -16,27 +16,28 @@ import * as streamService from '../services/crossfit-service'
 // solo que el usuario y la función setUser se la paso no al hijo por prps, sino a todo lo que haya por debajo
 // ¿ Y ahora como me voy al componente de más abajo del todo y lo leo?. SIGUE EN COMPONENTE NAVBAR.JS
 
-
+//AuthContextProvider es el componente no el contexto
 
 
 
 export const AuthContext = createContext();
 
 function AuthContextProvider({ children }) {
-  const [user, setUser] = useState(undefined); // undefined means loading
+  const [user, setUser] = useState(null); // undefined means loading
 
 
   // con esto cada vez que la pagina cargue , lo primero que va a hacer es pedir el usuario
   // y cuando lo tenga continua y si no lo tiene me lleva al login
-  useEffect(() => {
-    streamService.getProfile()
-      .then((user) => setUser(user))
-      .catch((user) => setUser(null)); 
-  }, []);
+  // useEffect(() => {
+  //   streamService.getProfile()
+  //     .then((user) => setUser(user))
+  //     .catch((user) => setUser(null)); 
+  // }, []);
 
   const value = { //lo que yo le pase en value es todo lo que todos los decendientes van a poder acceder sean hijos nietos..ect 
     user, // le voy a pasar el usuario
-    setUser, // y tambien la función de setear el usuario que le hace falta al login
+    setUser, // con esta función cambio un estado que se la estoy pasando a los hijos
+    // y tambien la función de setear el usuario que le hace falta al login
   };
   
 
@@ -48,9 +49,9 @@ function AuthContextProvider({ children }) {
   //lo que estoy haciendo es un loading, mientras el usuario este cargando no pinto nada
   // pero con el null no se diferenciar entre usuario esta cargando con el no tengo usuario
   // para ello; undefined significa cargando, null significa no usuario, y user es usuario
-  if (user === undefined) { // esto es usuario cargando
-    return <></>;
-  }
+  // if (user === undefined) { // esto es usuario cargando
+  //   return <></>;
+  // }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>; // lo que yo le pase en value es todo lo que todos los decendientes van a poder acceder sean hijos nietos..ect 
 }
