@@ -1,5 +1,6 @@
 const Wood = require("../models/wood.model")
 const Like = require("../models/like.model")
+// const Warning = require("../models/warning.model")
 const createError = require("http-errors");
 
 
@@ -18,7 +19,9 @@ module.exports.create = (req, res, next) => {
   delete wood.views;
   //delete se está calzando una propiedad de un objeto
   wood.author = req.user.id //para llegar a esta acción tengo que estar autenticado xq lo dice mi fichero de rutas,y eso significa que exista el req.user,y en el author a nivel de base de datos se guarda el id ,pues ahi le caso el req.user.id 
-
+  if (req.file) { // gracias a utilizar el midelware de multer te coge la imagen y te la mete en req.file, eso te lo hace el 
+    wood.image = req.file.path;// aqui guardo en wood.image el path
+  }// el path es la url donde esta la clave de la imagen guardada en cloudinary, el path te lo dan cloudinary
   Wood.create(wood)
     .then((wood) => res.status(201).json(wood))
     .catch(next);
@@ -26,17 +29,17 @@ module.exports.create = (req, res, next) => {
 
 module.exports.detail = (req, res, next) => {
   Wood.findById(req.params.id) //xq el id me va en la url y cuando lo tenga..
-  .populate("author", "name") // con esto puedo ver toda la información del author, el segundo parametro indico los campos que me quiero quedar, esto se llama proyectar una query
-  .populate("comments") // gracias al virtual populate del modelo de stream
-  .populate("likes") // gracias al virtual populate del modelo de stream
-  .then((wood) => {
-    if (wood) {
-      res.json(wood);
-    } else {
-      next(createError(404, "wood not found"));
-    }
-  })
-  .catch(next);
+    .populate("author", "name") // con esto puedo ver toda la información del author, el segundo parametro indico los campos que me quiero quedar, esto se llama proyectar una query
+    .populate("comments") // gracias al virtual populate del modelo de stream
+    .populate("likes") // gracias al virtual populate del modelo de stream
+    .then((wood) => {
+      if (wood) {
+        res.json(wood);
+      } else {
+        next(createError(404, "wood not found"));
+      }
+    })
+    .catch(next);
 };
 
 
@@ -55,7 +58,7 @@ module.exports.like = (req, res, next) => {
   Like.findOne(info) // lo busco y pueden pasar dos cosas
     .then((like) => {
       if (like) { // si existe lo borro
-        return Like.deleteOne(info);  
+        return Like.deleteOne(info);
       } else { // que no existe, lo creo
         return Like.create(info);
       }
@@ -64,3 +67,20 @@ module.exports.like = (req, res, next) => {
     .then((likes) => res.json({ likes }))
     .catch(next);
 };
+
+module.exports.verif = (req, res, next) => {
+  const wood = req.params.id;
+
+  Wood.findByIdAndUpdate(wood,{verif:true},{new:true}) // primer argumento wood, segundo el campo que quieres modificar y tercero a que lo quuieres cambiar 
+  .then((wood) => res.json( wood ))
+  .catch(next);
+}
+
+  module.exports.ranking = (req, res, next) => {
+    Wood.find()
+      .sort({ score: -1 })
+      .limit(10)
+      .then((wood) => res.status(201).json(wood))
+      .catch(next);
+  }
+

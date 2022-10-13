@@ -1,6 +1,7 @@
 const createError = require("http-errors");
 const User = require("../models/user.model");
 const mongoose = require("mongoose");
+const { sendEmail } = require('../config/mail.config')
 
 
 
@@ -16,8 +17,12 @@ module.exports.register = (req, res, next) => {
           })
         );
       } else {
-        return User.create(req.body).then((user) => res.status(201).json(user));
-      }
+        return User.create(req.body).then((user) => {
+          sendEmail(user);
+          res.status(201).json(user);
+        }
+        
+    )}
     })
     .catch(next);
 };
@@ -57,4 +62,30 @@ module.exports.logout = (req, res, next) => {
   req.session.destroy(); // de esta manera nos va a eliminar toda esa cookie de sesion
   req.session = null;// pero aún asi me aseguro y la pongo a null
   res.status(204).send();
+};
+
+module.exports.slack = (req, res, next) => {
+ const profile = req.account; // gracias al slack se que los datos del usuario me llegan en req.account
+
+ User.findOne({ // cuando slack me ha pasado los datos del usuario, 
+  //lo que hago es crear ese usuario en mi base de datos si no existe, 
+  social: profile.id,// y lo creo con un id que he añadido nuevo que es el id de tu perfil social
+})
+  .then((user) => {
+    if (!user) { // si no existe el usuario, lo creo
+      return User.create({// y estos son los datos que le pongo
+        name: profile.user.name, // el name es el que viene en el perfil
+        social: profile.id, // el id q me da slack
+        email: profile.user.email, // el email que viene en el perfil de slack
+        password: mongoose.Types.ObjectId(),
+      });
+    }
+
+    return user; // si existe lo devuelvo
+  })
+  .then((user) => { // y cuando ya tengo el usuario...
+    req.session.userId = user.id; // le pongo la cookie
+    res.redirect(process.env.WEB_URL); // esta será la url de react
+  })
+  .catch(next);
 };

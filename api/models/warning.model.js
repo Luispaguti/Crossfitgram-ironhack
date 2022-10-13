@@ -8,11 +8,10 @@ const schema = new Schema(
       type: mongoose.Schema.Types.ObjectId,
       required: true,
     },
-    stream: {
-      ref: "Stream",
-      type: mongoose.Schema.Types.ObjectId,
+    reason: {
+      type: String,
       required: true,
-    },
+    }
   },
   {
     timestamps: true,
@@ -27,5 +26,5 @@ const schema = new Schema(
   }
 );
 
-const Verify = mongoose.model("Verify", schema);
-module.exports = Like;
+const Warning = mongoose.model("Warning", schema);
+module.exports = Warning;

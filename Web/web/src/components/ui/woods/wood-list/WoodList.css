@@ -1,0 +1,8 @@
+body {
+  display: grid;
+  gap: 1rem;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(minmax(min-content, 2rem));
+  
+}
+

@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const movements = require('../data/movements')
+const excercises = require('../data/excercises');
+const scaleds = require('../data/scaleds');
+const categories = require('../data/categories')
+const efforts = require('../data/efforts')
+
 
 const woodSchema = new Schema(
   {
@@ -9,37 +13,53 @@ const woodSchema = new Schema(
       default: "https://images.unsplash.com/photo-1541870132-ecf16aeed15f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80",
     },
     scaled: {
-      type:[String],
-      required: "Nivel de dificultad",
-      enum: [
-        "escaled",
-        "RX"
-      ]
+      type: [
+        {
+          type: String,
+          required: "¿Escalado o RX?",
+          enum: scaleds.map((scaled) => scaled.value),
+          trim: true,
+        },
+      ],
     },
-    categories:  {
-      type: [String],
-      required: "Selecciona la categoria",
-      enum: [
-        "AMRAP",
-        "For time",
-        "RM"
-      ]
+    categories: {
+      type: [
+        {
+          type: String,
+          required: "Selecciona la categoria",
+          enum: categories.map((category) => category.value),
+          trim: true,
+        },
+      ],
     },
     exercise: {
       type: [
         {
           type: String,
           required: "exercise is required",
-          enum: movements.map((movement) => movement.value),
+          enum: excercises.map((movement) => movement.value),
           trim: true,
         },
       ],
     },
+    // thumbnail: {
+    //   type: String,
+    //   required: "Thumbnail is required",
+    //   trim: true,
+    // },
+
     reps: Number,
-    weight:Number,
-    time:Number,
-    score: Number,
-   
+    weight: Number,
+    time: Number,
+    kcal: Number,
+    score: {
+      type: Number,
+      default: function () {
+        return this.reps * this.weight - this.time
+      }
+    },
+
+
     author: {
       type: mongoose.Schema.Types.ObjectId,
       //con esto le estas diciendo que el campo de un modelo es un identificador y puedo hacer relaciones de modelos
@@ -48,24 +68,25 @@ const woodSchema = new Schema(
       //gracias a esto mongo remplaza cada id del usuario por el usuario y puedo poner stream.author.name
       required: true
     },
-    views: Number,
-    verify:Boolean,
-    status: {
-      type: [String],
-      required: "Nivel de dificultad",
-      enum: [
-        "Fácil",
-        "medio",
-        "Jodido",
-        "Muy jodido",
-        "Muerte",
-      ]
+    // views: Number,
+    efforts: {
+      type: [
+        {
+          type: String,
+          required: "Percepción del esfuerzo",
+          enum: efforts.map((effort) => effort.value),
+          trim: true,
+        },
+      ],
+    },
+    verif: {
+      type: Boolean,
+      default: false,
     },
     description: {
       type: String,
-      minLength: [10, "Escribe mínimo 20 letras, no seas perezoso"]
+      minLength: [5, "Escribe mínimo 5 letras"]
     },
-    location:String
   },
   {
     timestamps: true,
@@ -101,6 +122,14 @@ woodSchema.virtual("likes", {
   foreignField: "wood",
   count: true, // gracias a esto en vez de obtener todos los likes y meterlos en un array me pone un número
 });
+
+woodSchema.virtual("verify", {
+  ref: "Verify",
+  localField: "_id",
+  foreignField: "wood",
+  count: true, // gracias a esto en vez de obtener todos los likes y meterlos en un array me pone un número
+});
+
 const Wood = mongoose.model('Wood', woodSchema);
 module.exports = Wood;
 

@@ -23,9 +23,11 @@ module.exports.session = expressSession({
 
 
 
-//cada vez que me hacen una petición http me interesa cargar al usuario , en el momento que nos hemos autenticado a partir de esa cookie de sesion a mi me interesa saber quien es el usuario 
+//cada vez que me hacen una petición http me interesa cargar al usuario , 
+//en el momento que nos hemos autenticado a partir de esa cookie de sesion a mi me interesa saber quien es el usuario 
 //por lo que en la cookie de sesion se guarda el id del usuario 
-// este pluggin, este midelware(sesion de la linea 6) lo que está añadiendo es la request un req.sesion y este req.sesion tendrá la informacion que yo le haya querido ir cargando a medida que han ido llegando las peticiones http
+// este pluggin, este midelware(sesion de la linea 6) lo que está añadiendo es la request un req.sesion y 
+//este req.sesion tendrá la informacion que yo le haya querido ir cargando a medida que han ido llegando las peticiones http
 // lo primero que voy a guardar en esta req.session, es el identificador del usuario (const { userId } = req.session)
 
 module.exports.loadUser = (req, res, next)  => {
@@ -33,7 +35,8 @@ module.exports.loadUser = (req, res, next)  => {
   if (userId) {
     User.findById(userId)
       .then(user => {
-        req.user = user;// aqui sobre el req. al igual que los que hicieron el midelware de express sesion nos dejaron en req.session esa info, yo aquí en req.user dejo mi usuario
+        req.user = user;// aqui sobre el req. al igual que los que hicieron el midelware de express sesion nos dejaron en req.session esa info,
+        // yo aquí en req.user dejo mi usuario
         //para que el resto de los midelware pueda hacer un req.user y acceder a la info del usuario en concreto
         next();
       })
