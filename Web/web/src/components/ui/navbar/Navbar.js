@@ -4,13 +4,14 @@ import { Link, NavLink } from 'react-router-dom'
 import React, { useContext } from 'react'
 import { AuthContext } from '../../../contexts/AuthContext'
 import Button from '../button/Button';
-
+import { useParams } from 'react-router-dom';
 // CONTINUANCION CONTEXT de AUTHCONTEX.JS
 //¿ Y ahora como me voy al componente de más abajo del todo y lo leo?
 //para ello tengo que usar el hook useContext( import { useContext } from 'react')
 // y al hook useContext le paso el contexto(authcontext) y me devuelve el value  =>  const value = useContext(AuthContext);
 
 function Navbar() {
+  const { id } = useParams()
 
   const value = useContext(AuthContext);
 
@@ -61,7 +62,7 @@ function Navbar() {
 
         
 
-        <Link to='/profile' class="d-flex align-items-center">
+        <Link to={`/profile/${id}`} class="d-flex align-items-center">
         <div className="nickname">{value.user.nickname}</div>
           <img src={value.user.image} class="rounded-circle" height="92" alt="title" loading="lazy" />
 

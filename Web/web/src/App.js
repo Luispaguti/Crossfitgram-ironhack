@@ -38,7 +38,7 @@ function App() {
           <Route path='/about' element={<AboutScreen/>} />
           <Route path='/streams' element={<StreamScreen/>} />
           <Route path='/woods' element={<WoodScreen/>} />
-          <Route path='/profile' element={<UserProfileScreen/>} />
+          <Route path='/profile/:id' element={<UserProfileScreen/>} />
         </Routes>
       
       </div>

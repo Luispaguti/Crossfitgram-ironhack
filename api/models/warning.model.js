@@ -8,7 +8,7 @@ const schema = new Schema(
       type: mongoose.Schema.Types.ObjectId,
       required: true,
     },
-    reason: {
+    text: {
       type: String,
       required: true,
     }

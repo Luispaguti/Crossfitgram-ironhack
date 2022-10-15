@@ -74,11 +74,7 @@ function WoodItem({ title, scaled, image, categories, id, author, description, e
                   <Link to={`/wood/${id}`}><p class="post-time">Detail</p></Link>
                   <Link to={`/`}><p class="post-time">Home</p></Link>
                 </div>
-                <div class="comment-wrapper">
-                  <img src="img/smile.PNG" class="icon" alt="" />
-                  <input type="text" class="comment-box" placeholder="Add a comment" />
-                  <button class="comment-btn">post</button>
-                </div>
+                
               </div>
             </div>
           </div>

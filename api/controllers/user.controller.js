@@ -14,7 +14,7 @@ module.exports.streamsOwned = (req, res, next) => {
   })
   .populate("author", "name") // con esto puedo ver toda la información del author
   .then((streams) => res.json(streams))
-  .catch((error) => next(error));;
+  .catch((error) => next(error));
 };
 
 module.exports.woodsOwned = (req, res, next) => {

@@ -34,11 +34,7 @@ function StreamItem({ title, image, views, id ,author, description}) {
                     <p class="description"><span>{author.name}</span>{description}</p>
                     <Link to={`/stream/${id}`}><p class="post-time">Detail</p></Link>
                 </div>
-                <div class="comment-wrapper">
-                    <img src="img/smile.PNG" class="icon" alt=""/>
-                    <input type="text" class="comment-box" placeholder="Add a comment"/>
-                    <button class="comment-btn">post</button>
-                </div>
+                
               </div>
           </div>
         </div>

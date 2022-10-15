@@ -62,6 +62,10 @@ const userSchema = new Schema(
         type: Boolean,
         default: false,
     },
+    warnin:{
+      type: Boolean,
+      default: false,
+  },
     snatch: Number,
     clean: Number,
     jerk: Number,
@@ -88,6 +92,12 @@ userSchema.virtual("wood", {
   ref: "Wood",
   localField: "_id",
   foreignField: "wood",
+});
+
+userSchema.virtual("warning", {
+  ref: "Warning",
+  localField: "_id",
+  foreignField: "warning",
 });
 
 //para que la contraseña acabe hasheada en base de datos tengo que ejecutar este pre,  para ello uso el metodo de save, y no se ponia nunca función flecha

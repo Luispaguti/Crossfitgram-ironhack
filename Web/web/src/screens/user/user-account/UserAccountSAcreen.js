@@ -6,7 +6,9 @@ function UserAccountSAcreen() {
   return (
     <>
     <Login/>
-    {/* <Register/> */}
+
+    
+    <Register/>
     </>
   )
 }

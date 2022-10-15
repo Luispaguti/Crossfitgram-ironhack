@@ -32,7 +32,6 @@ router.delete("/wood/:id",secure.isAuthenticated,streamMid.isAuthorByUser, woods
 
 router.post("/woods/:id/like",secure.isAuthenticated, woods.like);
 router.post("/woods/:id/verif",secure.isAuthenticated,secure.isAdmin, woods.verif);
-// router.post("/woods/:id/warning",secure.isAuthenticated,secure.isAdmin, woods.warning);
 router.post("/streams/:id/like",secure.isAuthenticated, streams.like);
 
 router.post("/streams/:id/comments", secure.isAuthenticated, comments.create);
