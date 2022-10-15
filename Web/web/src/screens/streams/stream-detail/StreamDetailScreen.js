@@ -4,7 +4,6 @@ import { StreamDetail } from '../../../components/ui'
 function StreamDetailScreen() {
   return (
      <>
-      <div>StreamDetail</div>
       <StreamDetail/>
      </>
    

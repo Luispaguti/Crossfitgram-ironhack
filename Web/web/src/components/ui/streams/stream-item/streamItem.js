@@ -1,25 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import React from "react";
 import { Link } from "react-router-dom";
-import * as streamService from '../../../../services/crossfit-service';
-import StreamItem from '../stream-item/streamItem';
+import '../stream-item/streamItem.css'
 
 
+function StreamItem({ title, image, views, id ,author, description}) {
 
-function StreamDetail({ title, image, views ,author, description}) {
-  const [ stream, setStream ] = useState(null);
-  const { id } = useParams()
-
-  useEffect(() => {
-    streamService.getStreamDetail(id)
-      .then(stream => setStream(stream))
-      .catch(error => console.error(error))
-  }, [id])
-
-  if(!stream) return <></>
 
   return (
-    <section className="main">
+    <>
+      <section className="main">
         <div className="wrapper">
           <div className="left-col">
             
@@ -27,12 +16,12 @@ function StreamDetail({ title, image, views ,author, description}) {
                   <div className="user">
                     <div className="info">
                       <div class="profile-pic"><img src="img/cover 1.png" alt=""/></div>
-                        <p className="username">{stream.author.name}</p>
+                        <p className="username">{author.name}</p>
                     </div>
                     <img src="img/option.PNG" class="options" alt=""></img>
                   </div>
 
-                  <img className="post-image" src={stream.image} alt={stream.title} />
+                  <img className="post-image" src={image} alt={title} />
 
                   <div class="post-content">
                     <div class="reaction-wrapper">
@@ -42,18 +31,20 @@ function StreamDetail({ title, image, views ,author, description}) {
                         <img src="img/save.PNG" class="save icon" alt=""/>
                     </div>
                     <p class="likes">1,022 likes</p>
-                    <p class="description"><span>{stream.author.name}</span>{stream.description}</p>
-                    <Link to={`/`}><p class="post-time">Back</p></Link>
+                    <p class="description"><span>{author.name}</span>{description}</p>
+                    <Link to={`/stream/${id}`}><p class="post-time">Detail</p></Link>
                 </div>
                 <div class="comment-wrapper">
                     <img src="img/smile.PNG" class="icon" alt=""/>
                     <input type="text" class="comment-box" placeholder="Add a comment"/>
+                    <button class="comment-btn">post</button>
                 </div>
               </div>
           </div>
         </div>
       </section>
-  )
+    </>
+  );
 }
 
-export default StreamDetail
+export default StreamItem;

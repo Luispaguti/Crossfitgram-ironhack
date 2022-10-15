@@ -46,6 +46,13 @@ const streamSchema = new Schema(
 // la relacion entre la tabla de like y de stream es 1 a n (xq un stream tiene muchos likes) y en una relacion 1 a n la referencia la pongo en el n (likes y en el modelo de likes tengo la refencia con el objetId) en este caso puedo hacer un populate simple.Pero en mi caso quiero poner el numero de like en el stream por lo que es en el lado dificil en el que no tengo la referencia en el modelo de stream, por lo que tengo que hacer un virtual
 //Pero en mi caso quiero poner el numero de like en el stream por lo que es en el lado dificil en el que no tengo la referencia en el modelo de stream, por lo que tengo que hacer un virtual populate
 // y ahora en el controlador al igual que le hacia el populte de comments le hago el populate de likes
+
+streamSchema.virtual("comments", { // aqui va el campo que quiero crear en el modelo
+  ref: "Comment", // es una referencia al modelo comment
+  localField: "_id",
+  foreignField: "stream",
+});
+
 streamSchema.virtual("likes", {
   ref: "Like",
   localField: "_id",

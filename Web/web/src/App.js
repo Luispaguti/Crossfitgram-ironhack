@@ -1,9 +1,10 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Navbar from "./components/ui/navbar/Navbar"
-import { HomeScreen, CreateStreamScreen,CreateWoodScreen, StreamScreen, StreamDetailScreen, WoodScreen, LoginScreen, UserProfileScreen  } from "./screens"
+import { HomeScreen, CreateStreamScreen,CreateWoodScreen, StreamScreen, StreamDetailScreen, WoodScreen, LoginScreen, UserProfileScreen, WoodDetailScreen  } from "./screens"
 import AboutScreen from './screens/about/Aboutscreen'
 import { useContext } from "react";
 import { AuthContext } from './contexts/AuthContext';
+import UserAccountSAcreen from './screens/user/user-account/UserAccountSAcreen';
 
 
 
@@ -22,13 +23,14 @@ function App() {
       <div className='container py-2'>
 
         <Routes> 
-          <Route path='/login' element={<LoginScreen/>} />
+          <Route path='/login' element={<UserAccountSAcreen/>} />
           <Route path='/' element={<HomeScreen/>} />
           <Route 
             path='/create-stream' 
             element={<CreateStreamScreen/>} 
             />
           <Route path='/stream/:id' element={<StreamDetailScreen/>} />
+          <Route path='/wood/:id' element={<WoodDetailScreen/>} />
           <Route 
             path='/create-wood' 
             element={<CreateWoodScreen/>} 
@@ -36,7 +38,6 @@ function App() {
           <Route path='/about' element={<AboutScreen/>} />
           <Route path='/streams' element={<StreamScreen/>} />
           <Route path='/woods' element={<WoodScreen/>} />
-          <Route path='/streams/:id' element={<StreamDetailScreen/>} />
           <Route path='/profile' element={<UserProfileScreen/>} />
         </Routes>
       

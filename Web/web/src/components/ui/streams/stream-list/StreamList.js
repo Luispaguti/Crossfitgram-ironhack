@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as streamService from '../../../../services/crossfit-service';
-import StreamItem from '../stream-item/stream-item';
+import StreamItem from '../stream-item/streamItem';
 import { Link } from 'react-router-dom';
 
 function StreamList() {

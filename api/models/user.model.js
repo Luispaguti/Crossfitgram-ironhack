@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs') //para hasear la contraseña
 const WORK_FACTOR= 10;//factor de trabajo
 const EMAIL_PATTERN = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const PW_PATTERN = /^.{9,}$/;// el gorro significa empieza en, el dolar termina en , el punto cualquier valor, y dentro de los bigotes el minimo coma el máximo
-
+const PHONE_PATTERN = /^\+?(6\d{2}|7[1-9]\d{1})\d{6}$/;
 
 const userSchema = new Schema(
   {
@@ -13,12 +13,25 @@ const userSchema = new Schema(
         type: String,
         default: "https://www.todofondos.net/wp-content/uploads/todofondos-simpson8.jpg",
     },
+    nickname: {
+      type: String,
+      trim: true,
+      unique: true,
+      required: "nick obligatorio"
+    },
     name:{
         type: String,
         required: "Dinos tu nombre",
         maxLength: [30, "Nombre demasiado largo"],
         minLength: [2, "Nombre demasiado corto"],
         trim:true
+    },
+    surname: {
+      type: String,
+      trim: true,
+      maxLength: [20 , "Los apellidos no puede tener más de 20 caracteres"],
+      minLength: [2 , "Los apellidos necesita mínimo 2 caracteres"],
+      required: "Los apellidos son obligatorios"
     },
     bio: {
         type: String,
@@ -43,7 +56,7 @@ const userSchema = new Schema(
   },
     phone:{
         type: String,
-        required: "Número de teléfono es necesario",
+        match: [PHONE_PATTERN, "teléfono incorrecto"],
     },
     admin:{
         type: Boolean,
@@ -53,10 +66,6 @@ const userSchema = new Schema(
     clean: Number,
     jerk: Number,
     backsquat: Number,
-       single:{
-      type: Boolean,
-      default: false,
-  },
     benchpress: Number,
     deadlift:Number,
 

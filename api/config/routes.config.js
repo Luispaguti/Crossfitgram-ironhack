@@ -19,16 +19,16 @@ router.get("/authenticate/slack/cb",passport.authorize('Slack'),auth.slack);
 router.delete("/logout", auth.logout);
 
 router.get('/streams', streams.list );
-router.post("/streams", secure.isAuthenticated,upload.single('image'), streams.create); // el midelware upload.single se encaarga de contruir para nosotros req.file, con los datos del archivo que sube 
+router.post("/stream", secure.isAuthenticated,upload.single('image'), streams.create); // el midelware upload.single se encaarga de contruir para nosotros req.file, con los datos del archivo que sube 
 router.get("/streams/:id", streams.detail);
-router.patch("/streams/:id", secure.isAuthenticated, streamMid.isAuthorByUser, streams.update);
-router.delete("/streams/:id",secure.isAuthenticated,streamMid.isAuthorByUser, streams.delete);
+router.patch("/stream/:id", secure.isAuthenticated, streamMid.isAuthorByUser, streams.update);
+router.delete("/stream/:id",secure.isAuthenticated,streamMid.isAuthorByUser, streams.delete);
 
 router.get('/woods', woods.list );
 router.get('/ranking', woods.ranking );
-router.post("/woods", secure.isAuthenticated,upload.single('image'), woods.create);
+router.post("/wood", secure.isAuthenticated,upload.single('image'), woods.create);
 router.get("/woods/:id", woods.detail);
-router.delete("/woods/:id",secure.isAuthenticated,streamMid.isAuthorByUser, woods.delete);
+router.delete("/wood/:id",secure.isAuthenticated,streamMid.isAuthorByUser, woods.delete);
 
 router.post("/woods/:id/like",secure.isAuthenticated, woods.like);
 router.post("/woods/:id/verif",secure.isAuthenticated,secure.isAdmin, woods.verif);

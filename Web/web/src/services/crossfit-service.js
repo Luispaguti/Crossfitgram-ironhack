@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const http = axios.create({
-  baseURL: "http://127.0.0.1:3001/api/v1",
+  baseURL: "http://localhost:3001/api/v1",
   withCredentials: true, // con esto axios cookie que recibe, cookie que manda xq por defecto no lo hace
 });
 
@@ -26,8 +26,8 @@ http.interceptors.response.use(
 );
 
 
-export function getRegister() {
-  return http.get("/register");
+export function register(user) {
+  return http.post("/register",user);
 }
 
 export function authenticate(data) { // data es un objeto que tiene el email y la contraseña
@@ -78,17 +78,17 @@ export function getStreamDetail(id) {
 }
 
 export function createStream(stream) {
-  return http.post("/streams", stream);
+  return http.post("/stream", stream);
 }
 // esta funcion va a recibir un stream,
 //mirar en la docu, el post a diferencia del get tiene un primer argumento el path y un segundo que es toda la info q estoy enviando
 
 export function updateStream(id) {
-  return http.patch(`/streams/${id}`);
+  return http.patch(`/stream/${id}`);
 }
 
 export function deleteStream(id) {
-  return http.delete(`/streams/${id}`);
+  return http.delete(`/stream/${id}`);
 }
 
 export function likeStream(id) {
@@ -104,7 +104,7 @@ export function getWoods() {
   return http.get("/woods");
 }
 
-export function getWood(id) {
+export function getWoodDetail(id) {
   return http.get(`/woods/${id}`);
 }
 
@@ -113,15 +113,15 @@ export function getRanking() {
 }
 
 export function createWood(wood) {
-  return http.post("/woods", wood);
+  return http.post("/wood", wood);
 }
 
 export function updateWood(id) {
-  return http.patch(`/woods/${id}`);
+  return http.patch(`/wood/${id}`);
 }
 
 export function deleteWood(id) {
-  return http.delete(`/woods/${id}`);
+  return http.delete(`/wood/${id}`);
 }
 
 export function likeWood(id) {

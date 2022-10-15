@@ -31,7 +31,7 @@ function WoodForm() {
     console.log(data);
     woodsService.createWood(data) // lo conecto con el backend
       .then(wood => // una vez creado el wood lo voy a enviar a la list de woods
-        navigation('/woods'))
+        navigation('/')) // aqui una vez creado puedes poner lo que quieras
       .catch(error => {
         if (error.response?.data?.errors) {
           const { errors } = error.response.data;

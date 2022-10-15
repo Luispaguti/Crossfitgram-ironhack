@@ -1,14 +1,14 @@
-.navbar .nav-link:hover {
-  background-color: rgb(201, 206, 207);
-}
-.navbar-container {
+/* .main-nav .nav-link:hover {
+  background-color: red;
+} */
+/* .navbar-container {
   padding:10px;
   border-bottom: 1px solid rgb(220, 220, 220);
-  height:140px
+  height:80px
 }
 
 .navbar {
-  width: 1260px;
+  width: 960px;
   margin: auto;
   display:flex;
   justify-content: space-between;
@@ -17,13 +17,7 @@
 
 .logo-section {
   font-family: Brush Script MT, Brush Script Std;
-  font-size: 56px;
-}
-
-.nickname {
-  font-family: Brush Script MT, Brush Script Std;
-  font-size: 26px;
-  color:black
+  font-size: 36px;
 }
 
 .actions-section{
@@ -36,4 +30,4 @@
 
 .hoverable:hover {
   cursor: pointer;
-}
+} */

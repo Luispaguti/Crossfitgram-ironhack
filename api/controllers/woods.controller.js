@@ -8,6 +8,7 @@ const createError = require("http-errors");
 module.exports.list = (req, res, next) => {
   Wood.find()
     .populate("author", "name") // con esto puedo ver toda la información del author
+    .populate("likes")
     .then((wood) => res.json(wood))
     .catch((error) => next(error));
 };
@@ -28,6 +29,7 @@ module.exports.create = (req, res, next) => {
 };
 
 module.exports.detail = (req, res, next) => {
+  console.log(req.params)
   Wood.findById(req.params.id) //xq el id me va en la url y cuando lo tenga..
     .populate("author", "name") // con esto puedo ver toda la información del author, el segundo parametro indico los campos que me quiero quedar, esto se llama proyectar una query
     .populate("comments") // gracias al virtual populate del modelo de stream
@@ -36,7 +38,7 @@ module.exports.detail = (req, res, next) => {
       if (wood) {
         res.json(wood);
       } else {
-        next(createError(404, "wood not found"));
+        next(createError(404, "woodd not found"));
       }
     })
     .catch(next);

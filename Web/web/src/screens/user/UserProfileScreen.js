@@ -1,9 +1,12 @@
 import React from 'react'
+import UserStreams from '../../components/ui/user/user-streams/UserStreams'
+import UserWoods from '../../components/ui/user/user-woods/UserWoods'
 
 function UserProfileScreen() {
   return (
     <div>
-      Sus streams y sus woods
+      <UserWoods/>
+      <UserStreams/>
     </div>
   )
 }

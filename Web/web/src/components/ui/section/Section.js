@@ -4,7 +4,11 @@ import WoodList from '../woods/wood-list/WoodList'
 function Section() {
   return (
     <>
-      <WoodList/>
+      <div className="navbar-container">
+      <div className="navbar">
+
+      </div>
+      </div>
     </>
   )
 }

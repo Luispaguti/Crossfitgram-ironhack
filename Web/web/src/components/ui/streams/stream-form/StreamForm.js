@@ -11,7 +11,7 @@ function StreamForm() {
     console.log(data);
     streamsService.createStream(data)
       .then(stream => 
-        navigation('/streams'))
+        navigation('/'))
       .catch(error => {
         if (error.response?.data?.errors) {
           const { errors } = error.response.data;
