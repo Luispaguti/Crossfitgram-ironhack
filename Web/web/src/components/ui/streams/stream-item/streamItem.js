@@ -24,16 +24,16 @@ function StreamItem({ title, image, views, id ,author, description}) {
                   <img className="post-image" src={image} alt={title} />
 
                   <div class="post-content">
-                    <div class="reaction-wrapper">
-                        <img src="img/like.PNG" class="icon" alt=""/>
-                        <img src="img/comment.PNG" class="icon" alt=""/>
-                        <img src="img/send.PNG" class="icon" alt=""/>
-                        <img src="img/save.PNG" class="save icon" alt=""/>
-                    </div>
-                    <p class="likes">1,022 likes</p>
-                    <p class="description"><span>{author.name}</span>{description}</p>
-                    <Link to={`/stream/${id}`}><p class="post-time">Detail</p></Link>
-                </div>
+  
+                    
+                    <p class="description"><span>{author.name} ha subido esta foto</span></p>
+                    <p class="description"><span>Descripción</span>{description}</p>
+                    <p class="description"><span>En </span>{author.box}</p>
+                    <p class="description"><span>Localidad</span>{author.location}</p>
+      
+                    <Link to={`/stream/${id}`}><p class="description">Detail</p></Link>
+                    <Link to={`/`}><p class="description">Home</p></Link>
+                  </div>
                 
               </div>
           </div>

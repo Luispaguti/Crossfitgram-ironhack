@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-    {value.user && <Navbar />} 
+    {value.user &&  <Navbar />} 
       
 
       <div className='container py-2'>

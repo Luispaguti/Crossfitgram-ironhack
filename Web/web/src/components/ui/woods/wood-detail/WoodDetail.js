@@ -94,6 +94,7 @@ function WoodDetail({ title, scaled, image, categories, author, description, exe
                 <i className="fa fa-heart me-2"></i>
                 {wood.likes}
               </button>
+              
 
                 <div>
                   {wood.verif ? (
@@ -103,6 +104,7 @@ function WoodDetail({ title, scaled, image, categories, author, description, exe
                   )
 
                   }
+                  <p>Coach Check</p>
                 </div>
               <p class="description"><span>{wood.author?.name}</span>{wood.description}</p>
               <p class="description"><span>{wood.scaled}</span></p>

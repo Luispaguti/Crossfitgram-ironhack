@@ -32,9 +32,6 @@ function Navbar() {
           </form>
         </div>
 
-        {/* <NavLink to="/profile" className={({ isActive }) => isActive ? "nav-link active" : 'nav-link'}>
-          <div className="logo-section hoverable">{value.user.name}</div>
-        </NavLink> */}
 
         <NavLink to="/create-stream" className={({ isActive }) => isActive ? "nav-link active" : 'nav-link'}>
           <i class="fas fa-camera-retro"></i>
@@ -68,13 +65,6 @@ function Navbar() {
 
         </Link>
 
-        {/* <div className="actions-section">
-        <NavLink to="/login" className={({ isActive }) => isActive ? "nav-link active" : 'nav-link'}>
-          <Button label="Login In" primary />
-        </NavLink>
-          <Button label="Sign Up" />
-        </div> */}
-
 
       </div>
       <div className="content-container"></div>
@@ -85,7 +75,7 @@ function Navbar() {
 }
 export default Navbar
 
-{/*  */ }
+
 
 // con las <a> no se cambian las rutas de nuestra aplicación de react, tendremos que utlizar un componente expecífico de react que es react roter dom,
 // con una <a>  nos salimos de nuestra app, sería para un link q me lleve a fb x ejemplo

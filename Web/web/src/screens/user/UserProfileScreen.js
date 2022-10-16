@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import * as streamService from '../../services/crossfit-service'
 import { HeartIcon, FilledHeartIcon, FilledBookmarkIcon, BookmarkIcon } from '../../components/ui/icons/Icon'
 import '../user/UserProfileScreen.css'
+
 function UserProfileScreen() {
 
   const [user, setUser] = useState(null);
@@ -47,88 +48,74 @@ function UserProfileScreen() {
   return (
     <>
 
-    <header className='header-profile'>
+      <header className="myheader">
 
-      <div class="container-profile">
+        <div class="myperfil-container">
 
-        <div class="myprofile-image">
+          <img className='img-myperfil' src={user.image} alt="" />
+          <div class="contenedor-cabecera">
+            <div className="cabecera1">
+              <h1>{user.name}</h1>
 
-          <img className='myimg'src={user.image} alt="" />
+            </div>
+            <div className="cabecera2">
+              <p><b>16</b> publicaciones</p>
+              <p><b>167</b> woods</p>
+              <p><b>16</b> publicaciones</p>
+
+            </div>
+
+            <div className="cabecera3">
+              <h2 className="myname">Me llaman {user.name}, pero puedes llamarme {user.nickname}</h2>
+              <p className="mybio">Un poco sobre mi...{user.bio}</p>
+              <p className="mybox">El box al que pertenezco es {user.box} , y mi email es {user.email}</p>
+              <p className="mysnatch">Mis Repeteciones máximas son:</p>
+              <p className="mysnatch">En Snatch {user.snatch} kg</p>
+              <p className="myclean">En Clean {user.clean} kg</p>
+              <p className="myjerk">En Jerk {user.jerk} kg</p>
+              <p className="mybacksquat">En Backsquat {user.backsquat} kg</p>
+              <p className="mybenchpress">En Benchpress {user.benchpress} kg</p>
+              <p className="mydeadlift">En Deadlift {user.deadlift} kg</p>
+              <p className="mywarnings">Warnings {user.warnin ? (
+                <FilledBookmarkIcon onClick={handlewarning} /> 
+              ) : (
+                <BookmarkIcon onClick={handlewarning} /> 
+              )
+              }</p>
+            </div>
+
+          </div>
 
         </div>
 
-        <div class="myprofile-user-settings">
 
-          <h1 class="myprofile-user-name">{user.name}</h1>
 
-          <button class="mybtn myprofile-edit-btn">Edit Profile</button>
+      </header>
 
-          <button class="mybtn myprofile-settings-btn" aria-label="myprofile settings"><i class="fas fa-cog" aria-hidden="true"></i></button>
 
+
+
+
+      <main>
+        <div class="mycontainer">
+
+          <div class="mygallery">
+            <div class="mygallery-item" >
+
+              <div class="mygallery-item">
+
+                <div class="mygallery-image">
+                  <UserWoods />
+                </div>
+
+
+              </div>
+            </div>
+          </div>
         </div>
 
 
 
-        <div class="myprofile-stats">
-
-				<ul>
-					<li><span class="myprofile-stat-count">164</span> Woods</li>
-					<li><span class="myprofile-stat-count">188</span> Pics</li>
-				</ul>
-
-			</div>
-
-
-
-
-
-      <div class="myprofile-bio">
-
-				<p><span class="myprofile-real-name">{user.nickname}</span> {user.bio}</p>
-        <p><span class="myprofile-real-name">{user.box}</span> {user.bio}</p>
-        <p><span class="myprofile-real-name">{user.box}</span> {user.bio}</p>
-        
-
-			</div>
-
-
-
-      </div>
-
-  
-
-
-    </header>
-
-
-
-
-
-  <main>
-      <div class="mycontainer">
-
-      <div class="mygallery">
-      <div class="mygallery-item" >
-
-      <div class="mygallery-item">
-
-     <div class="mygallery-image">
-     <UserWoods/>
-     </div>
-      
-      
-     </div>
-     </div>
-     </div>
-     </div>
-
-
-
-      
-
-
-
-      
 
 
 
@@ -138,9 +125,14 @@ function UserProfileScreen() {
 
 
 
-  </main>
 
-  </>
+
+
+
+
+      </main>
+
+    </>
 
     //   <div>
     //     {user.warnin ? (

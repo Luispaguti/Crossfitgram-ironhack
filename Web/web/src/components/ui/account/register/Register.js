@@ -59,6 +59,24 @@ function Register() {
           <div>
             <form onSubmit={handleSubmit(handleRegister)}>
 
+
+            <div className="input-group mb-1">
+                <span className="input-group-text">
+                  <i className="fa fa-user fa-fw"></i>
+                </span>
+                <input
+                  type="text"
+                  className={`form-control ${errors.image ? "is-invalid" : ""}`}
+                  placeholder="imagen..."
+                  {...register("image", {
+                    required: "image is required",
+                  })}
+                />
+                {errors.image && (
+                  <div className="invalid-feedback">{errors.image.message}</div>
+                )}
+              </div>
+
             <div className="input-group mb-1">
                 <span className="input-group-text">
                   <i className="fa fa-user fa-fw"></i>

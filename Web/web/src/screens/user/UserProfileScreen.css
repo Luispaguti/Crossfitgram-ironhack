@@ -1,143 +1,89 @@
+*{
+  padding:0;
+  margin: 0;
+  box-sizing:border-box;
 
-.myimg {
-  display: block;
-  width:400px;
-  height:auto;
 
 }
 
 
-
-.container-profile {
-  max-width: 93.5rem;
-  margin: 0 auto;
-  padding: 0 2rem;
+.myheader{
+  width: 60%;
+  margin:auto;
+  transform: translateY(50px);
+  padding: 50px 0;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-.myimg {
-  display: block;
-}
-
-.mybtn {
-  display: inline-block;
-  font: inherit;
-  background: none;
-  border: none;
-  color: inherit;
-  padding: 0;
-  cursor: pointer;
-}
-
-.mybtn:focus {
-  outline: 0.5rem auto #4d90fe;
-}
-
-
-.myprofile {
-  padding: 5rem 0;
-}
-
-
-.myprofile-image {
-  float: left;
-  width: calc(23.333% - 1rem);
+.myperfil-container{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 8rem;
-  size: 2px;
 }
 
-.myprofile-image img {
+.myperfil-container img{
+  height: 250px;
+  width:250px;
   border-radius: 50%;
+  cursor: pointer
 }
 
-.myprofile-user-settings{
-  padding-top: 40px;
-}
-.myprofile-stats{
-  padding-bottom: 190px;
+.contenedor-cabecera{
+  margin-left:100px;
+
 }
 
-/* .myprofile-user-settings,
-.myprofile-stats,
-.myprofile-bio {
-  float: left;
-  width: calc(66.666% - 2rem);
-} */
-
-.myprofile-user-settings {
-  margin-top: 1.1rem;
-}
-
-.myprofile-user-name {
-  display: inline-block;
-  font-size: 3.2rem;
-  font-weight: 300;
-}
-
-.myprofile-edit-btn {
-  font-size: 1.4rem;
-  line-height: 1.8;
-  border: 0.1rem solid #dbdbdb;
-  border-radius: 0.3rem;
-  padding: 0 2.4rem;
-  margin-left: 2rem;
-}
-
-.myprofile-settings-btn {
-  font-size: 2rem;
-  margin-left: 1rem;
-}
-
-.myprofile-stats {
-  margin-top: 2.3rem;
-}
-
-.myprofile-stats li {
-  display: inline-block;
-  font-size: 1.6rem;
-  line-height: 1.5;
-  margin-right: 4rem;
-  
-  cursor: pointer;
-}
-
-
-
-.myprofile-bio {
-  font-size: 1.6rem;
-  font-weight: 400;
-  line-height: 1.5;
-  margin-top: 2.3rem;
-}
-
-
-
-
-/* .mygallery {
+.cabecera1{
+  width:290px;
   display: flex;
-  flex-wrap: wrap;
-  margin: -1rem -1rem;
-  padding-bottom: 3rem;
+  align-items: center;
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+.cabecera1 h1{
+  color:#616161;
+  font-weight:100;
+  font-size:56px;
+
+
 }
 
-.mygallery-item {
-  position: relative;
-  flex: 1 0 22rem;
-  margin: 1rem;
-  color: #fff;
-  cursor: pointer;
+.cabecera2{
+  display: flex;
+  justify-content: space-between;
+  font-size: 25px ;
+  align-items: center;
+  margin-bottom: 15px;
+ 
 }
 
-.mygallery-item:hover ,
-.mygallery-item:focus  {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-} */
+.cabecera3 h2,
+.cabecera .p-mynickname,
+.cabecera .p-mybio,
+.cabecera .p-myemail,
+.cabecera .p-mybox,
+.cabecera .p-mysnatch,
+.cabecera .p-myclean,
+.cabecera .p-myjerk,
+.cabecera .p-mybacksquat,
+.cabecera .p-mybenchpress,
+.cabecera .p-deadlift {
+  font-size:16px;
+  margin-bottom:5px;
+
+
+
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0rem;
+}
+
+
+
+
+.cabecera3 .p-mynickname {
+  color: #a2a2a2;
+}
+
+
+

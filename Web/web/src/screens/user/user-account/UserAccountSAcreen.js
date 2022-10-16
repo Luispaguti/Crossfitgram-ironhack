@@ -5,9 +5,10 @@ import Register from '../../../components/ui/account/register/Register'
 function UserAccountSAcreen() {
   return (
     <>
+    
     <Login/>
 
-    
+    <br></br>
     <Register/>
     </>
   )

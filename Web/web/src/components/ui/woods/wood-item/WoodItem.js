@@ -41,13 +41,12 @@ function WoodItem({ title, scaled, image, categories, id, author, description, e
             <div className="post">
               <div className="user">
                 <div className="info">
-                  <div class="profile-pic"><img src={author?.image} alt="title" /></div>
+                  <div class="profile-pic"><img src={author?.image} class="rounded-circle" height="92" alt={title} loading="lazy"/></div>
                   <p className="username">{author?.name}</p>
                 </div>
-                <img src="img/option.PNG" class="options" alt=""></img>
               </div>
 
-              <img className="post-image" src={image} alt={title} />
+              <img className="post-image" src={image} alt={image} />
 
               <div class="post-content">
                 <div class="reaction-wrapper">
@@ -56,23 +55,28 @@ function WoodItem({ title, scaled, image, categories, id, author, description, e
                   <img src="img/send.PNG" class="icon" alt="" />
                   <img src="img/save.PNG" class="save icon" alt="" />
                 </div>
-                <p class="likes">Likes </p>
-                <p class="description"><span>{author?.name}</span>{description}</p>
-                <p class="description"><span>{scaled}</span></p>
-                <p class="description"><span>Category</span>{categories}</p>
-                <p class="description"><span>Movements</span>{exercise}</p>
-                <p class="description"><span>Repeticiones</span>{reps}</p>
-                <p class="description"><span> Peso</span>{weight}</p>
-                <p class="description"><span>Time</span>{time}</p>
-                <p class="description"><span>Calorías quemadas</span>{kcal}</p>
-                <p class="description"><span>Esfuerzo percibido</span>{effort}</p>
-                <p class="post-time">{location}</p>
+                
+                <p class="description"><span> {author?.name} has completado el siguiente entrenamiento :</span></p>
+                <p class="description"><span>En modalidad : </span>{scaled}</p>
+                <p class="description"><span>Un Wood de : </span>{categories}</p>
+                <p class="description"><span>Con los movimientos :</span>{exercise}</p>
+                <p class="description"><span>El número de repeticiones ha sido de :</span>{reps}</p>
+                <p class="description"><span> Con un peso de </span>{weight} kg</p>
+                <p class="description"><span>En un tiempo de </span>{time}</p>
+                <p class="description"><span>Quemando </span>{kcal} calorías</p>
+                <p class="description"><span>El esfuerzo perdibido por {author?.name} ha sido :</span>{effort}</p>
+                <p class="description"><span>Anotaciones</span>{description}</p>
+                <Link to={`/wood/${id}`}><p class="description">Detail</p></Link>
+                <Link to={`/`}><p class="description">Home</p></Link>
+
+                
+
+                
               
 
                   {/* <li onClick={handleClick} class="post-time">Delete</li> */}
 
-                  <Link to={`/wood/${id}`}><p class="post-time">Detail</p></Link>
-                  <Link to={`/`}><p class="post-time">Home</p></Link>
+                  
                 </div>
                 
               </div>

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import * as streamService from '../../../../services/crossfit-service';
 import WoodItem from '../wood-item/WoodItem';
-import '../wood-list/WoodList.css'
+import '../wood-list-profile/WoodListProfile.css'
 
 
-function WoodList() {
+function WoodListProfile() {
   const [woods, setWoods] = useState([]); 
   
   useEffect(() => {
-    streamService.getWoods()
+    streamService.getWoods() // aqui irá el get wood detail pero no me sale nada
       .then(woods => setWoods(woods))
       .catch(error => console.error(error));
   }, [])
@@ -32,15 +32,12 @@ function WoodList() {
   if(!woods) return <></>
   console.log(woods)
   return(
-    <body>
-      <div className='woodlist'>
+    <body className='woodListProfile'>
       {woods.map(wood =>
-        <WoodItem {...wood} key={wood.id} />
+        <WoodItem className="wooditem" {...wood} key={wood.id} />
         )}
-      </div>
-      
     </body>
   )
 }
 
-export default WoodList;
+export default WoodListProfile;

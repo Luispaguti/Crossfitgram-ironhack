@@ -49,7 +49,7 @@ function Login() {
                 <div class="content">
                   <div class="login-box">
                     <div class="header">
-                      <div className="logo-section hoverable">Crossfitgram </div>
+                      <div className="logo-section hoverable">Login </div>
                     </div>
 
 

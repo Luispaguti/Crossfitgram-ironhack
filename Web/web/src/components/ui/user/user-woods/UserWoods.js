@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import * as streamService from '../../../../services/crossfit-service'
+import WoodListProfile from '../../woods/wood-list-profile/WoodListProfile';
 import WoodList from '../../woods/wood-list/WoodList';
 
 function UserWoods() {
@@ -14,7 +15,7 @@ function UserWoods() {
        }, [id])
   return (
     <div>
-      <WoodList/>
+      <WoodListProfile/>
     </div>
   )
 }
