@@ -12,26 +12,20 @@ import { AuthContext } from '../../contexts/AuthContext';
 
 function HomeScreen() {
 
-  // const value =useContext(AuthContext);
 
   return (
-    <>
-     {/* {value.user && !value.user && <Navbar />}  */}
+    <div className='homescreen'>
 
-
-
-    
-    <Nav variant="tabs" defaultActiveKey="/home">
+      <WoodList/>
+      <Nav variant="tabs" defaultActiveKey="/home">
       <Nav.Item>
-        <Nav.Link href="/">Woods</Nav.Link>
+        <Nav.Link href={"/"}>Woods</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link href="/streams">Pics</Nav.Link>
+        <Nav.Link href={"/streams"}>Pics</Nav.Link>
       </Nav.Item>
     </Nav>
-  
-      <WoodList/>
-    </>
+    </div>
   )
 }
 

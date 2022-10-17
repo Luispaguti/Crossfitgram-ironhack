@@ -1,4 +1,4 @@
-.navbar .nav-link:hover {
+/* .navbar .nav-link:hover {
   background-color: rgb(201, 206, 207);
 }
 .navbar-container {
@@ -36,4 +36,68 @@
 
 .hoverable:hover {
   cursor: pointer;
+} */
+
+.navmy-link{
+  color: #151616;
+  margin: 0 -.25rem;
+  padding: 0 .25rem;
+  transition: color .3s ease-in-out,.3s ease-in-out;
+  text-decoration: none;
+
+}
+
+.navmy-link:hover {
+  color: white;
+
+}
+
+
+.logomy-section {
+  font-family: Brush Script MT, Brush Script Std;
+  font-size: 56px;
+}
+
+.navmy{
+  min-width:1024px;
+  position: fixed;
+  width: 100%;
+  z-index:1;
+  border-bottom: solid #dbdbdb 1px;
+  background:linear-gradient(to bottom right, rgb(222, 230, 229),rgb(69, 128, 123) ,rgb(5, 4, 4));
+
+}
+
+.navmy-cont{
+  width:80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  padding: 10px 50px;
+}
+
+
+.iconosmy i{
+  margin: 0 10px;
+  cursor: pointer;
+
+}
+
+.iconosmy .imagmy{
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  cursor: pointer;
+   margin-left:40px;
+   transition: 2ms;
+  
+
+
+}
+
+.imagmy:hover{
+  width: 85px;
+  height: 85px;
+  transform: scale(1.2);
 }

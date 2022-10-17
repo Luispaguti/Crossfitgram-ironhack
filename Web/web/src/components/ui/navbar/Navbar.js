@@ -20,55 +20,134 @@ function Navbar() {
   // }
 
   return (
-    <div className="navbar-container">
-      <div className="navbar">
-        <NavLink to="/" className={({ isActive }) => isActive ? "nav-link active" : 'nav-link'}>
-          <div className="logo-section hoverable">Crossfitgram </div>
-        </NavLink>
 
-        <div class="col-md-2">
-          <form class="d-flex input-group w-auto">
-            <input type="search" class="form-control" placeholder="Search" aria-label="Search" />
-          </form>
+    <nav className='navmy'>
+      <div className="navmy-cont">
+        {/* <img src={value.user.image} alt="imgmy" className="imgmy" /> */}
+        <div className='cont-input'>
+          <span>
+
+
+            <NavLink to="/" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
+              <div className="logomy-section hoverable">Crossfitgram </div>
+            </NavLink>
+          </span>
+
+         
+
         </div>
+        <div className="iconosmy">
 
-
-        <NavLink to="/create-stream" className={({ isActive }) => isActive ? "nav-link active" : 'nav-link'}>
-          <i class="fas fa-camera-retro"></i>
+        <NavLink to="/create-stream" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
+              <i class="fas fa-camera-retro"></i>
+          </NavLink>
+        <NavLink to="/create-wood" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
+        <i class="fas fa-skull-crossbones">Wood</i>
         </NavLink>
-
-        <NavLink to="/create-wood" className={({ isActive }) => isActive ? "nav-link active" : 'nav-link'}>
-          <i class="fas fa-skull-crossbones">Wood</i>
+        <NavLink to="/" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
+        <i class="fa fa-home fa-lg"></i>
         </NavLink>
-
-        <NavLink to="/" className={({ isActive }) => isActive ? "nav-link active" : 'nav-link'}>
-          <i class="fa fa-home fa-lg text-dark"></i>
+        <NavLink to="/login" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
+        <i class="fa fa-compass fa-lg"></i>
         </NavLink>
-
-        <NavLink to="/create-stream" className={({ isActive }) => isActive ? "nav-link active" : 'nav-link'}>
-          <i class="fa fa-paper-plane fa-lg text-dark"></i>
+        <NavLink to="/create-wood" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
+        <i class="fa fa-heart fa-lg"></i>
         </NavLink>
-
-        <NavLink to="/create-stream" className={({ isActive }) => isActive ? "nav-link active" : 'nav-link'}>
-          <i class="fa fa-compass fa-lg text-dark"></i>
+        <NavLink to="/login" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
+        <i class="fa fa-paper-plane fa-lg"></i>
         </NavLink>
-
-        <NavLink to="/create-stream" className={({ isActive }) => isActive ? "nav-link active" : 'nav-link'}>
-          <i class="fa fa-heart fa-lg text-dark"></i>
+        <NavLink to={`/profile/${id}`} className={({ isActive }) => isActive ? "navmy-img active" : 'navmy-img'}>
+        <img src={value.user.image} alt="small-logo" className="imagmy" />
         </NavLink>
 
         
+          
+          
+         
+         
+          
 
-        <Link to={`/profile/${id}`} class="d-flex align-items-center">
-        <div className="nickname">{value.user.nickname}</div>
-          <img src={value.user.image} class="rounded-circle" height="92" alt="title" loading="lazy" />
-
-        </Link>
-
-
+        </div>
       </div>
-      <div className="content-container"></div>
-    </div>
+
+    </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // <div className="navbar-container">
+    //   <div className="navbar">
+    //     <NavLink to="/" className={({ isActive }) => isActive ? "nav-link active" : 'nav-link'}>
+    //       <div className="logo-section hoverable">Crossfitgram </div>
+    //     </NavLink>
+
+    //     <div class="col-md-2">
+    //       <form class="d-flex input-group w-auto">
+    //         <input type="search" class="form-control" placeholder="Search" aria-label="Search" />
+    //       </form>
+    //     </div>
+
+
+    //     <NavLink to="/create-stream" className={({ isActive }) => isActive ? "nav-link active" : 'nav-link'}>
+    //       <i class="fas fa-camera-retro"></i>
+    //     </NavLink>
+
+    //     <NavLink to="/create-wood" className={({ isActive }) => isActive ? "nav-link active" : 'nav-link'}>
+    //       <i class="fas fa-skull-crossbones">Wood</i>
+    //     </NavLink>
+
+    //     <NavLink to="/" className={({ isActive }) => isActive ? "nav-link active" : 'nav-link'}>
+    //       <i class="fa fa-home fa-lg text-dark"></i>
+    //     </NavLink>
+
+    //     <NavLink to="/create-stream" className={({ isActive }) => isActive ? "nav-link active" : 'nav-link'}>
+    //       <i class="fa fa-paper-plane fa-lg text-dark"></i>
+    //     </NavLink>
+
+    //     <NavLink to="/create-stream" className={({ isActive }) => isActive ? "nav-link active" : 'nav-link'}>
+    //       <i class="fa fa-compass fa-lg text-dark"></i>
+    //     </NavLink>
+
+    //     <NavLink to="/create-stream" className={({ isActive }) => isActive ? "nav-link active" : 'nav-link'}>
+    //       <i class="fa fa-heart fa-lg text-dark"></i>
+    //     </NavLink>
+
+
+
+    //     <Link to={`/profile/${id}`} class="d-flex align-items-center">
+    //     <div className="nickname">{value.user.nickname}</div>
+    //       <img src={value.user.image} class="rounded-circle" height="92" alt="title" loading="lazy" />
+
+    //     </Link>
+
+
+    //   </div>
+    //   <div className="content-container"></div>
+    // </div>
 
 
   )

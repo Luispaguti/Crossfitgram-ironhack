@@ -11,10 +11,10 @@ function streamsScreen() {
     
      <Nav variant="tabs" defaultActiveKey="/home">
       <Nav.Item>
-        <Nav.Link href="/">Woods</Nav.Link>
+        <Nav.Link href={"/"}>Woods</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link href="/streams">Pics</Nav.Link>
+        <Nav.Link href={"/streams"}>Pics</Nav.Link>
       </Nav.Item>
     </Nav>
   

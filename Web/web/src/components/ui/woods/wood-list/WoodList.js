@@ -32,7 +32,7 @@ function WoodList() {
   if(!woods) return <></>
   console.log(woods)
   return(
-    <body>
+    <body className='bodywoodlist'>
       <div className='woodlist'>
       {woods.map(wood =>
         <WoodItem {...wood} key={wood.id} />

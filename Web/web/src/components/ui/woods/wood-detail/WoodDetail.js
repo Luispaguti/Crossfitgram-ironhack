@@ -68,7 +68,7 @@ function WoodDetail({ title, scaled, image, categories, author, description, exe
   return (
 
 
-    <section className="main">
+    <section className="mainmi">
       <div className="wrapper">
         <div className="left-col">
 
