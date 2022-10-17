@@ -2,6 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form';
 import * as streamsService from '../../../../services/crossfit-service';
 import { useNavigate } from 'react-router-dom'; // el useNavigate lo que me devuelve es un hook que me va a permitir obtener un objeto por el cual me voy a poder mover por el react router 
+import '../stream-form/StreamForm.css'
 
 function StreamForm() {
   const navigation = useNavigate();
@@ -29,43 +30,131 @@ function StreamForm() {
 
 
   return (
-    <form onSubmit={handleSubmit(handleCreateStreamSubmit)}>
 
-      <div className="input-group mb-3">
-        <span className="input-group-text"><i className='fa fa-tag fa-fw'></i></span>
-        <input type="text" className={`form-control ${errors.image ? 'is-invalid' : ''}`} placeholder="image description..."
-          {...register('image', {
-            // react-hook-dom me va a dar el objeto como yo lo haya formado en el register en mi casa description
-            required: 'image is required',
-            // maxLength: { value: 5, message:"Escribe mínimo 10 letras, no seas perezoso"}
-          })} />
-        {errors.image && (<div className="invalid-feedback">{errors.image.message}</div>)}
-      </div>
+    <body className="createstreambody">
 
-      <div className="input-group mb-3">
-        <span className="input-group-text"><i className='fa fa-tag fa-fw'></i></span>
-        <input type="text" className={`form-control ${errors.description ? 'is-invalid' : ''}`} placeholder="Stream description..."
-          {...register('description', {
-            // react-hook-dom me va a dar el objeto como yo lo haya formado en el register en mi casa description
-            required: 'description is required',
-            // maxLength: { value: 5, message:"Escribe mínimo 10 letras, no seas perezoso"}
-          })} />
-        {errors.description && (<div className="invalid-feedback">{errors.description.message}</div>)}
-      </div>
+    <form class="loginform" onSubmit={handleSubmit(handleCreateStreamSubmit)}>
 
-      <div className="input-group mb-1">
-        <span className="input-group-text"><i className='fa fa-edit fa-fw'></i></span>
-        <input type="text" className="form-control"
-          {...register('location', {
-            required: 'location is required',
-          })}
-        />
-      </div>
+      <div className="formmy">
 
-      <div className="d-grip mt-2">
-        <button className="btn btn-primary" type='submit' disabled={!isValid}>Create Stream</button>
+        <h1 className="titlelogin">Crear  publicación</h1>
+        <p className="des-regist">Sube aquí tus mejores fotos y videos</p>
+
+        <div className="logingroup">
+
+          <input
+            type="text"
+            id="loginemail"
+            className={`form-control ${errors.image ? "is-invalid" : ""}`}
+            placeholder="image..."
+            {...register("image", {
+              required: "image is required",
+            })}
+          />
+          {errors.image && (
+            <div className="invalid-feedback">{errors.image.message}</div>
+          )}
+
+        </div>
+
+        <div className="logingroup">
+
+          <input
+            type="text"
+            id="loginemail"
+            className={`form-control ${errors.description ? "is-invalid" : ""}`}
+            placeholder="description..."
+            {...register("description", {
+              required: "description is required",
+            })}
+          />
+          {errors.description && (
+            <div className="invalid-feedback">{errors.description.message}</div>
+          )}
+
+        </div>
+
+        <div className="logingroup">
+
+          <input
+            type="passtextword"
+            id="loginemail"
+            className={`form-control ${errors.location ? "is-invalid" : ""}`}
+            placeholder="location..."
+            {...register("location", {
+              required: "location is required",
+            })}
+          />
+          {errors.location && (
+            <div className="invalid-feedback">{errors.location.message}</div>
+          )}
+
+        </div>
+
+        <button className="mybtn" type="submit" disabled={!isValid}>
+          Publicar
+        </button>
+
+        
+
+
+
+
+
+
       </div>
     </form>
+
+
+  </body>
+
+
+
+      
+
+    
+
+
+
+
+    // <form onSubmit={handleSubmit(handleCreateStreamSubmit)}>
+
+    //   <div className="input-group mb-3">
+    //     <span className="input-group-text"><i className='fa fa-tag fa-fw'></i></span>
+    //     <input type="text" className={`form-control ${errors.image ? 'is-invalid' : ''}`} placeholder="image description..."
+    //       {...register('image', {
+    //         // react-hook-dom me va a dar el objeto como yo lo haya formado en el register en mi casa description
+    //         required: 'image is required',
+    //         // maxLength: { value: 5, message:"Escribe mínimo 10 letras, no seas perezoso"}
+    //       })} />
+    //     {errors.image && (<div className="invalid-feedback">{errors.image.message}</div>)}
+    //   </div>
+
+    //   <div className="input-group mb-3">
+    //     <span className="input-group-text"><i className='fa fa-tag fa-fw'></i></span>
+    //     <input type="text" className={`form-control ${errors.description ? 'is-invalid' : ''}`} placeholder="Stream description..."
+    //       {...register('description', {
+    //         // react-hook-dom me va a dar el objeto como yo lo haya formado en el register en mi casa description
+    //         required: 'description is required',
+    //         // maxLength: { value: 5, message:"Escribe mínimo 10 letras, no seas perezoso"}
+    //       })} />
+    //     {errors.description && (<div className="invalid-feedback">{errors.description.message}</div>)}
+    //   </div>
+
+    //   <div className="input-group mb-1">
+    //     <span className="input-group-text"><i className='fa fa-edit fa-fw'></i></span>
+    //     <input type="text" className="form-control"
+    //       {...register('location', {
+    //         required: 'location is required',
+    //       })}
+    //     />
+    //   </div>
+
+    //   <div className="d-grip mt-2">
+    //     <button className="btn btn-primary" type='submit' disabled={!isValid}>Create Stream</button>
+    //   </div>
+    // </form>
+
   )
 }
 

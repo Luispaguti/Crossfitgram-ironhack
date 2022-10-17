@@ -33,39 +33,51 @@ function Navbar() {
             </NavLink>
           </span>
 
-         
+
 
         </div>
         <div className="iconosmy">
 
-        <NavLink to="/create-stream" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
-              <i class="fas fa-camera-retro"></i>
-          </NavLink>
-        <NavLink to="/create-wood" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
-        <i class="fas fa-skull-crossbones">Wood</i>
-        </NavLink>
-        <NavLink to="/" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
-        <i class="fa fa-home fa-lg"></i>
-        </NavLink>
-        <NavLink to="/login" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
-        <i class="fa fa-compass fa-lg"></i>
-        </NavLink>
-        <NavLink to="/create-wood" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
-        <i class="fa fa-heart fa-lg"></i>
-        </NavLink>
-        <NavLink to="/login" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
-        <i class="fa fa-paper-plane fa-lg"></i>
-        </NavLink>
-        <NavLink to={`/profile/${id}`} className={({ isActive }) => isActive ? "navmy-img active" : 'navmy-img'}>
-        <img src={value.user.image} alt="small-logo" className="imagmy" />
-        </NavLink>
 
-        
+          <NavLink to="/create-stream" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
+            <i class="fas fa-plus"><i class="fas fa-camera-retro"></i></i>
+          </NavLink>
+
+          <NavLink to="/create-wood" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
+            <i class="fas fa-plus">Wood</i>
+          </NavLink>
           
+          <NavLink to="/streams" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
+            <i class="fas fa-camera-retro"></i>
+          </NavLink>
+
           
-         
-         
-          
+
+          <NavLink to="/woods" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
+            <i class="fas fa-skull-crossbones">Wood</i>
+          </NavLink>
+          <NavLink to="/" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
+            <i class="fa fa-home fa-lg"></i>
+          </NavLink>
+          <NavLink to="/login" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
+            <i class="fa fa-compass fa-lg"></i>
+          </NavLink>
+          <NavLink to="/create-wood" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
+            <i class="fa fa-heart fa-lg"></i>
+          </NavLink>
+          <NavLink to="/register" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
+            <i class="fa fa-paper-plane fa-lg"></i>
+          </NavLink>
+          <NavLink to={`/profile/${id}`} className={({ isActive }) => isActive ? "navmy-img active" : 'navmy-img'}>
+            <img src={value.user.image} alt="small-logo" className="imagmy" />
+          </NavLink>
+
+
+
+
+
+
+
 
         </div>
       </div>

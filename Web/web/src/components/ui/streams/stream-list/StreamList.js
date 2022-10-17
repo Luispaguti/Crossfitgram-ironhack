@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import * as streamService from '../../../../services/crossfit-service';
 import StreamItem from '../stream-item/streamItem';
 import { Link } from 'react-router-dom';
+import'../stream-list/StreamList.css'
 
 function StreamList() {
   const [streams, setStreams] = useState([]); // 
@@ -16,7 +17,7 @@ function StreamList() {
   if(!streams) return <></>
 
   return(
-    <div>
+    <div className='streamlist'>
       {streams.map(stream =>
         <StreamItem  {...stream} key={stream.id} />
         )}

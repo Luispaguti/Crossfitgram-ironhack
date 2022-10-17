@@ -1,3 +1,10 @@
-.useraccount{
-  margin-top: 200px;
+.loginbody{
+  padding-top: 200px;
+  margin:0
 }
+:root {
+  background: linear-gradient(to bottom right, rgb(222, 230, 229),rgb(69, 128, 123) ,rgb(5, 4, 4));
+
+}
+
+

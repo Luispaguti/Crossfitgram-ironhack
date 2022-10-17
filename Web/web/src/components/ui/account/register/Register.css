@@ -1,52 +1,49 @@
-.loginbody {
+.registerbody {
   font-family: 'Roboto';
   /* fallback for old browsers */
   height: 650px;
   display: flex;
   justify-content: center;
   align-items: center;
-
-
-
+  margin-top: 650px;
 
 
  } 
 
- .titlelogin{
-  text-align:center;
-  font-family: Brush Script MT, Brush Script Std;
-  font-size: 86px;
+ .des-regist{
+  font-family: 'Roboto';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(188, 186, 183);
+ }
+
+
+ .registerformmy {
+  background: #fff;
+  padding: 40px 0;
+  box-shadow: 0 0 100px 0 rgb(67 100 94);
+  border-radius: 10px;
+  width: 800px;
+  margin-left:0px;
 }
 
 
- .formmy{
-  background: #fff;
-  padding: 40px 0;
-  box-shadow: 0 0 16px 0 rgb(67, 100, 94);
-  border-radius: 10px;
-  width:120%;
-  margin: auto;
- }
+.registerform {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
- .loginform .logingroup{
-  position:relative;
-  margin: 45px;
- }
-
-
- .mybtn{
+.mybtnregis {
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   background: linear-gradient(to bottom right, rgb(222, 230, 229),rgb(69, 128, 123) ,rgb(5, 4, 4));
-  border:none;
-  display:block;
-  width: 80%;
+  border: none;
+  display: block;
+  width: 740px;
   margin: 10px 10px 0px 30px;
   color: #fff;
-  height:40px;
-  font-size:16px;
+  height: 40px;
+  font-size: 16px;
   border-radius: 5%;
-
- }
-
-
- 
+}

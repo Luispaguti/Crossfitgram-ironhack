@@ -1,7 +1,7 @@
 import { useContext } from "react";// para que cualquier hijo o nieto pueda acceder al value de alguno de sus contextos ascendientes utilizo el hook useContext 
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from 'react-router-dom'
 import { AuthContext } from "../../../../contexts/AuthContext";
 import { authenticate } from '../../../../services/crossfit-service'
 import '../login/Login.css'
@@ -38,87 +38,182 @@ function Login() {
   };
 
   return (
-    <body>
-      <span id="root">
-        <section class="section-all">
+    <body className="loginbody">
 
+      <form class="loginform" onSubmit={handleSubmit(handleLogin)}>
 
-          <main class="main" role="main">
-            <div class="wrapper">
-              <article class="article">
-                <div class="content">
-                  <div class="login-box">
-                    <div class="header">
-                      <div className="logo-section hoverable">Login </div>
-                    </div>
+        <div className="formmy">
 
+          <h1 className="titlelogin">Crossfitgram</h1>
+          <p className="des-regist">Inicia sesión para poder subir tus Fotos y tus Woods</p>
 
+          <div className="logingroup">
 
-                    <div class="form-wrap">
-                      <form class="form" onSubmit={handleSubmit(handleLogin)}>
+            <input
+              type="text"
+              id="loginemail"
+              className={`form-control ${errors.name ? "is-invalid" : ""}`}
+              placeholder="Name..."
+              {...register("name", {
+                required: "Name is required",
+              })}
+            />
+            {errors.name && (
+              <div className="invalid-feedback">{errors.name.message}</div>
+            )}
 
-                        <div className="input-box">
-                          <input
-                            type="email"
-                            className={`form-control ${errors.email ? "is-invalid" : ""}`}
-                            placeholder="Email..."
-                            {...register("email", {
-                              required: "Email is required",
-                            })}
-                          />
-                          {errors.email && (
-                            <div className="invalid-feedback">{errors.email.message}</div>
-                          )}
-                        </div>
+          </div>
 
-                        <div className="input-box">
-                          <input
-                            type="password"
-                            className={`form-control ${errors.password ? "is-invalid" : ""}`}
-                            placeholder="Password..."
-                            {...register("password", {
-                              required: "Password is required",
-                            })}
-                          />
-                          {errors.password && (
-                            <div className="invalid-feedback">{errors.password.message}</div>
-                          )}
-                        </div>
+          <div className="logingroup">
 
-                        <span className="button-box">
-                          <button className="btn" type="submit" disabled={!isValid}>
-                            Login
-                          </button>
+            <input
+              type="email"
+              id="loginemail"
+              className={`form-control ${errors.email ? "is-invalid" : ""}`}
+              placeholder="Email..."
+              {...register("email", {
+                required: "Email is required",
+              })}
+            />
+            {errors.email && (
+              <div className="invalid-feedback">{errors.email.message}</div>
+            )}
 
-                          {/* <a
-            className="btn btn-danger mt-2"
-            href="http://localhost:3001/api/v1/authenticate/slack"
-          >
-            <i className="fa fa-slack me-2"></i>
-            Login with Slack
-          </a> */}
-                        </span>
+          </div>
 
-                        <Link to="/login" class="forgot"></Link>
-                      </form>
-                    </div>
-                  </div>
+          <div className="logingroup">
 
-                </div>
-              </article>
-            </div>
-          </main>
+            <input
+              type="password"
+              id="loginemail"
+              className={`form-control ${errors.password ? "is-invalid" : ""}`}
+              placeholder="password..."
+              {...register("password", {
+                required: "password is required",
+              })}
+            />
+            {errors.password && (
+              <div className="invalid-feedback">{errors.password.message}</div>
+            )}
 
+          </div>
 
+          <button className="mybtn" type="submit" disabled={!isValid}>
+            Login
+          </button>
 
+          <NavLink to="/register" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
+          <button className="mybtn" type="submit" >
+            Register
+          </button>
+          </NavLink>
 
+          
 
 
 
-        </section>
-      </span>
+
+
+
+        </div>
+      </form>
+
+
     </body>
-  );
+
+
+
+
+
+
+
+
+
+
+
+
+    //   <body>
+    //     <span id="root">
+    //       <section class="section-all">
+
+
+    //         <main class="main" role="main">
+    //           <div class="wrapper">
+    //             <article class="article">
+    //               <div class="content">
+    //                 <div class="login-box">
+    //                   <div class="header">
+    //                     <div className="logo-section hoverable">Login </div>
+    //                   </div>
+
+
+
+    //                   <div class="form-wrap">
+    //                     <form class="form" onSubmit={handleSubmit(handleLogin)}>
+
+    //                       <div className="input-box">
+    //                         <input
+    //                           type="email"
+    //                           className={`form-control ${errors.email ? "is-invalid" : ""}`}
+    //                           placeholder="Email..."
+    //                           {...register("email", {
+    //                             required: "Email is required",
+    //                           })}
+    //                         />
+    //                         {errors.email && (
+    //                           <div className="invalid-feedback">{errors.email.message}</div>
+    //                         )}
+    //                       </div>
+
+    //                       <div className="input-box">
+    //                         <input
+    //                           type="password"
+    //                           className={`form-control ${errors.password ? "is-invalid" : ""}`}
+    //                           placeholder="Password..."
+    //                           {...register("password", {
+    //                             required: "Password is required",
+    //                           })}
+    //                         />
+    //                         {errors.password && (
+    //                           <div className="invalid-feedback">{errors.password.message}</div>
+    //                         )}
+    //                       </div>
+
+    //                       <span className="button-box">
+    //                         <button className="btn" type="submit" disabled={!isValid}>
+    //                           Login
+    //                         </button>
+
+    //                         {/* <a
+    //           className="btn btn-danger mt-2"
+    //           href="http://localhost:3001/api/v1/authenticate/slack"
+    //         >
+    //           <i className="fa fa-slack me-2"></i>
+    //           Login with Slack
+    //         </a> */}
+    //                       </span>
+
+    //                       <Link to="/login" class="forgot"></Link>
+    //                     </form>
+    //                   </div>
+    //                 </div>
+
+    //               </div>
+    //             </article>
+    //           </div>
+    //         </main>
+
+
+
+
+
+
+
+    //       </section>
+    //     </span>
+    //   </body>
+    // );
+  )
 }
 
 export default Login;

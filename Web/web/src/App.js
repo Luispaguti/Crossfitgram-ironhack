@@ -1,6 +1,6 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Navbar from "./components/ui/navbar/Navbar"
-import { HomeScreen, CreateStreamScreen,CreateWoodScreen, StreamScreen, StreamDetailScreen, WoodScreen, LoginScreen, UserProfileScreen, WoodDetailScreen  } from "./screens"
+import { HomeScreen, CreateStreamScreen,CreateWoodScreen, StreamScreen, StreamDetailScreen, WoodScreen, LoginScreen, UserProfileScreen, WoodDetailScreen, RegisterScreen  } from "./screens"
 import AboutScreen from './screens/about/Aboutscreen'
 import { useContext } from "react";
 import { AuthContext } from './contexts/AuthContext';
@@ -24,6 +24,7 @@ function App() {
 
         <Routes> 
           <Route path='/login' element={<UserAccountSAcreen/>} />
+          <Route path='/register' element={<RegisterScreen/>} />
           <Route path='/' element={<HomeScreen/>} />
           <Route 
             path='/create-stream' 
