@@ -1,0 +1,137 @@
+/* .historias {
+ width: 100%;
+ margin-top: 200px;
+ transform: translateX(-45px);
+
+}
+
+.historias__dev img{
+  height:80px ;
+  width:80px;
+  border-radius:50%;
+  cursor: pointer;
+
+
+
+} */
+
+#stories-wrapper{
+  margin: 200px auto;
+  width:100%;
+}
+
+.historybody{
+  background-color: rgb(237, 247, 247);
+}
+
+#stories-container{
+  display:flex;
+  border: solid 2px #ccc;
+  padding: 40px 0;
+
+}
+
+.story{
+  border:0;
+  background-color: transparent;
+  cursor: pointer;
+  margin: 0 5px;
+
+
+}
+
+.story .profilestory{
+ background-color: rgb(255,201,0);
+ background: linear-gradient(36deg, rgb(255,201,0) 13%, rgb(255,0,95) 73%, rgb(255,9,237) 100%);
+ padding: 5px;
+ box-sizing: border-box;
+ width: 120px;
+ height: 120px;
+ border-radius: 50%
+
+}
+
+.story .profilestory img{
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  padding:0;
+  margin: 0;
+  border: solid 5px rgb(212, 215, 209);
+
+}
+
+.story .profilestory img:hover{
+  
+  transition: all 0.5s linear;
+  transform: rotateY(180deg);
+  transform-style: preserve-3d;
+  
+  
+
+}
+
+.story .titlestory{
+  text-align: center;
+  padding: 5px 0px;
+ 
+
+}
+
+
+.story.active .profilestory{
+  animation-duration: 1s;
+  animation-name: story;
+  animation-iteration-count: infinite;
+}
+/* 
+@keyframes story{
+  0%{
+    background: linear-gradient(36deg, rgb(255,255,255) 0% ,rgb(255,255,255) 0% , rgb(255,201,0) 28%, rgb(255,0,95) 73%, rgb(255,9,237) 100%);
+
+  }
+ 10%{
+    background: linear-gradient(72deg, rgb(255,255,255) 0% ,rgb(255,255,255) 0% , rgb(255,201,0) 28%, rgb(255,0,95) 73%, rgb(255,9,237) 100%);
+
+  }
+  20%{
+    background: linear-gradient(108deg, rgb(255,255,255) 0% ,rgb(255,255,255) 0% , rgb(255,201,0) 28%, rgb(255,0,95) 73%, rgb(255,9,237) 100%);
+
+  }
+  30%{
+    background: linear-gradient(144deg, rgb(255,255,255) 0% ,rgb(255,255,255) 0% , rgb(255,201,0) 28%, rgb(255,0,95) 73%, rgb(255,9,237) 100%);
+
+  }
+  40%{
+    background: linear-gradient(180deg, rgb(255,255,255) 0% ,rgb(255,255,255) 0% , rgb(255,201,0) 28%, rgb(255,0,95) 73%, rgb(255,9,237) 100%);
+
+  }
+  50%{
+    background: linear-gradient(216deg, rgb(255,255,255) 0% ,rgb(255,255,255) 0% , rgb(255,201,0) 28%, rgb(255,0,95) 73%, rgb(255,9,237) 100%);
+
+  }
+  60%{
+    background: linear-gradient(252deg, rgb(255,255,255) 0% ,rgb(255,255,255) 0% , rgb(255,201,0) 28%, rgb(255,0,95) 73%, rgb(255,9,237) 100%);
+
+  }
+  70%{
+    background: linear-gradient(288deg, rgb(255,255,255) 0% ,rgb(255,255,255) 0% , rgb(255,201,0) 28%, rgb(255,0,95) 73%, rgb(255,9,237) 100%);
+
+  }
+  80%{
+    background: linear-gradient(324deg, rgb(255,255,255) 0% ,rgb(255,255,255) 0% , rgb(255,201,0) 28%, rgb(255,0,95) 73%, rgb(255,9,237) 100%);
+
+  }
+  90%{
+    background: linear-gradient(360deg, rgb(255,255,255) 0% ,rgb(255,255,255) 0% , rgb(255,201,0) 28%, rgb(255,0,95) 73%, rgb(255,9,237) 100%);
+
+  }
+  100%{
+    background: linear-gradient(396 deg, rgb(255,255,255) 0% ,rgb(255,255,255) 0% , rgb(255,201,0) 28%, rgb(255,0,95) 73%, rgb(255,9,237) 100%);
+
+  }
+} */
+
+
+
+

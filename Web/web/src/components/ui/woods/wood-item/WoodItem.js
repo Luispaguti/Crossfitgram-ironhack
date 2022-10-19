@@ -7,9 +7,9 @@ import streamService from "../../../../services/crossfit-service";
 import '../wood-detail/WoodDetail.css'
 
 
-function WoodItem({ title, scaled, image, categories, id, author, description, exercise, location, reps, weight, time, kcal, score, effort, classType }) {
+function WoodItem({ title, scaled, image, category, id, author, description, exercise, location, reps, weight, time, kcal, score, effort, classType }) {
 
-  const { woodId } = useParams()
+  // const { woodId } = useParams()
 
 
 
@@ -31,6 +31,7 @@ function WoodItem({ title, scaled, image, categories, id, author, description, e
   // const decLikes = () => setLikes(likes - 1);
 
   // console.log(likes)
+  console.log(author?.image)
 
   return (
     <>
@@ -58,7 +59,7 @@ function WoodItem({ title, scaled, image, categories, id, author, description, e
                 
                 <p class="description"><span> {author?.name} has completado el siguiente entrenamiento :</span></p>
                 <p class="description"><span>En modalidad : </span>{scaled}</p>
-                <p class="description"><span>Un Wood de : </span>{categories}</p>
+                <p class="description"><span>Un Wood de : </span>{category}</p>
                 <p class="description"><span>Con los movimientos :</span>{exercise}</p>
                 <p class="description"><span>El número de repeticiones ha sido de :</span>{reps}</p>
                 <p class="description"><span> Con un peso de </span>{weight} kg</p>
@@ -66,8 +67,13 @@ function WoodItem({ title, scaled, image, categories, id, author, description, e
                 <p class="description"><span>Quemando </span>{kcal} calorías</p>
                 <p class="description"><span>El esfuerzo perdibido por {author?.name} ha sido :</span>{effort}</p>
                 <p class="description"><span>Anotaciones</span>{description}</p>
-                <Link to={`/wood/${id}`}><p class="description">Detail</p></Link>
-                <Link to={`/`}><p class="description">Home</p></Link>
+                <p class="description"><span>Puntuacion del Wood</span>{score}</p>
+                <div className="detailback">
+                <Link to={`/wood/${id}`} className="linkdetail"><p class="descriptiondetail">Detail</p>
+                </Link><Link to={`/`} className="linkdetail"><p class="descriptiondetail">Back</p></Link>
+    
+                </div>
+                
 
                 
 

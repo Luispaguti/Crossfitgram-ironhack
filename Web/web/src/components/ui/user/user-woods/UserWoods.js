@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import * as streamService from '../../../../services/crossfit-service'
 import WoodListProfile from '../../woods/wood-list-profile/WoodListProfile';
 import WoodList from '../../woods/wood-list/WoodList';
+import WoodItem from '../../woods/wood-item/WoodItem'
 
 function UserWoods() {
   const [ wood, setWood] = useState();
@@ -13,10 +14,15 @@ function UserWoods() {
           .then(wood => setWood(wood))
           .catch(error => console.error(error))
        }, [id])
+
+    if (!wood) return <></>
   return (
-    <div>
-      <WoodListProfile/>
-    </div>
+    <body >
+      {wood.map(wood =>
+        <WoodItem {...wood} key={wood.id} />
+        )}
+      
+    </body>
   )
 }
 

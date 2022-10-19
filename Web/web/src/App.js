@@ -1,10 +1,11 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Navbar from "./components/ui/navbar/Navbar"
-import { HomeScreen, CreateStreamScreen,CreateWoodScreen, StreamScreen, StreamDetailScreen, WoodScreen, LoginScreen, UserProfileScreen, WoodDetailScreen, RegisterScreen  } from "./screens"
+import { HomeScreen, CreateStreamScreen,CreateWoodScreen, StreamScreen, StreamDetailScreen, WoodScreen, LoginScreen, UserProfileScreen, WoodDetailScreen, RegisterScreen, RankingScreen  } from "./screens"
 import AboutScreen from './screens/about/Aboutscreen'
 import { useContext } from "react";
 import { AuthContext } from './contexts/AuthContext';
 import UserAccountSAcreen from './screens/user/user-account/UserAccountSAcreen';
+import UserWoods from './components/ui/user/user-woods/UserWoods';
 
 
 
@@ -31,6 +32,7 @@ function App() {
             element={<CreateStreamScreen/>} 
             />
           <Route path='/stream/:id' element={<StreamDetailScreen/>} />
+          <Route path='/profile/:id/woods' element={<UserWoods/>} />
           <Route path='/wood/:id' element={<WoodDetailScreen/>} />
           <Route 
             path='/create-wood' 
@@ -39,7 +41,8 @@ function App() {
           <Route path='/about' element={<AboutScreen/>} />
           <Route path='/streams' element={<StreamScreen/>} />
           <Route path='/woods' element={<WoodScreen/>} />
-          <Route path='/profile/:id' element={<UserProfileScreen/>} />
+          <Route path='/ranking' element={<RankingScreen/>} />
+          <Route path='/profile' element={<UserProfileScreen/>} />
         </Routes>
       
       </div>

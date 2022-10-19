@@ -5,6 +5,7 @@ import React, { useContext } from 'react'
 import { AuthContext } from '../../../contexts/AuthContext'
 import Button from '../button/Button';
 import { useParams } from 'react-router-dom';
+
 // CONTINUANCION CONTEXT de AUTHCONTEX.JS
 //¿ Y ahora como me voy al componente de más abajo del todo y lo leo?
 //para ello tengo que usar el hook useContext( import { useContext } from 'react')
@@ -46,7 +47,7 @@ function Navbar() {
           <NavLink to="/create-wood" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
             <i class="fas fa-plus">Wood</i>
           </NavLink>
-          
+
           <NavLink to="/streams" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
             <i class="fas fa-camera-retro"></i>
           </NavLink>
@@ -59,27 +60,28 @@ function Navbar() {
           <NavLink to="/" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
             <i class="fa fa-home fa-lg"></i>
           </NavLink>
-          <NavLink to="/login" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
-            <i class="fa fa-compass fa-lg"></i>
+          <NavLink to="/ranking" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
+            <i class="fa fa-crown fa-lg"></i>
           </NavLink>
           <NavLink to="/create-wood" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
-            <i class="fa fa-heart fa-lg"></i>
+          <i class="fas fa-sign-out-alt"></i>
           </NavLink>
-          <NavLink to="/register" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
-            <i class="fa fa-paper-plane fa-lg"></i>
+          <NavLink to="/profile" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
+            <i class="fa-solid fa-person">{value.user.name}</i>
+    
           </NavLink>
-          <NavLink to={`/profile/${id}`} className={({ isActive }) => isActive ? "navmy-img active" : 'navmy-img'}>
-            <img src={value.user.image} alt="small-logo" className="imagmy" />
+          <NavLink to={`/create-stream`} >
+  
+            <button className='storynav'>
+              <span className="profilestorynav">
+                <img src={value.user.image} alt="small-logo" className="imagmy" />
+                </span>
+              </button> 
+                
           </NavLink>
-
-
-
-
-
-
-
 
         </div>
+        
       </div>
 
     </nav>

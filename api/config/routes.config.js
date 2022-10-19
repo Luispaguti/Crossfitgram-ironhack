@@ -42,7 +42,7 @@ router.post("/woods/:id/comments", secure.isAuthenticated, comments.create);
 router.patch("/woods/:id/comments/:commentId",secure.isAuthenticated,streamMid.isCommentOwnedByAuthor, streamMid.isAuthorByUser, comments.update);
 router.delete("/woods/:id/comments/:commentId",secure.isAuthenticated,streamMid.isCommentOwnedByAuthor, streamMid.isAuthorByUser,comments.delete);
 
-router.get("/profile/:id", secure.isAuthenticated, user.profile);
+router.get("/profile", secure.isAuthenticated, user.profile);
 router.post("/profile/:id/warning", secure.isAuthenticated,secure.isAdmin, warning.create);
 router.get("/profile/:id/streams", secure.isAuthenticated, user.streamsOwned);
 router.get("/profile/:id/woods", secure.isAuthenticated, user.woodsOwned);

@@ -1,6 +1,6 @@
 const categories = [
   { value: 'AMRAP', label: 'AMRAP' },
-  { value: 'Fortime', label: 'Fortime' },
+  { value: 'For time', label: 'For time' },
   { value: 'RM', label: 'RM' },
 ];
 

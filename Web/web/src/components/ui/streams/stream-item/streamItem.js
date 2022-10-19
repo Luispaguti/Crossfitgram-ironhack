@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DetailButton from "../../button/DetailButton";
 import '../stream-item/streamItem.css'
 
 
@@ -29,10 +30,9 @@ function StreamItem({ title, image, views, id ,author, description}) {
                     <p class="description"><span>{author.name} ha subido esta foto</span></p>
                     <p class="description"><span>Descripción</span>{description}</p>
                     <p class="description"><span>En </span>{author.box}</p>
-                    <p class="description"><span>Localidad</span>{author.location}</p>
-      
-                    <Link to={`/stream/${id}`}><p class="description">Detail</p></Link>
-                    <Link to={`/`}><p class="description">Home</p></Link>
+                    <p class="description"><span>Localidad</span>{author.location}</p> 
+                    <DetailButton title="Detail" path={`/stream/${id}`}/>
+                    <DetailButton title="Back" path={`/`}/>
                   </div>
                 
               </div>

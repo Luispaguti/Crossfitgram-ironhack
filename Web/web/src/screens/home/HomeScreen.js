@@ -1,31 +1,68 @@
 
-import React from 'react'
 import { NavBar, WoodList } from '../../components/ui'
-import  Section from '../../components/ui/section/Section'
-import  StreamList from '../../components/ui/streams/stream-list/StreamList'
+import Section from '../../components/ui/section/Section'
+import StreamList from '../../components/ui/streams/stream-list/StreamList'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from '../../components/ui/navbar/Navbar';
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useParams } from 'react-router-dom'
 import { useContext } from "react";
 import { AuthContext } from '../../contexts/AuthContext';
+import React, { useState, useEffect } from 'react';
+import * as streamService from '../../services/crossfit-service';
+import '../home/HomeScreen.css'
 
 
 function HomeScreen() {
+  const value = useContext(AuthContext);
+  const [streams, setStreams] = useState([]); // 
+  const{ id }= useParams()
+
+  useEffect(() => {
+    streamService.getStreams()
+      .then(streams => setStreams(streams))
+      .catch(error => console.error(error));
+  }, [])
+
 
 
   return (
-    <div className='homescreen'>
+    
+    <body >
+      <div className='historybody'>
+        <div id="stories-wrapper">
+          <div id="stories-container">
+          
+            {streams.map(stream =>
+              <button className='story' >
+                <div className="profilestory">
 
-      <WoodList/>
-      <Nav variant="tabs" defaultActiveKey="/home">
-      <Nav.Item>
-        <Nav.Link href={"/"}>Woods</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link href={"/streams"}>Pics</Nav.Link>
-      </Nav.Item>
-    </Nav>
-    </div>
+                <NavLink to={`/stream/${stream.id}`} className={({ isActive }) => isActive ? "img active" : 'img'}>
+                
+                <img src={stream.image} />
+                </NavLink>
+
+                  
+
+                  <div className='titlestory'>
+                    <p>{stream.author.name}</p>
+                  </div>
+
+                </div>
+
+              </button>
+            )}
+
+          </div>
+        </div>
+      </div>
+
+
+      <div className='homescreen'>
+
+        <WoodList />
+
+      </div>
+    </body>
   )
 }
 

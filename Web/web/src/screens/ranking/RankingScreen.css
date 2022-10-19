@@ -1,0 +1,78 @@
+.titleranking {
+  text-align: center;
+  font-family: Brush Script MT, Brush Script Std;
+  font-size: 86px;
+  color: rgb(129, 112, 14);
+}
+
+.rankingbody{
+  margin-top:140px;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  background:linear-gradient(36deg, rgb(255,201,0) 13%, rgb(255,0,95) 73%, rgb(255,9,237) 100%);
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.rankinglist{
+  padding-top: 40px;
+  width: 88%;
+  color:rgb(239, 222, 32);
+
+}
+
+.contentList{
+  width: 90%;
+  display: flex;
+  overflow: auto;
+  border-radius: 8px;
+  max-width: 1200px;
+
+
+
+}
+
+.layerList{
+  width:248px;
+  height:496px;
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  margin-right: 30px;
+
+}
+
+.rankingposition{
+  font-size: 52px;
+  border-bottom: 2px solid red;
+  width: 50%;
+
+
+
+
+}
+
+.woodsDetail{
+  padding: 24px 0px 24px 0px;
+}
+
+
+.woodsauthor{
+  font-size: 24px;
+
+}
+
+.woodsscore{
+  font-size: 18px;
+  color:#656565;
+}
+
+.layerList img{
+  width:200px;
+  border-radius: 8px;
+
+
+}

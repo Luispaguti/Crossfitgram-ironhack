@@ -22,7 +22,7 @@ const woodSchema = new Schema(
         },
       ],
     },
-    categories: {
+    category: {
       type: [
         {
           type: String,

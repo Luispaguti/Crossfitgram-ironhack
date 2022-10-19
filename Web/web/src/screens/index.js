@@ -7,5 +7,7 @@ export { default as CreateWoodScreen } from "./wood/create-wood/CreateWoodScreen
 export { default as UserProfileScreen } from "./user/UserProfileScreen";
 export { default as RegisterScreen } from "./user/user-account/register/RegisterScreen";
 export { default as WoodDetailScreen } from "./wood/wood-detail/WoodDetailScreen";
+export { default as RankingScreen } from "./ranking/RankingScreen";
+
 
 // cuando ponemos el IMPORT por ejemplo en HomeScreen, le ponemos el nombre del componente pero realmente lo q exportamos es el default

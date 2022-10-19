@@ -35,9 +35,9 @@ function StreamForm() {
 
     <form class="loginform" onSubmit={handleSubmit(handleCreateStreamSubmit)}>
 
-      <div className="formmy">
+      <div className="formmyhistory">
 
-        <h1 className="titlelogin">Crear  publicación</h1>
+        <h1 className="titlelogin">Sube tu historia</h1>
         <p className="des-regist">Sube aquí tus mejores fotos y videos</p>
 
         <div className="logingroup">

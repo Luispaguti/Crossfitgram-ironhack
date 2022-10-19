@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import * as streamService from '../../../../services/crossfit-service';
 import WoodItem from '../wood-item/WoodItem';
 import '../wood-list-profile/WoodListProfile.css'
@@ -6,12 +7,14 @@ import '../wood-list-profile/WoodListProfile.css'
 
 function WoodListProfile() {
   const [woods, setWoods] = useState([]); 
+  const { id } = useParams();
   
   useEffect(() => {
-    streamService.getWoods() // aqui irá el get wood detail pero no me sale nada
+    streamService.getProfileWoods(id) // aqui irá el get wood detail pero no me sale nada
       .then(woods => setWoods(woods))
       .catch(error => console.error(error));
-  }, [])
+  }, [id])
+
 // cuando ponemos un array vación le estoy indicando que solo lo quiero cargarlo la primera vez que se renderiza el componente
 //es decir  se renderiza el componente , me voy al backend y me traigo la información
 
@@ -28,15 +31,16 @@ function WoodListProfile() {
 // const deleteFromList = (wood) => {
 //   setWoods(woods.filter((id) => id !== wood.id))
 // }
+console.log(woods)
 
-  if(!woods) return <></>
-  console.log(woods)
+if(!woods) return <>no llegan woods</>
   return(
-    <body className='woodListProfile'>
+    <div className='woodListProfile'>
       {woods.map(wood =>
-        <WoodItem className="wooditem" {...wood} key={wood.id} />
+        <WoodItem {...wood} key={wood.id} />
         )}
-    </body>
+      
+    </div>
   )
 }
 

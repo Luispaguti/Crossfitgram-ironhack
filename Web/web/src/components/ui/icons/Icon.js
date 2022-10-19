@@ -1,5 +1,15 @@
 import React from "react";
 
+
+export const CheckIcon = () => (
+  <img
+    src="fitness.png"
+    height="22"
+    width="22"
+    >
+  </img>
+);
+
 export const HomeIcon = () => (
   <svg
     aria-label="Home"

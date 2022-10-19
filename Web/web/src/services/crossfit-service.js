@@ -46,8 +46,8 @@ export function logout() {
 }
 
 
-export function getProfile(id) {
-  return http.get(`/profile/${id}`);
+export function getProfile() {
+  return http.get(`/profile`);
 }
 
 

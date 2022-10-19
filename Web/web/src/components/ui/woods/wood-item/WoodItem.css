@@ -127,3 +127,17 @@
 .reaction-wrapper .icon.save{
   margin-left: auto;
 }
+
+.descriptiondetail{
+  color: rgb(177, 173, 173);
+  font-weight: bold;
+ 
+}
+
+.linkdetail{
+  text-decoration: none;
+}
+
+.linkdetail :hover{
+  text-decoration: underline;
+}

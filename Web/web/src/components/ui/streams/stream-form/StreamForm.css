@@ -11,3 +11,12 @@
     justify-content: center;
     align-items: center;
 }
+
+.formmyhistory{
+  background: #fff;
+  padding: 40px 0;
+  box-shadow: 0 0 16px 0 rgb(67, 100, 94);
+  border-radius: 10px;
+  width:120%;
+  margin: auto;
+ }

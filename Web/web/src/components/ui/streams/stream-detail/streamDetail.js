@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import * as streamService from '../../../../services/crossfit-service';
+import DetailButton from '../../button/DetailButton';
 import StreamItem from '../stream-item/streamItem';
+import"../stream-detail/streamDetail.css"
 
 
 
@@ -40,7 +42,7 @@ function StreamDetail({ title, image, views, author, description }) {
   if (!stream) return <></>
 
   return (
-    <section className="main">
+    <section className="mainmi">
       <div className="wrapper">
         <div className="left-col">
 
@@ -67,12 +69,8 @@ function StreamDetail({ title, image, views, author, description }) {
                 {stream.likes}
               </button>
               <p class="description"><span>{stream.author.name}</span>{stream.description}</p>
-              <Link to={`/`}><p class="post-time">Back</p></Link>
-            </div>
-
-            <hr />
-
-            <h5>Comments</h5>
+              <div><DetailButton title="Back..." path={`/`}/></div>
+           
 
             <form onSubmit={handleNewComment} className="mb-3">
               <textarea
@@ -80,17 +78,18 @@ function StreamDetail({ title, image, views, author, description }) {
                 className="form-control mb-2"
                 placeholder="Add Comment..."
               />
-              <button type="submit" className="btn btn-sm btn-primary">
+              <button type="submit" className="btn btn-sm btn-warning">
                 Comment
               </button>
             </form>
 
             {stream.comments.map((comment) => (
-              <div className="mb-4 border-bottom py-2">
-                <p>{comment.text}</p>
-                <small>Por {comment.user.name}</small>
+              <div className="mb-3  py-1">
+                <p><span>{comment.user.name}</span>{comment.text}</p>
               </div>
             ))}
+
+          </div>
 
           </div>
         </div>

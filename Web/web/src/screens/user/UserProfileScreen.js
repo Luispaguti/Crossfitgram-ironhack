@@ -1,24 +1,34 @@
 import UserStreams from '../../components/ui/user/user-streams/UserStreams'
 import UserWoods from '../../components/ui/user/user-woods/UserWoods'
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import * as streamService from '../../services/crossfit-service'
-import { HeartIcon, FilledHeartIcon, FilledBookmarkIcon, BookmarkIcon } from '../../components/ui/icons/Icon'
+import { HeartIcon, FilledHeartIcon, FilledBookmarkIcon, BookmarkIcon , CheckIcon } from '../../components/ui/icons/Icon'
 import '../user/UserProfileScreen.css'
+import { WoodList, WoodListProfile, } from '../../components/ui';
+import WoodItem from '../../components/ui/woods/wood-item/WoodItem';
 
 function UserProfileScreen() {
 
   const [user, setUser] = useState(null);
-  const { id } = useParams()
 
 
   useEffect(() => {
-    streamService.getProfile(id)
+    streamService.getProfile()
       .then(user => setUser(user))
       .catch(error => console.error(error))
-  }, [id])
+  }, [])
   console.log(user)
-
+  const{ id } = useParams()
+  const [woods, setWoods] = useState([]);
+  
+  useEffect(() => {
+    streamService.getProfileWoods(id) // aqui irá el get wood detail pero no me sale nada
+      .then(woods => setWoods(woods))
+      .catch(error => console.error(error));
+  }, [id])
+    
+  console.log(woods)
   // const handleWarning = (e) => {
   //   e.preventDefault();
   //   const form = e.target;
@@ -32,7 +42,7 @@ function UserProfileScreen() {
   // };
   const handlewarning = () => {
 
-    streamService.warning(id)
+    streamService.warning()
       .then((data) => {
         setUser({
           ...user,
@@ -43,7 +53,12 @@ function UserProfileScreen() {
   };
 
 
+
+
   if (!user) return <></>
+
+   if (!woods) return <>no entra</> 
+
 
   return (
     <>
@@ -77,9 +92,9 @@ function UserProfileScreen() {
               <p className="mybenchpress">En Benchpress {user.benchpress} kg</p>
               <p className="mydeadlift">En Deadlift {user.deadlift} kg</p>
               <p className="mywarnings">Warnings {user.warnin ? (
-                <FilledBookmarkIcon onClick={handlewarning} /> 
+                <FilledBookmarkIcon onClick={handlewarning} />
               ) : (
-                <BookmarkIcon onClick={handlewarning} /> 
+                <BookmarkIcon onClick={handlewarning} />
               )
               }</p>
             </div>
@@ -89,30 +104,19 @@ function UserProfileScreen() {
         </div>
 
 
-
       </header>
 
+      <>
 
 
+    </>
+
+      
+                
 
 
-      <main>
-        <div class="mycontainer">
-
-          <div class="mygallery">
-            <div class="mygallery-item" >
-
-              <div class="mygallery-item">
-
-                <div class="mygallery-image">
-                  <UserWoods />
-                </div>
-
-
-              </div>
-            </div>
-          </div>
-        </div>
+            
+           
 
 
 
@@ -130,7 +134,6 @@ function UserProfileScreen() {
 
 
 
-      </main>
 
     </>
 

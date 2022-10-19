@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 import * as streamService from '../../../../services/crossfit-service';
 import WoodItem from '../wood-item/WoodItem';
 import '../wood-detail/WoodDetail.css'
- import { HeartIcon, FilledHeartIcon ,FilledBookmarkIcon, BookmarkIcon   } from '../../icons/Icon'
+ import { HeartIcon, FilledHeartIcon ,FilledBookmarkIcon, BookmarkIcon, CheckIcon   } from '../../icons/Icon'
+import DetailButton from '../../button/DetailButton';
 
 
-function WoodDetail({ title, scaled, image, categories, author, description, exercise, location, reps, weight, time, kcal, score, effort }) {
+function WoodDetail({ title, scaled, image, category, author, description, exercise, location, reps, weight, time, kcal, score, effort }) {
   const [wood, setWood] = useState();
   const { id } = useParams()
 
@@ -75,7 +76,7 @@ function WoodDetail({ title, scaled, image, categories, author, description, exe
           <div className="post">
             <div className="user">
               <div className="info">
-                <div class="profile-pic"><img src={wood.author?.image} alt="title" /></div>
+                <div class="profile-pic"><img src={wood.author?.image} alt={title} /></div>
                 <p className="username">{wood.author?.name}</p>
               </div>
               <img src="img/option.PNG" class="options" alt=""></img>
@@ -98,17 +99,19 @@ function WoodDetail({ title, scaled, image, categories, author, description, exe
 
                 <div>
                   {wood.verif ? (
-                    <FilledBookmarkIcon onClick={handleVerify} />
+                    <CheckIcon onClick={handleVerify} />
+                    && <i class="dumbel fa-solid fa-dumbbell">verificado</i>
                   ) : ( 
-                    <BookmarkIcon onClick={handleVerify} />
+                    <CheckIcon onClick={handleVerify} />
+                    && <i class="dumb fa-solid fa-dumbbell"> no verificado</i>
                   )
 
                   }
-                  <p>Coach Check</p>
+                  
                 </div>
               <p class="description"><span>{wood.author?.name}</span>{wood.description}</p>
               <p class="description"><span>{wood.scaled}</span></p>
-              <p class="description"><span>Category</span>{wood.categories}</p>
+              <p class="description"><span>Category</span>{wood.category}</p>
               <p class="description"><span>Movements</span>{wood.exercise}</p>
               <p class="description"><span>Repeticiones</span>{wood.reps}</p>
               <p class="description"><span> Peso</span>{wood.weight}</p>
@@ -120,31 +123,30 @@ function WoodDetail({ title, scaled, image, categories, author, description, exe
 
               {/* <li onClick={handleClick} class="post-time">Delete</li> */}
 
-              <Link to={`/`}><p class="post-time">back</p></Link>
-            </div>
-            
-            <hr />
+              <DetailButton title="Back" path="/"/>
 
-            <h5>Comments</h5>
-
-            <form onSubmit={handleNewComment} className="mb-3">
+              <form onSubmit={handleNewComment} className="mb-3">
               <textarea
                 name="text"
                 className="form-control mb-2"
                 placeholder="Add Comment..."
               />
-              <button type="submit" className="btn btn-sm btn-primary">
+              <button type="submit" className="btn btn-sm btn-warning">
                 Comment
               </button>
             </form>
 
             {wood.comments.map((comment) => (
-              <div className="mb-4 border-bottom py-2">
-                <p>{comment.text}</p>
-                <p>Por {comment.user.name}</p>
-              </div>
+              <div className="mb-3  py-1">
+              <p><span>{comment.user.name}</span>{comment.text}</p>
+            </div>
             ))}
 
+            </div>
+            
+          
+
+           
           </div>
         </div>
       </div>
