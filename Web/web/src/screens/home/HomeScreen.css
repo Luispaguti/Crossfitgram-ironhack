@@ -14,20 +14,43 @@
 
 
 } */
+body {
+  margin: 0;
+  font-family: var(--bs-body-font-family);
+  font-size: var(--bs-body-font-size);
+  font-weight: var(--bs-body-font-weight);
+  line-height: var(--bs-body-line-height);
+  color: var(--bs-body-color);
+  text-align: var(--bs-body-text-align);
+  background-image:url("../../../public/wood1.png");
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
 
 #stories-wrapper{
-  margin: 200px auto;
+  margin-top: 200px;
+  margin-bottom: 100px;
   width:100%;
+  
 }
 
 .historybody{
-  background-color: rgb(237, 247, 247);
+  background-color: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  
 }
 
 #stories-container{
   display:flex;
-  border: solid 2px #ccc;
-  padding: 40px 0;
+  padding: 30px 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: solid 5px #dcdcdc;
 
 }
 
@@ -74,6 +97,7 @@
 .story .titlestory{
   text-align: center;
   padding: 5px 0px;
+  font-family: Capture;
  
 
 }

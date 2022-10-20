@@ -39,7 +39,7 @@ function WoodItem({ title, scaled, image, category, id, author, description, exe
         <div className="wrapper">
           <div className="left-col">
 
-            <div className="post">
+            <div className="posts">
               <div className="user">
                 <div className="info">
                   <div class="profile-pic"><img src={author?.image} class="rounded-circle" height="92" alt={title} loading="lazy"/></div>

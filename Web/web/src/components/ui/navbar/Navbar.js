@@ -29,6 +29,10 @@ function Navbar() {
           <span>
 
 
+          <NavLink to="/" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
+             <img id="header_CtlLogo" src="BS.png" alt="BLACK"/>
+          </NavLink>
+
             <NavLink to="/" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
               <div className="logomy-section hoverable">Crossfitgram </div>
             </NavLink>

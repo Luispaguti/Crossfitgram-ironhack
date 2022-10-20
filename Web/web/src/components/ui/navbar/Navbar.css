@@ -38,24 +38,37 @@
   cursor: pointer;
 } */
 
+
+
 .navmy-link{
-  color: #151616;
+  color: rgb(250, 246, 246);
   margin: 0 -.25rem;
   padding: 0 .25rem;
   transition: color .3s ease-in-out,.3s ease-in-out;
   text-decoration: none;
+  
 
 }
 
 .navmy-link:hover {
-  color: white;
+  color: #C5B358;
 
 }
 
-
 .logomy-section {
-  font-family: Brush Script MT, Brush Script Std;
-  font-size: 56px;
+  /* font-family: Brush Script MT, Brush Script Std; */
+  font-family: Capture;
+  font-size: 26px;
+  display:inline-flex;
+}
+
+
+#header_CtlLogo{
+  height: 100px;
+  width: auto;
+}
+#header_CtlLogo:hover{
+  color: #C5B358;
 }
 
 .navmy{
@@ -64,9 +77,11 @@
   width: 100%;
   z-index:1;
   border-bottom: solid #dbdbdb 1px;
-  background:linear-gradient(to bottom right, rgb(222, 230, 229),rgb(69, 128, 123) ,rgb(5, 4, 4));
+    background:linear-gradient(to bottom right, rgb(222, 230, 229),rgb(69, 128, 123) ,rgb(5, 4, 4));
 
+  /* background-image: url(https://cdn.wodbuster.com/static/2698/HeaderImg.jpg?v=637945455269819673); */
 }
+
 
 .navmy-cont{
   width:80%;
@@ -130,7 +145,8 @@
   border-radius: 50%;
   padding:0;
   margin: 0;
-  border: solid 5px rgb(233, 217, 40);
+
+  border: solid 5px #C5B358;
 
 }
 

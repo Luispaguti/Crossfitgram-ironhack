@@ -1,28 +1,35 @@
 .titleranking {
   text-align: center;
-  font-family: Brush Script MT, Brush Script Std;
+  font-family: Capture;
   font-size: 86px;
-  color: rgb(129, 112, 14);
+  color: rgb(177, 173, 173);
+  font-weight: bold;
 }
 
 .rankingbody{
   margin-top:140px;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: Capture;
   height: 100vh;
-  background:linear-gradient(36deg, rgb(255,201,0) 13%, rgb(255,0,95) 73%, rgb(255,9,237) 100%);
+  background:radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+  radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
   display:flex;
   flex-wrap: wrap;
   justify-content: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: solid 5px #dcdcdc;
 }
 
 .rankinglist{
   padding-top: 40px;
-  width: 88%;
-  color:rgb(239, 222, 32);
-
+  width: 80%;
+  color: rgb(177, 173, 173);
 }
+
 
 .contentList{
   width: 90%;

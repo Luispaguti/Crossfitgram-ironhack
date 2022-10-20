@@ -1,9 +1,14 @@
-.post{
+.posts{
   width: 100%;
   height: auto;
-  background: #fff;
-  border: 1px solid #dfdfdf;
+  background:#fff ;
+  border: solid 5px #dcdcdc;
   margin-top: 40px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  font-family: Capture;
 }
 
 .info{
@@ -69,6 +74,8 @@
 .description span{
   font-weight: bold;
   margin-right: 10px;
+  font-family: Capture;
+  text-transform: uppercase
 }
 
 .post-time{
@@ -129,7 +136,7 @@
 }
 
 .descriptiondetail{
-  color: rgb(177, 173, 173);
+  color: #a89c72;
   font-weight: bold;
  
 }

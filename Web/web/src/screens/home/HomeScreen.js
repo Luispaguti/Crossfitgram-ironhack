@@ -27,7 +27,7 @@ function HomeScreen() {
 
   return (
     
-    <body >
+    <body className='homebody' >
       <div className='historybody'>
         <div id="stories-wrapper">
           <div id="stories-container">

@@ -1,5 +1,5 @@
 .registerbody {
-  font-family: 'Roboto';
+  font-family: 'Capture';
   /* fallback for old browsers */
   height: 650px;
   display: flex;
@@ -11,7 +11,7 @@
  } 
 
  .des-regist{
-  font-family: 'Roboto';
+  font-family: 'Capture';
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,8 +36,9 @@
 }
 
 .mybtnregis {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  background: linear-gradient(to bottom right, rgb(222, 230, 229),rgb(69, 128, 123) ,rgb(5, 4, 4));
+  font-family: Capture;
+  background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+  radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
   border: none;
   display: block;
   width: 740px;

@@ -91,7 +91,7 @@ function StreamForm() {
 
         </div>
 
-        <button className="mybtn" type="submit" disabled={!isValid}>
+        <button className="mybtns" type="submit" disabled={!isValid}>
           Publicar
         </button>
 

@@ -2,8 +2,12 @@
   width: 100%;
   height: auto;
   background: #fff;
-  border: 1px solid #dfdfdf;
   margin-top: 40px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: solid 5px #dcdcdc;
 }
 
 .info{
