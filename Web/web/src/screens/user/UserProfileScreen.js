@@ -1,12 +1,9 @@
-import UserStreams from '../../components/ui/user/user-streams/UserStreams'
-import UserWoods from '../../components/ui/user/user-woods/UserWoods'
 import React, { useEffect, useState } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import * as streamService from '../../services/crossfit-service'
-import { HeartIcon, FilledHeartIcon, FilledBookmarkIcon, BookmarkIcon , CheckIcon } from '../../components/ui/icons/Icon'
+import {  FilledBookmarkIcon, BookmarkIcon  } from '../../components/ui/icons/Icon'
 import '../user/UserProfileScreen.css'
-import { WoodList, WoodListProfile, } from '../../components/ui';
-import WoodItem from '../../components/ui/woods/wood-item/WoodItem';
+
 
 function UserProfileScreen() {
 
@@ -19,6 +16,8 @@ function UserProfileScreen() {
       .catch(error => console.error(error))
   }, [])
   console.log(user)
+
+  
   const{ id } = useParams()
   const [woods, setWoods] = useState([]);
   
@@ -46,7 +45,7 @@ function UserProfileScreen() {
       .then((data) => {
         setUser({
           ...user,
-          warnin: data.warnin ? user.warnin + 1 && user.warnin == false : user.warnin == false && - 1
+          warnin: data.warnin ? user.warnin + 1 && user.warnin === false : user.warnin === false && - 1
         })
         console.log(user.warnin)
       });
@@ -108,6 +107,7 @@ function UserProfileScreen() {
 
       <>
 
+     
 
     </>
 

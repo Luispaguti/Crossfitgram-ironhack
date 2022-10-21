@@ -95,7 +95,7 @@ function Register() {
           <div className="logingroup">
 
             <input
-              type="text"
+              type="file"
               id="loginemail"
               className={`form-control ${errors.image ? "is-invalid" : ""}`}
               placeholder="image..."

@@ -27,7 +27,13 @@ http.interceptors.response.use(
 
 
 export function register(user) {
-  return http.post("/register",user);
+  user.image = user.image[0]
+  const data = new FormData()
+
+  Object.keys(user).forEach(key =>{
+    data.append(key, user[key])
+  })
+  return http.post("/register",data);
 }
 
 export function authenticate(data) { // data es un objeto que tiene el email y la contraseña
@@ -78,7 +84,13 @@ export function getStreamDetail(id) {
 }
 
 export function createStream(stream) {
-  return http.post("/stream", stream);
+  stream.image = stream.image[0]
+  const data = new FormData()
+
+  Object.keys(stream).forEach(key =>{
+    data.append(key, stream[key])
+  })
+  return http.post("/stream", data);
 }
 // esta funcion va a recibir un stream,
 //mirar en la docu, el post a diferencia del get tiene un primer argumento el path y un segundo que es toda la info q estoy enviando
@@ -113,7 +125,13 @@ export function getRanking() {
 }
 
 export function createWood(wood) {
-  return http.post("/wood", wood);
+  wood.image = wood.image[0]
+  const data = new FormData()
+
+  Object.keys(wood).forEach(key =>{
+    data.append(key, wood[key])
+  })
+  return http.post("/wood", data);
 }
 
 export function updateWood(id) {

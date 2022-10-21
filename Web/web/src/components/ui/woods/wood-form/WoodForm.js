@@ -64,7 +64,7 @@ function WoodForm() {
           <div className="logingroup">
 
             <input
-              type="text"
+              type="file"
               id="loginemail"
               className={`form-control ${errors.image ? "is-invalid" : ""}`}
               placeholder="image..."
@@ -340,7 +340,7 @@ function WoodForm() {
 
 
 
-          <button className="mybtn" type="submit" disabled={!isValid}>
+          <button className="mybtnwoodform" type="submit" disabled={!isValid}>
             Publicar
           </button>
 

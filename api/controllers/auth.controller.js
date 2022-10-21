@@ -17,6 +17,7 @@ module.exports.register = (req, res, next) => {
           })
         );
       } else {
+        req.body.image = req.file.path
         return User.create(req.body).then((user) => {
           sendEmail(user);
           res.status(201).json(user);
