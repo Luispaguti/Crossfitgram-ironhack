@@ -17,54 +17,59 @@ function Ranking() {
 
 
   return (
-   
+
     <div>
-       <>
-       <div className='rankingbody'>
-         <h1 className="rankinglist">Ranking List</h1>
-         <div className="contentList">
+      <>
+        <div className='rankingbody'>
+          <h1 className="rankinglist">Ranking List</h1>
+          <div className="contentList">
 
-         {woods.map(wood =>
-         <div>
-      
-       
-        
-        
-          <div className="layerList">
-             <h2 className="rankingposition">{woods.length}</h2>
-               <div className="woodsDetail">
-            
-             
-                
-                  <h3 className="woodsauthor">{wood.author}</h3>
-                  <h4 className="woodsscore">{wood.score}</h4>
-                  <img src={wood.image} />
-                  <p>{wood.scaled}</p>
-                  <p>{wood.category}</p>
-                  <p>{wood.exercise}</p>
-                  <p>{wood.reps}</p>
-                  <p>{wood.weight}</p>
-                  <p>{wood.time}</p>
-                  <p>{wood.kcal}</p>
-
-                  <div>
+            {woods.map((wood,i) =>
+              <div>
 
 
 
+
+                <div className="layerList">
+                  <h2 className="rankingposition">{i+1}</h2>
+                  <div className="woodsDetail">
+
+
+
+
+
+
+                    <h3 className="woodsauthor">{wood.author.name}</h3>
+                    <h4 className="woodsscore">Score: {wood.score}</h4>
+                    <img src={wood.image} />
+
+
+                    <p class="description"><span>{wood.scaled}</span></p>
+                    <p class="description"><span>Category</span>{wood.category}</p>
+                    <p class="description"><span>Movements</span>{wood.exercise}</p>
+                    <p class="description"><span>Repeticiones</span>{wood.reps}</p>
+                    <p class="description"><span> Peso</span>{wood.weight} kg</p>
+                    <p class="description"><span>Time</span>{wood.time} minutos</p>
+                    <p class="description"><span>Calorías quemadas</span>{wood.kcal}</p>
+
+                    <div>
+
+
+
+                    </div>
                   </div>
-                  </div>
-                  
+
                 </div>
-             
-            </div>
-             )}
+
+              </div>
+            )}
           </div>
-          
+
         </div>
 
-</>
-      </div>
-     
+      </>
+    </div>
+
 
 
 

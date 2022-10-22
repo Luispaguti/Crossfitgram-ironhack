@@ -7,7 +7,7 @@ const createError = require("http-errors");
 
 module.exports.list = (req, res, next) => {
   Wood.find()
-    .populate("author", "name") // con esto puedo ver toda la información del author
+    .populate("author" ) // con esto puedo ver toda la información del author
     .populate("likes")
     .then((wood) => res.json(wood))
     .catch((error) => next(error));
@@ -31,8 +31,13 @@ module.exports.create = (req, res, next) => {
 module.exports.detail = (req, res, next) => {
   console.log(req.params)
   Wood.findById(req.params.id) //xq el id me va en la url y cuando lo tenga..
-    .populate("author", "name") // con esto puedo ver toda la información del author, el segundo parametro indico los campos que me quiero quedar, esto se llama proyectar una query
-    .populate("comments") // gracias al virtual populate del modelo de stream
+    .populate("author") // con esto puedo ver toda la información del author, el segundo parametro indico los campos que me quiero quedar, esto se llama proyectar una query
+    .populate({
+      path: "comments",
+      populate: {
+        path: "user",
+      },
+    })// gracias al virtual populate del modelo de stream
     .populate("likes") // gracias al virtual populate del modelo de stream
     .then((wood) => {
       if (wood) {
@@ -80,6 +85,7 @@ module.exports.verif = (req, res, next) => {
 
   module.exports.ranking = (req, res, next) => {
     Wood.find()
+      .populate("author", "name")
       .sort({ score: -1 })
       .limit(10)
       .then((wood) => res.status(201).json(wood))

@@ -16,7 +16,7 @@ router.post("/register",upload.single('image'), auth.register);
 router.post("/authenticate", auth.authenticate);
 router.get("/authenticate/slack",passport.authorize('Slack'));
 router.get("/authenticate/slack/cb",passport.authorize('Slack'),auth.slack);
-router.delete("/logout", auth.logout);
+router.post("/logout", auth.logout);
 
 router.get('/streams', streams.list );
 router.post("/stream", secure.isAuthenticated,upload.single('image'), streams.create); // el midelware upload.single se encaarga de contruir para nosotros req.file, con los datos del archivo que sube 

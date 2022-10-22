@@ -57,6 +57,7 @@ function WoodItem({ title, scaled, image, category, id, author, description, exe
                   <img src="img/save.PNG" class="save icon" alt="" />
                 </div>
                 
+                <div class="mb-3 mt-4">
                 <p class="description"><span> {author?.name} has completado el siguiente entrenamiento :</span></p>
                 <p class="description"><span>En modalidad : </span>{scaled}</p>
                 <p class="description"><span>Un Wood de : </span>{category}</p>
@@ -68,9 +69,12 @@ function WoodItem({ title, scaled, image, category, id, author, description, exe
                 <p class="description"><span>El esfuerzo perdibido por {author?.name} ha sido :</span>{effort}</p>
                 <p class="description"><span>Anotaciones</span>{description}</p>
                 <p class="description"><span>Puntuacion del Wood</span>{score}</p>
+                </div>
+
+
                 <div className="detailback">
-                <Link to={`/wood/${id}`} className="linkdetail"><p class="descriptiondetail">Detail</p>
-                </Link><Link to={`/`} className="linkdetail"><p class="descriptiondetail">Back</p></Link>
+                <Link to={`/wood/${id}`} className="linkdetail"><p class="descriptiondetail">Detail ...</p>
+                </Link><Link to={`/`} className="linkdetail"><p class="descriptiondetail">Back ...</p></Link>
     
                 </div>
                 

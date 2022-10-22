@@ -48,7 +48,7 @@ export function getAuthenticateSlackCb() {
   return http.get("/authenticate/slack/cb");
 }
 export function logout() {
-  return http.delete("/logout");
+  return http.post("/logout",{});
 }
 
 

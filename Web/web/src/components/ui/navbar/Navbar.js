@@ -5,6 +5,9 @@ import React, { useContext } from 'react'
 import { AuthContext } from '../../../contexts/AuthContext'
 import Button from '../button/Button';
 import { useParams } from 'react-router-dom';
+import * as streamService from '../../../services/crossfit-service'
+import { useNavigate } from "react-router";
+
 
 // CONTINUANCION CONTEXT de AUTHCONTEX.JS
 //¿ Y ahora como me voy al componente de más abajo del todo y lo leo?
@@ -12,6 +15,7 @@ import { useParams } from 'react-router-dom';
 // y al hook useContext le paso el contexto(authcontext) y me devuelve el value  =>  const value = useContext(AuthContext);
 
 function Navbar() {
+  const navigate = useNavigate();
   const { id } = useParams()
 
   const value = useContext(AuthContext);
@@ -19,6 +23,13 @@ function Navbar() {
   // if (!value){
   //   return
   // }
+  const handleClickLogout = () => {
+    streamService.logout()
+      .then((data) => {
+        value.logout(data);
+        navigate("/login");
+      })
+  };
 
   return (
 
@@ -44,9 +55,9 @@ function Navbar() {
         <div className="iconosmy">
 
 
-          <NavLink to="/create-stream" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
+          {/* <NavLink to="/create-stream" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
             <i class="fas fa-plus"><i class="fas fa-camera-retro"></i></i>
-          </NavLink>
+          </NavLink> */}
 
           <NavLink to="/create-wood" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
             <i class="fas fa-plus">Wood</i>
@@ -61,17 +72,15 @@ function Navbar() {
           <NavLink to="/woods" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
             <i class="fas fa-skull-crossbones">Wood</i>
           </NavLink>
-          <NavLink to="/" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
+          {/* <NavLink to="/" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
             <i class="fa fa-home fa-lg"></i>
-          </NavLink>
+          </NavLink> */}
           <NavLink to="/ranking" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
             <i class="fa fa-crown fa-lg"></i>
           </NavLink>
-          <NavLink to="/create-wood" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
-          <i class="fas fa-sign-out-alt"></i>
-          </NavLink>
+          
           <NavLink to="/profile" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
-            <i class="fa-solid fa-person">{value.user.name}</i>
+            <p class="fa-solid">{value.user.name}</p>
     
           </NavLink>
           <NavLink to={`/create-stream`} >
@@ -83,6 +92,14 @@ function Navbar() {
               </button> 
                 
           </NavLink>
+
+         <button onClick={handleClickLogout}>
+       
+          <i class="fas fa-sign-out-alt"></i>
+         
+        </button> 
+
+          
 
         </div>
         

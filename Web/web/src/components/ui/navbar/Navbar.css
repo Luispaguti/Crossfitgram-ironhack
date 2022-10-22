@@ -40,6 +40,7 @@
 
 
 
+
 .navmy-link{
   color: rgb(250, 246, 246);
   margin: 0 -.25rem;
@@ -78,6 +79,7 @@
   z-index:1;
   border-bottom: solid #dbdbdb 1px;
     background:linear-gradient(to bottom right, rgb(222, 230, 229),rgb(69, 128, 123) ,rgb(5, 4, 4));
+    
 
   /* background-image: url(https://cdn.wodbuster.com/static/2698/HeaderImg.jpg?v=637945455269819673); */
 }

@@ -8,7 +8,7 @@ import '../wood-detail/WoodDetail.css'
 import DetailButton from '../../button/DetailButton';
 
 
-function WoodDetail({ title, scaled, image, category, author, description, exercise, location, reps, weight, time, kcal, score, effort }) {
+function WoodDetail(title) {
   const [wood, setWood] = useState();
   const { id } = useParams()
 
@@ -109,6 +109,7 @@ function WoodDetail({ title, scaled, image, category, author, description, exerc
                   }
                   
                 </div>
+                <div  className="mb-3 mt-3">
               <p class="description"><span>{wood.author?.name}</span>{wood.description}</p>
               <p class="description"><span>{wood.scaled}</span></p>
               <p class="description"><span>Category</span>{wood.category}</p>
@@ -123,9 +124,9 @@ function WoodDetail({ title, scaled, image, category, author, description, exerc
 
               {/* <li onClick={handleClick} class="post-time">Delete</li> */}
 
-              <DetailButton title="Back" path="/"/>
+              </div>
 
-              <form onSubmit={handleNewComment} className="mb-3">
+              <form onSubmit={handleNewComment} className="mb-3 mt-3">
               <textarea
                 name="text"
                 className="form-control mb-2"
@@ -137,10 +138,13 @@ function WoodDetail({ title, scaled, image, category, author, description, exerc
             </form>
 
             {wood.comments.map((comment) => (
-              <div className="mb-3  py-1">
-              <p><span>{comment.user.name}</span>{comment.text}</p>
+              <div className="mb-3 py-1">
+                <p>{comment.text}</p>
+              <small> Por {comment.user.name}</small>
             </div>
             ))}
+
+            <DetailButton title="Back ..." path="/"/>
 
             </div>
             

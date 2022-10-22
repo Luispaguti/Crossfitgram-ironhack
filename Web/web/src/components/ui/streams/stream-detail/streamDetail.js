@@ -49,7 +49,7 @@ function StreamDetail({ title, image, views, author, description }) {
           <div className="post">
             <div className="user">
               <div className="info">
-                <div class="profile-pic"><img src="img/cover 1.png" alt="" /></div>
+              <div class="profile-pic"><img src={stream.author?.image} alt={title} /></div>
                 <p className="username">{stream.author.name}</p>
               </div>
               <img src="img/option.PNG" class="options" alt=""></img>
@@ -68,8 +68,10 @@ function StreamDetail({ title, image, views, author, description }) {
                 <i className="fa fa-heart me-2"></i>
                 {stream.likes}
               </button>
+
+              <div className="mb-3 mt-3">
               <p class="description"><span>{stream.author.name}</span>{stream.description}</p>
-              <div><DetailButton title="Back..." path={`/`}/></div>
+              </div>
            
 
             <form onSubmit={handleNewComment} className="mb-3">
@@ -88,6 +90,8 @@ function StreamDetail({ title, image, views, author, description }) {
                 <p><span>{comment.user.name}</span>{comment.text}</p>
               </div>
             ))}
+
+          <div><DetailButton title="Back..." path={`/`}/></div>
 
           </div>
 

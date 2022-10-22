@@ -1,5 +1,5 @@
-const { createContext, useState } = require("react") ;
-// import * as streamService from '../services/crossfit-service'
+import {  useState, useEffect,createContext  }  from "react" ;
+import * as streamService from '../services/crossfit-service'
 
 
 // los contextos es un componente tuneado de tal forma que cualquier componente que este hacia abajo, va a poder recibir como propiedad algo que este le envie
@@ -23,20 +23,37 @@ const { createContext, useState } = require("react") ;
 export const AuthContext = createContext();
 
 function AuthContextProvider({ children }) {
-  const [user, setUser] = useState(null); // undefined means loading
+
+  const [user, setUser] = useState(undefined); // undefined means loading
 
 
   // con esto cada vez que la pagina cargue , lo primero que va a hacer es pedir el usuario
   // y cuando lo tenga continua y si no lo tiene me lleva al login
-  // useEffect(() => {
-  //   streamService.getProfile()
-  //     .then((user) => setUser(user))
-  //     .catch((user) => setUser(null)); 
-  // }, []);
+
+  useEffect(() => {
+   
+      streamService.getProfile()
+        .then((user) => setUser(user))
+        .catch((user) => setUser(null));
+
+
+  }, []);
+
+  const updateUser = (user) => {
+    localStorage.setItem('user-loaded', 'true');
+    setUser(user);
+   
+  }
+
+  function logout () {
+    localStorage.removeItem('user-loaded')
+    setUser(null);
+  }
 
   const value = { //lo que yo le pase en value es todo lo que todos los decendientes van a poder acceder sean hijos nietos..ect 
     user, // le voy a pasar el usuario
-    setUser, // con esta función cambio un estado que se la estoy pasando a los hijos
+    setUser: updateUser,
+    logout // con esta función cambio un estado que se la estoy pasando a los hijos
     // y tambien la función de setear el usuario que le hace falta al login
   };
   
@@ -52,6 +69,10 @@ function AuthContextProvider({ children }) {
   // if (user === undefined) { // esto es usuario cargando
   //   return <></>;
   // }
+
+  if (user === undefined) {
+    return <></>;
+  }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>; // lo que yo le pase en value es todo lo que todos los decendientes van a poder acceder sean hijos nietos..ect 
 }

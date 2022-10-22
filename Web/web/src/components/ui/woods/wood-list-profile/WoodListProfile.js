@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import * as streamService from '../../../../services/crossfit-service';
 import WoodItem from '../wood-item/WoodItem';
 import '../wood-list-profile/WoodListProfile.css'
+import { AuthContext } from '../../../../contexts/AuthContext'
 
 
 function WoodListProfile() {
+  const value = useContext(AuthContext);
   const [woods, setWoods] = useState([]); 
   
   useEffect(() => {
-    streamService.getProfileWoods() // aqui irá el get wood detail pero no me sale nada
+    streamService.getProfileWoods(value.user.id) // aqui irá el get wood detail pero no me sale nada
       .then(woods => setWoods(woods))
       .catch(error => console.error(error));
-  }, [])
+  }, [value.user.id])
 
 // cuando ponemos un array vación le estoy indicando que solo lo quiero cargarlo la primera vez que se renderiza el componente
 //es decir  se renderiza el componente , me voy al backend y me traigo la información

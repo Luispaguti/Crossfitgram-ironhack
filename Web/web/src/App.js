@@ -18,6 +18,7 @@ function App() {
 
   return (
     <>
+    {!value.user &&  <UserAccountSAcreen />}
     {value.user &&  <Navbar />} 
       
 

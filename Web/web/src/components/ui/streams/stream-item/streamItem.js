@@ -16,7 +16,7 @@ function StreamItem({ title, image, views, id ,author, description}) {
               <div className="post">
                   <div className="user">
                     <div className="info">
-                      <div class="profile-pic"><img src="img/cover 1.png" alt=""/></div>
+                      <div class="profile-pic"><img src={author?.image} class="rounded-circle" height="92" alt={title} loading="lazy"/></div>
                         <p className="username">{author.name}</p>
                     </div>
                     <img src="img/option.PNG" class="options" alt=""></img>
@@ -31,8 +31,10 @@ function StreamItem({ title, image, views, id ,author, description}) {
                     <p class="description"><span>Descripción</span>{description}</p>
                     <p class="description"><span>En </span>{author.box}</p>
                     <p class="description"><span>Localidad</span>{author.location}</p> 
-                    <DetailButton title="Detail" path={`/stream/${id}`}/>
-                    <DetailButton title="Back" path={`/`}/>
+                    <div class="mt-3">
+                    <DetailButton title="Detail ..." path={`/stream/${id}`}/>
+                    <DetailButton title="Back ..." path={`/`}/>
+                    </div>
                   </div>
                 
               </div>

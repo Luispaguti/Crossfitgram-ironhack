@@ -8,10 +8,12 @@ const schema = new Schema(
       required: true,
     },
     user: {
-      ref: "User",
       type: mongoose.Schema.Types.ObjectId,
-      //con esto guardo una entrada en mongo con una referencia a un usuario
-      required: true,
+      //con esto le estas diciendo que el campo de un modelo es un identificador y puedo hacer relaciones de modelos
+      // required: true,
+      ref: 'User',// user es el nombre del modelo que quiero relacionar , gracias a esto puedo usar el populate
+      //gracias a esto mongo remplaza cada id del usuario por el usuario y puedo poner stream.author.name
+      required: true
     },
     stream: {
       ref: "Stream",
