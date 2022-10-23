@@ -16,7 +16,7 @@ function StreamItem({ title, image, views, id ,author, description}) {
               <div className="post">
                   <div className="user">
                     <div className="info">
-                      <div class="profile-pic"><img src={author?.image} class="rounded-circle" height="92" alt={title} loading="lazy"/></div>
+                      <div class="profile-pic"><img className="imgIteam" src={author?.image} class="rounded-circle" height="92" alt={title} loading="lazy"/></div>
                         <p className="username">{author.name}</p>
                     </div>
                     <img src="img/option.PNG" class="options" alt=""></img>

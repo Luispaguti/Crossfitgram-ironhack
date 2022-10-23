@@ -42,7 +42,7 @@ function WoodItem({ title, scaled, image, category, id, author, description, exe
             <div className="posts">
               <div className="user">
                 <div className="info">
-                  <div class="profile-pic"><img src={author?.image} class="rounded-circle" height="92" alt={title} loading="lazy"/></div>
+                  <div class="profile-pic"><img  src={author?.image} class="rounded-circle-img" height="92" alt={title} loading="lazy"/></div>
                   <p className="username">{author?.name}</p>
                 </div>
               </div>
@@ -58,8 +58,8 @@ function WoodItem({ title, scaled, image, category, id, author, description, exe
                 </div>
                 
                 <div class="mb-3 mt-4">
-                <p class="description"><span> {author?.name} has completado el siguiente entrenamiento :</span></p>
-                <p class="description"><span>En modalidad : </span>{scaled}</p>
+                <p class="description"><span> {author?.name} ha completado un</span></p>
+                <p class="description"><span>En</span>{scaled}</p>
                 <p class="description"><span>Un Wood de : </span>{category}</p>
                 <p class="description"><span>Con los movimientos :</span>{exercise}</p>
                 <p class="description"><span>El número de repeticiones ha sido de :</span>{reps}</p>

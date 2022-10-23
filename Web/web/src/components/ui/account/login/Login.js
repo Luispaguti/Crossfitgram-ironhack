@@ -102,7 +102,7 @@ function Login() {
             Login
           </button>
 
-          <NavLink to="/register" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
+          <NavLink to={"/register"} className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
           <button className="mybtn" type="submit" >
             Register
           </button>
@@ -121,98 +121,6 @@ function Login() {
 
     </body>
 
-
-
-
-
-
-
-
-
-
-
-
-    //   <body>
-    //     <span id="root">
-    //       <section class="section-all">
-
-
-    //         <main class="main" role="main">
-    //           <div class="wrapper">
-    //             <article class="article">
-    //               <div class="content">
-    //                 <div class="login-box">
-    //                   <div class="header">
-    //                     <div className="logo-section hoverable">Login </div>
-    //                   </div>
-
-
-
-    //                   <div class="form-wrap">
-    //                     <form class="form" onSubmit={handleSubmit(handleLogin)}>
-
-    //                       <div className="input-box">
-    //                         <input
-    //                           type="email"
-    //                           className={`form-control ${errors.email ? "is-invalid" : ""}`}
-    //                           placeholder="Email..."
-    //                           {...register("email", {
-    //                             required: "Email is required",
-    //                           })}
-    //                         />
-    //                         {errors.email && (
-    //                           <div className="invalid-feedback">{errors.email.message}</div>
-    //                         )}
-    //                       </div>
-
-    //                       <div className="input-box">
-    //                         <input
-    //                           type="password"
-    //                           className={`form-control ${errors.password ? "is-invalid" : ""}`}
-    //                           placeholder="Password..."
-    //                           {...register("password", {
-    //                             required: "Password is required",
-    //                           })}
-    //                         />
-    //                         {errors.password && (
-    //                           <div className="invalid-feedback">{errors.password.message}</div>
-    //                         )}
-    //                       </div>
-
-    //                       <span className="button-box">
-    //                         <button className="btn" type="submit" disabled={!isValid}>
-    //                           Login
-    //                         </button>
-
-    //                         {/* <a
-    //           className="btn btn-danger mt-2"
-    //           href="http://localhost:3001/api/v1/authenticate/slack"
-    //         >
-    //           <i className="fa fa-slack me-2"></i>
-    //           Login with Slack
-    //         </a> */}
-    //                       </span>
-
-    //                       <Link to="/login" class="forgot"></Link>
-    //                     </form>
-    //                   </div>
-    //                 </div>
-
-    //               </div>
-    //             </article>
-    //           </div>
-    //         </main>
-
-
-
-
-
-
-
-    //       </section>
-    //     </span>
-    //   </body>
-    // );
   )
 }
 

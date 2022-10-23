@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { AuthContext } from './contexts/AuthContext';
 import UserAccountSAcreen from './screens/user/user-account/UserAccountSAcreen';
 import UserWoods from './components/ui/user/user-woods/UserWoods';
+import StreamListProfileScreen from './screens/streams/stream-list-profile/StreamListProfileScreen';
 
 
 
@@ -18,7 +19,7 @@ function App() {
 
   return (
     <>
-    {!value.user &&  <UserAccountSAcreen />}
+    {/* {!value.user &&  <UserAccountSAcreen />} */}
     {value.user &&  <Navbar />} 
       
 
@@ -34,6 +35,7 @@ function App() {
             />
           <Route path='/stream/:id' element={<StreamDetailScreen/>} />
           <Route path='/profile/:id/woods' element={<UserWoods/>} />
+          <Route path='/profile/:id/streams' element={<StreamListProfileScreen/>} />
           <Route path='/wood/:id' element={<WoodDetailScreen/>} />
           <Route 
             path='/create-wood' 

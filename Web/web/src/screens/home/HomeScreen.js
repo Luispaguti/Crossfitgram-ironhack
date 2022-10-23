@@ -31,10 +31,20 @@ function HomeScreen() {
       <div className='historybody'>
         <div id="stories-wrapper">
           <div id="stories-container">
+
+
+          <NavLink to={`create-stream`}>
+          <img className="mistory" src={value.user.image} />
+          </NavLink>
+          
+        
+          
           
             {streams.map(stream =>
               <button className='story' >
                 <div className="profilestory">
+
+              
 
                 <NavLink to={`/stream/${stream.id}`} className={({ isActive }) => isActive ? "img active" : 'img'}>
                 

@@ -76,7 +76,7 @@ function WoodDetail(title) {
           <div className="post">
             <div className="user">
               <div className="info">
-                <div class="profile-pic"><img src={wood.author?.image} alt={title} /></div>
+                <div class="profile-pic"><img className='imgdetail' src={wood.author?.image} alt={title} /></div>
                 <p className="username">{wood.author?.name}</p>
               </div>
               <img src="img/option.PNG" class="options" alt=""></img>

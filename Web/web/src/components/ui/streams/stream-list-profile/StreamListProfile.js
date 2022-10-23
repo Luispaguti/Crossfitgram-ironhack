@@ -1,17 +1,17 @@
 import React, { useContext, useState, useEffect } from 'react';
 import * as streamService from '../../../../services/crossfit-service';
-import WoodItem from '../wood-item/WoodItem';
-import '../wood-list-profile/WoodListProfile.css'
+import StreamItem from '../stream-item/streamItem';
 import { AuthContext } from '../../../../contexts/AuthContext'
+import'../stream-list-profile/StreamListProfile.css'
 
 
-function WoodListProfile() {
+function StreamListProfile() {
   const value = useContext(AuthContext);
-  const [woods, setWoods] = useState([]); 
+  const [streams, setStreams] = useState([]); 
   
   useEffect(() => {
-    streamService.getProfileWoods(value.user.id) // aqui irá el get wood detail pero no me sale nada
-      .then(woods => setWoods(woods))
+    streamService.getProfileStreams(value.user.id) // aqui irá el get wood detail pero no me sale nada
+      .then(streams => setStreams(streams))
       .catch(error => console.error(error));
   }, [value.user.id])
 
@@ -31,20 +31,15 @@ function WoodListProfile() {
 // const deleteFromList = (wood) => {
 //   setWoods(woods.filter((id) => id !== wood.id))
 // }
-console.log(woods)
 
-if(!woods) return <>no llegan woods</>
+if(!streams) return <>no llegan streams</>
   return(
-    <div className='woodListProfile'>
-      {woods.map(wood =>
-
-        <div className='profilewoods'>
-        <WoodItem {...wood} key={wood.id} />
-        </div>
+    <div className='streamlist'>
+      {streams.map(stream =>
+        <StreamItem  {...stream} key={stream.id} />
         )}
-      
     </div>
   )
 }
 
-export default WoodListProfile;
+export default StreamListProfile;

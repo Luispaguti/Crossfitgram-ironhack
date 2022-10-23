@@ -19,8 +19,8 @@ function Register() {
     formState: { errors, isValid },
   } = useForm({ mode: "onTouched" });
 
-  const handleRegister = (user) => {
-    console.log(user)
+  const handleRegisterSubmit = (data) => {
+    console.log(data);
     // const user = {
     //   image:data.image,
     //   email: data.email,
@@ -40,11 +40,9 @@ function Register() {
     //   deadlift: data.deadlift,
     // }
 
-    Services
-      .register(user)
-      .then((user) => {
-        navigation("/")
-      })
+    Services.register(data)
+      .then(user => 
+        navigation('/login'))
       .catch(error => {
         if (error.response?.data?.errors) {
           const { errors } = error.response.data;
@@ -85,7 +83,7 @@ function Register() {
 
     <body className="registerbody">
 
-      <form class="loginform" onSubmit={handleRegister(handleRegister)}>
+      <form class="loginform" onSubmit={handleSubmit(handleRegisterSubmit)}>
 
         <div className="registerformmy">
 

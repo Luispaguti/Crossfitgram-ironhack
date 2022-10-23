@@ -5,6 +5,7 @@ import * as streamService from '../../services/crossfit-service'
 import '../user/UserProfileScreen.css'
 import { AuthContext } from '../../contexts/AuthContext'
 import { WoodListProfile } from '../../components/ui';
+import { NavLink } from 'react-router-dom';
 
 
 function UserProfileScreen() {
@@ -32,24 +33,26 @@ function UserProfileScreen() {
 
 
 
-
   return (
     <>
 
       <header className="myheader">
 
         <div class="myperfil-container">
+          
 
+        <NavLink to={`${value?.user.id}/streams`}>
           <img className='img-myperfil' src={value.user.image} alt="" />
+          </NavLink>
           <div class="contenedor-cabecera">
             <div className="cabecera1">
               <h1>{value.user.name}</h1>
 
             </div>
             <div className="cabecera2">
-              <p><b>16</b> publicaciones</p>
-              <p><b>167</b> woods</p>
-              <p><b>16</b> publicaciones</p>
+              <p><b>16</b> woods </p>
+              <p><b>167</b> pics </p>
+              <p><b>16</b> followers </p>
 
             </div>
 

@@ -20,9 +20,7 @@ function Navbar() {
 
   const value = useContext(AuthContext);
 
-  // if (!value){
-  //   return
-  // }
+
   const handleClickLogout = () => {
     streamService.logout()
       .then((data) => {
@@ -83,7 +81,7 @@ function Navbar() {
             <p class="fa-solid">{value.user.name}</p>
     
           </NavLink>
-          <NavLink to={`/create-stream`} >
+          <NavLink to={`/profile`} >
   
             <button className='storynav'>
               <span className="profilestorynav">
@@ -93,7 +91,7 @@ function Navbar() {
                 
           </NavLink>
 
-         <button onClick={handleClickLogout}>
+         <button className='logout' onClick={handleClickLogout}>
        
           <i class="fas fa-sign-out-alt"></i>
          

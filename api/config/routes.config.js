@@ -12,7 +12,7 @@ const upload = require("./multer.config");
 const passport = require("passport");
 
 
-router.post("/register",upload.single('image'), auth.register);
+router.post("/register", upload.single('image'), auth.register);
 router.post("/authenticate", auth.authenticate);
 router.get("/authenticate/slack",passport.authorize('Slack'));
 router.get("/authenticate/slack/cb",passport.authorize('Slack'),auth.slack);

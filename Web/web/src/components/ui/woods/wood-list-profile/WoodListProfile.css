@@ -2,9 +2,14 @@
 
 .woodListProfile{
   display: grid;
-  grid-template-columns: 480px 480px 0px;
+  grid-template-columns: 380px 380px 380px;
+
 
 }
 
 
-
+.profilewoods{
+  margin-left: 18px;
+  height: 100%;
+  width: auto;
+}

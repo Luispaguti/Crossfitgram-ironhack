@@ -148,3 +148,9 @@
 .linkdetail :hover{
   text-decoration: underline;
 }
+
+
+.rounded-circle-img{
+  height: 52px;
+
+}
