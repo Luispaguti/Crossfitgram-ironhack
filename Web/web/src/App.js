@@ -9,7 +9,14 @@ import UserWoods from './components/ui/user/user-woods/UserWoods';
 import StreamListProfileScreen from './screens/streams/stream-list-profile/StreamListProfileScreen';
 
 
+function AuthGuard({ children }) {
+  const { user } = useContext(AuthContext);
 
+  if (!user) {
+    return <Navigate to="/login" />;
+  }
+  return children;
+}
 
 
 
@@ -19,7 +26,7 @@ function App() {
 
   return (
     <>
-    {/* {!value.user &&  <UserAccountSAcreen />} */}
+   
     {value.user &&  <Navbar />} 
       
 
@@ -28,7 +35,13 @@ function App() {
         <Routes> 
           <Route path='/login' element={<UserAccountSAcreen/>} />
           <Route path='/register' element={<RegisterScreen/>} />
-          <Route path='/' element={<HomeScreen/>} />
+
+          <Route path='/' element={
+            <AuthGuard>
+          <HomeScreen/>
+          </AuthGuard>
+          } />
+
           <Route 
             path='/create-stream' 
             element={<CreateStreamScreen/>} 
