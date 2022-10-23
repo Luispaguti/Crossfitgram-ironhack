@@ -18,7 +18,7 @@ function UserWoods() {
     if (!wood) return <></>
   return (
     <body >
-      {wood.map(wood =>
+      {wood.slice(0).reverse().map(wood =>
         <WoodItem {...wood} key={wood.id} />
         )}
       

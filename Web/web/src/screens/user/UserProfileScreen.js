@@ -50,7 +50,7 @@ function UserProfileScreen() {
 
             </div>
             <div className="cabecera2">
-              <p><b>16</b> woods </p>
+              <p><b>16</b> wods </p>
               <p><b>167</b> pics </p>
               <p><b>16</b> followers </p>
 

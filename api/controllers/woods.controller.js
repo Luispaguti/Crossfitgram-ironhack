@@ -29,7 +29,6 @@ module.exports.create = (req, res, next) => {
 };
 
 module.exports.detail = (req, res, next) => {
-  console.log(req.params)
   Wood.findById(req.params.id) //xq el id me va en la url y cuando lo tenga..
     .populate("author") // con esto puedo ver toda la información del author, el segundo parametro indico los campos que me quiero quedar, esto se llama proyectar una query
     .populate({

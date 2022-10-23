@@ -87,7 +87,8 @@ function StreamDetail({ title, image, views, author, description }) {
 
             {stream.comments.map((comment) => (
               <div className="mb-3  py-1">
-                <p><span>{comment.user.name}</span>{comment.text}</p>
+                <p class="descriptions"><span>{comment.user.name}</span> <br />{comment.text}</p>
+
               </div>
             ))}
 

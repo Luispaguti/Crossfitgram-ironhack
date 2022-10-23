@@ -34,7 +34,7 @@ function WoodList() {
   return(
     <body className='bodywoodlist'>
       <div className='woodlist'>
-      {woods.map(wood =>
+      {woods.slice(0).reverse().map(wood =>
         <WoodItem {...wood} key={wood.id} />
         )}
       </div>

@@ -36,7 +36,7 @@ console.log(woods)
 if(!woods) return <>no llegan woods</>
   return(
     <div className='woodListProfile'>
-      {woods.map(wood =>
+      {woods.slice(0).reverse().map(wood =>
 
         <div className='profilewoods'>
         <WoodItem {...wood} key={wood.id} />

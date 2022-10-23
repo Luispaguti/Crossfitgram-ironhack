@@ -58,7 +58,7 @@ function WoodForm() {
 
         <div className="formmy">
 
-          <h1 className="titlelogin">Crear mi Wood</h1>
+          <h1 className="titlelogin">Crear mi Wod</h1>
           <p className="des-regist">Sube aquí tus mejores fotos y videos</p>
 
           <div className="logingroup">

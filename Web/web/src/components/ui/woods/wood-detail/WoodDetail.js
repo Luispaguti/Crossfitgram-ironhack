@@ -9,7 +9,7 @@ import DetailButton from '../../button/DetailButton';
 
 
 function WoodDetail(title) {
-  const [wood, setWood] = useState();
+  const [wood, setWood] = useState(null);
   const { id } = useParams()
 
 
@@ -66,6 +66,7 @@ function WoodDetail(title) {
 
 
   if (!wood) return <></>
+
   return (
 
 
@@ -139,8 +140,8 @@ function WoodDetail(title) {
 
             {wood.comments.map((comment) => (
               <div className="mb-3 py-1">
-                <p>{comment.text}</p>
-              <small> Por {comment.user.name}</small>
+                <p class="descriptions"><span>{comment.user.name}</span> <br />{comment.text}</p>
+            
             </div>
             ))}
 

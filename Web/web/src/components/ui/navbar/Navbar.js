@@ -58,7 +58,7 @@ function Navbar() {
           </NavLink> */}
 
           <NavLink to="/create-wood" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
-            <i class="fas fa-plus">Wood</i>
+            <i class="fas fa-plus">Wod</i>
           </NavLink>
 
           <NavLink to="/streams" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
@@ -68,7 +68,7 @@ function Navbar() {
           
 
           <NavLink to="/woods" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
-            <i class="fas fa-skull-crossbones">Wood</i>
+            <i class="fas fa-skull-crossbones">Wod</i>
           </NavLink>
           {/* <NavLink to="/" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
             <i class="fa fa-home fa-lg"></i>

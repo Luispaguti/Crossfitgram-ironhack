@@ -55,6 +55,11 @@
   color: #C5B358;
 
 }
+
+.logout{
+  border-radius: 50%;
+}
+
 .logout:hover{
   color: #C5B358;
 }

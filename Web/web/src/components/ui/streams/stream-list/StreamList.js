@@ -18,7 +18,7 @@ function StreamList() {
 
   return(
     <div className='streamlist'>
-      {streams.map(stream =>
+      {streams.slice(0).reverse().map(stream =>
         <StreamItem  {...stream} key={stream.id} />
         )}
     </div>
