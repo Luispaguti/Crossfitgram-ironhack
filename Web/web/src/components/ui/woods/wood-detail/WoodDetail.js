@@ -28,6 +28,15 @@ function WoodDetail(title) {
     });
   };
 
+  const handleDisLike = () => {
+    streamService.dislikeWood(id).then((data) => {
+      setWood({
+        ...wood,
+        dislikes: data.dislikes ? wood.dislikes + 1 : wood.dislikes - 1
+      })
+    });
+  };
+
   const handleVerify = () => {
     
     streamService.verifyWood(id)
@@ -40,6 +49,18 @@ function WoodDetail(title) {
     });
   }; 
   
+  const handleWarning = () => {
+
+    streamService.warnin(id)
+      .then((data) => {
+        setWood({
+          ...wood,
+          warnin: data.warnin ? wood.warnin + 1 && wood.warnin==false : wood.warnin==false && - 1
+        })
+        console.log(wood.warnin)
+      });
+  };
+
 
 
   const handleNewComment = (e) => {
@@ -97,6 +118,11 @@ function WoodDetail(title) {
                 <i className="fa fa-heart me-2"></i>
                 {wood.likes}
               </button>
+
+              <button className="btn btn-info" onClick={handleDisLike}>
+              <i class="fa-solid fa-ghost"></i>
+                {wood.dislikes}
+              </button>
               
 
               <button className="btn btn-warning " onClick={handleVerify}>
@@ -110,6 +136,25 @@ function WoodDetail(title) {
                   ) : ( 
                     <CheckIcon onClick={handleVerify} />
                     && <i class="dumb fa-solid fa-dumbbell"> no verificado</i>
+                  )
+
+                  }
+                  
+                </div>
+
+                <button className="btn btn-outline-dark" onClick={handleWarning}>
+                <i class="fa-solid fa-baseball-bat-ball"></i>
+              </button>
+
+                <div>
+                  {wood.warnin ? (
+                    <CheckIcon onClick={handleWarning} />
+                    
+                    && <i class="fa-solid fa-fire-flame-curved"> strick por no recoger</i>
+                  ) : ( 
+                    <CheckIcon onClick={handleWarning} />
+                   
+                    && <i class="fa-solid fa-broom-ball"> buen alumno</i>
                   )
 
                   }

@@ -31,7 +31,9 @@ router.get("/woods/:id", woods.detail);
 router.delete("/wood/:id",secure.isAuthenticated,streamMid.isAuthorByUser, woods.delete);
 
 router.post("/woods/:id/like",secure.isAuthenticated, woods.like);
+router.post("/woods/:id/dislike",secure.isAuthenticated, woods.dislike);
 router.post("/woods/:id/verif",secure.isAuthenticated,secure.isAdmin, woods.verif);
+router.post("/woods/:id/warnin",secure.isAuthenticated,secure.isAdmin, woods.warnin);
 router.post("/streams/:id/like",secure.isAuthenticated, streams.like);
 
 router.post("/streams/:id/comments", secure.isAuthenticated, comments.create);

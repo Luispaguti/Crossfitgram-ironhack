@@ -1,5 +1,6 @@
 const Wood = require("../models/wood.model")
 const Like = require("../models/like.model")
+const DisLike = require("../models/dislike.model")
 // const Warning = require("../models/warning.model")
 const createError = require("http-errors");
 
@@ -37,7 +38,8 @@ module.exports.detail = (req, res, next) => {
         path: "user",
       },
     })// gracias al virtual populate del modelo de stream
-    .populate("likes") // gracias al virtual populate del modelo de stream
+    .populate("likes")
+    .populate("dislikes")  // gracias al virtual populate del modelo de stream
     .then((wood) => {
       if (wood) {
         res.json(wood);
@@ -74,10 +76,37 @@ module.exports.like = (req, res, next) => {
     .catch(next);
 };
 
+module.exports.dislike = (req, res, next) => {
+  const info = {
+    user: req.user.id,// el user es el campo del modelo like, y req.user.id es el que está logado
+    wood: req.params.id, //el wood:  es el campo del modelo like,  req.params.id este wood va a ser el del path
+  };
+
+  DisLike.findOne(info) // lo busco y pueden pasar dos cosas
+    .then((dislike) => {
+      if (dislike) { // si existe lo borro
+        return DisLike.deleteOne(info);
+      } else { // que no existe, lo creo
+        return DisLike.create(info);
+      }
+    })
+    .then(() => DisLike.count(info)) // esto es igual que hacer un find y ver cuantos hay 
+    .then((dislikes) => res.json({ dislikes }))
+    .catch(next);
+};
+
 module.exports.verif = (req, res, next) => {
   const wood = req.params.id;
 
   Wood.findByIdAndUpdate(wood,{verif:true},{new:true}) // primer argumento wood, segundo el campo que quieres modificar y tercero a que lo quuieres cambiar 
+  .then((wood) => res.json( wood ))
+  .catch(next);
+}
+
+module.exports.warnin = (req, res, next) => {
+  const wood = req.params.id;
+
+  Wood.findByIdAndUpdate(wood,{warnin:true},{new:true}) // primer argumento wood, segundo el campo que quieres modificar y tercero a que lo quuieres cambiar 
   .then((wood) => res.json( wood ))
   .catch(next);
 }

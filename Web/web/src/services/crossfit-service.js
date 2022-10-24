@@ -146,8 +146,16 @@ export function likeWood(id) {
   return http.post(`/woods/${id}/like`);
 }
 
+export function dislikeWood(id) {
+  return http.post(`/woods/${id}/dislike`);
+}
+
 export function verifyWood(id) {
   return http.post(`/woods/${id}/verif`);
+}
+
+export function warnin(id) {
+  return http.post(`/woods/${id}/warnin`);
 }
 
 export function commentWood(id, text) {

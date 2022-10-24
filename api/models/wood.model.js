@@ -127,6 +127,13 @@ woodSchema.virtual("likes", {
   count: true, // gracias a esto en vez de obtener todos los likes y meterlos en un array me pone un número
 });
 
+woodSchema.virtual("dislikes", {
+  ref: "DisLike",
+  localField: "_id",
+  foreignField: "wood",
+  count: true, // gracias a esto en vez de obtener todos los likes y meterlos en un array me pone un número
+});
+
 woodSchema.virtual("verify", {
   ref: "Verify",
   localField: "_id",
