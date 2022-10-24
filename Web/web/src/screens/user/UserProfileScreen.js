@@ -46,27 +46,25 @@ function UserProfileScreen() {
           </NavLink>
           <div class="contenedor-cabecera">
             <div className="cabecera1">
-              <h1>{value.user.name}</h1>
+              <h1>{value.user.name} {value.user.surname}</h1>
+              
 
             </div>
             <div className="cabecera2">
-              <p><b>16</b> wods </p>
-              <p><b>167</b> pics </p>
-              <p><b>16</b> followers </p>
+              <p><b>{value.user.snatch} kg</b> En Snatch </p>
+              <p><b>{value.user.clean} kg</b> En Clean </p>
+              <p><b>{value.user.deadlift} kg</b>En Deadlift</p>
 
             </div>
 
             <div className="cabecera3">
               <h2 className="myname">Me llaman {value.user.name}, pero puedes llamarme {value.user.nickname}</h2>
-              <p className="mybio">Un poco sobre mi...{value.user.bio}</p>
+              <p className="mybio">{value.user.bio}</p>
               <p className="mybox">El box al que pertenezco es {value.user.box} , y mi email es {value.user.email}</p>
               <p className="mysnatch">Mis Repeteciones máximas son:</p>
-              <p className="mysnatch">En Snatch {value.user.snatch} kg</p>
-              <p className="myclean">En Clean {value.user.clean} kg</p>
               <p className="myjerk">En Jerk {value.user.jerk} kg</p>
               <p className="mybacksquat">En Backsquat {value.user.backsquat} kg</p>
               <p className="mybenchpress">En Benchpress {value.user.benchpress} kg</p>
-              <p className="mydeadlift">En Deadlift {value.user.deadlift} kg</p>
               <p className="mywarnings">Warnings {value.user.warnin ? (
                 <FilledBookmarkIcon onClick={handlewarning} />
               ) : (

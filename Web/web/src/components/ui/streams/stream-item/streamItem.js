@@ -22,7 +22,7 @@ function StreamItem({ title, image, views, id ,author, description}) {
                     <img src="img/option.PNG" class="options" alt=""></img>
                   </div>
 
-                  <img className="post-image" src={image} alt={title} />
+                  <img className="post-imagess" src={image} alt={title} />
 
                   <div class="post-content">
   

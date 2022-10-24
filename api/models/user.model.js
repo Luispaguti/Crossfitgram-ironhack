@@ -35,7 +35,7 @@ const userSchema = new Schema(
     },
     bio: {
         type: String,
-        maxLength: [100, "Describete en par de líneas"],
+        // maxLength: [100, "Describete en par de líneas"],
     },
     email: {
         type: String,

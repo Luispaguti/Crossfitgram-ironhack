@@ -83,6 +83,10 @@ const woodSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    warnin:{
+      type: Boolean,
+      default: false,
+  },
     description: {
       type: String,
       minLength: [5, "Escribe mínimo 5 letras"]

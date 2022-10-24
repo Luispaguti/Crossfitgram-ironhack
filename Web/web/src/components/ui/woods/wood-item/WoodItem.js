@@ -58,17 +58,17 @@ function WoodItem({ title, scaled, image, category, id, author, description, exe
                 </div>
                 
                 <div class="mb-3 mt-4">
-                <p class="description"><span> {author?.name} ha completado un</span></p>
-                <p class="description"><span>En</span>{scaled}</p>
+                <p class="description"><span> {author?.name} ha completado el siguiente entrenamiento :</span></p>
+                <p class="description"><span>En modalidad</span>{scaled}</p>
                 <p class="description"><span>Un Wood de : </span>{category}</p>
                 <p class="description"><span>Con los movimientos :</span>{exercise}</p>
                 <p class="description"><span>El número de repeticiones ha sido de :</span>{reps}</p>
                 <p class="description"><span> Con un peso de </span>{weight} kg</p>
-                <p class="description"><span>En un tiempo de </span>{time}</p>
+                <p class="description"><span>En un tiempo de </span>{time} minutos</p>
                 <p class="description"><span>Quemando </span>{kcal} calorías</p>
-                <p class="description"><span>El esfuerzo perdibido por {author?.name} ha sido :</span>{effort}</p>
+                {/* <p class="description"><span>El esfuerzo perdibido por {author?.name} ha sido :</span>{effort}</p> */}
                 <p class="description"><span>Anotaciones</span>{description}</p>
-                <p class="description"><span>Puntuacion del Wood</span>{score}</p>
+                <p class="description"><span>Puntuacion del Wood</span>{score} puntos</p>
                 </div>
 
 

@@ -44,13 +44,13 @@ function Ranking() {
                     <img src={wood.image} />
 
 
-                    <p class="description"><span>{wood.scaled}</span></p>
+                    {/* <p class="description"><span>{wood.scaled}</span></p> */}
                     <p class="description"><span>Category</span>{wood.category}</p>
                     <p class="description"><span>Movements</span>{wood.exercise}</p>
                     <p class="description"><span>Repeticiones</span>{wood.reps}</p>
                     <p class="description"><span> Peso</span>{wood.weight} kg</p>
                     <p class="description"><span>Time</span>{wood.time} minutos</p>
-                    <p class="description"><span>Calorías quemadas</span>{wood.kcal}</p>
+                    {/* <p class="description"><span>Calorías quemadas</span>{wood.kcal}</p> */}
 
                     <div>
 

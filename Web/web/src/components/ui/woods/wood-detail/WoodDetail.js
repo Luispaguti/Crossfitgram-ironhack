@@ -39,6 +39,7 @@ function WoodDetail(title) {
       console.log(wood.verif)
     });
   }; 
+  
 
 
   const handleNewComment = (e) => {
@@ -98,6 +99,10 @@ function WoodDetail(title) {
               </button>
               
 
+              <button className="btn btn-warning " onClick={handleVerify}>
+               <i class="fa-solid fa-medal"></i>
+              </button>
+
                 <div>
                   {wood.verif ? (
                     <CheckIcon onClick={handleVerify} />
@@ -112,15 +117,17 @@ function WoodDetail(title) {
                 </div>
                 <div  className="mb-3 mt-3">
               <p class="description"><span>{wood.author?.name}</span>{wood.description}</p>
-              <p class="description"><span>{wood.scaled}</span></p>
-              <p class="description"><span>Category</span>{wood.category}</p>
-              <p class="description"><span>Movements</span>{wood.exercise}</p>
+              <p class="description"><span>Modalidad</span>{wood.scaled}</p>
+              <p class="description"><span>Categoría</span>{wood.category}</p>
+              <p class="description"><span>Movimientos</span>{wood.exercise}</p>
               <p class="description"><span>Repeticiones</span>{wood.reps}</p>
-              <p class="description"><span> Peso</span>{wood.weight}</p>
-              <p class="description"><span>Time</span>{wood.time}</p>
-              <p class="description"><span>Calorías quemadas</span>{wood.kcal}</p>
-              <p class="description"><span>Esfuerzo percibido</span>{wood.effort}</p>
+              <p class="description"><span> Peso</span>{wood.weight} kg</p>
+              <p class="description"><span>En un tiempo de</span>{wood.time} minutos</p>
+              <p class="description"><span>Calorías quemadas</span>{wood.kcal} kcal</p>
+  
+              <p class="description"><span>Puntuacion del Wood</span>{wood.score} puntos</p>
               <p class="post-time">{wood.location}</p>
+              <p class="description"><span></span>{wood.effort}</p>
 
 
               {/* <li onClick={handleClick} class="post-time">Delete</li> */}

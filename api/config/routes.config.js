@@ -43,7 +43,7 @@ router.patch("/woods/:id/comments/:commentId",secure.isAuthenticated,streamMid.i
 router.delete("/woods/:id/comments/:commentId",secure.isAuthenticated,streamMid.isCommentOwnedByAuthor, streamMid.isAuthorByUser,comments.delete);
 
 router.get("/profile", secure.isAuthenticated, user.profile);
-router.post("/profile/:id/warning", secure.isAuthenticated,secure.isAdmin, warning.create);
+router.post("/profile/:id/warning", secure.isAuthenticated, warning.create);
 router.get("/profile/:id/streams", secure.isAuthenticated, user.streamsOwned);
 router.get("/profile/:id/woods", secure.isAuthenticated, user.woodsOwned);
 
