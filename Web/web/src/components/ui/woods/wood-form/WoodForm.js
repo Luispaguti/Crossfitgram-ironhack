@@ -9,6 +9,10 @@ import efforts from '../../../../data/efforts'
 import scaleds from '../../../../data/scaleds'
 import'../wood-form/WoodForm.css'
 
+
+
+
+
 // esta función de register esta devolviendo un JSON, y ese JSON va a devolver el onchange, el onblur..
 //formState ; sirve para meter las validaciones
 // isValid; con esto puedo hacer que no puedas pinchar en el formulario  hasta q no sea valido
@@ -59,7 +63,7 @@ function WoodForm() {
         <div className="formmy">
 
           <h1 className="titlelogin">Crear mi Wod</h1>
-          <p className="des-regist">Sube aquí tus mejores fotos y videos</p>
+          <p className="des-regist">Sube aquí tus mejores fotos y entrenamientos</p>
 
           <div className="logingroup">
 
@@ -69,7 +73,7 @@ function WoodForm() {
               className={`form-control ${errors.image ? "is-invalid" : ""}`}
               placeholder="image..."
               {...register("image", {
-                required: "image is required",
+                required: "se requiere una imagen",
               })}
             />
             {errors.image && (
@@ -85,6 +89,7 @@ function WoodForm() {
             render={({ field: { onBlur, onChange, value } }) => ( // render es una funcion q recibe como primer argumento un objeto y accedo a las cosas que me interesan del objeto, y lo que me interesa esta en field y es onblur, onchange y value  
               <div className="logingroup">
                 <Select className="form-control p-0"
+                placeholder="Tipo de modalidad..."
                   //la libreria necesita que el value sea tanto el objeto de value como el de label, necesita esos dos atributos , para ello podemos ir a buscarlo al data
                   value={scaleds.find((scaled) => scaled.value === value)} // el criterio de busqueda que utilizo es que el value que me viene de la libreria de react hook form sea igual a alguno de los values de data, el primero que lo cumpla el find me devuelve el objeto  
                   //para que no coja 
@@ -95,7 +100,8 @@ function WoodForm() {
                   styles={{ // control se refiere a la caja
                     control: (base) => ({
                       ...base, // esa base pisada, es decir lo que ya venia en los estilos y ahora lo que quiero tocar yo
-                      border: 0
+                      border: 0,
+                      color: scaleds.isSelected ? 'red' : 'green',
                     })
                   }}
                 />
@@ -116,6 +122,7 @@ function WoodForm() {
             render={({ field: { onBlur, onChange, value } }) => ( // render es una funcion q recibe como primer argumento un objeto y accedo a las cosas que me interesan del objeto, y lo que me interesa esta en field y es onblur, onchange y value  
               <div className="logingroup">
                 <Select className="form-control p-0"
+                placeholder="Un Wod de..."
                   //la libreria necesita que el value sea tanto el objeto de value como el de label, necesita esos dos atributos , para ello podemos ir a buscarlo al data
                   value={categories.find((category) => category.value === value)} // el criterio de busqueda que utilizo es que el value que me viene de la libreria de react hook form sea igual a alguno de los values de data, el primero que lo cumpla el find me devuelve el objeto  
                   //para que no coja 
@@ -126,7 +133,8 @@ function WoodForm() {
                   styles={{ // control se refiere a la caja
                     control: (base) => ({
                       ...base, // esa base pisada, es decir lo que ya venia en los estilos y ahora lo que quiero tocar yo
-                      border: 0
+                      border: 0,
+                      color: scaleds.isSelected ? 'red' : 'green',
                     })
                   }}
                 />
@@ -142,6 +150,7 @@ function WoodForm() {
             render={({ field: { onBlur, onChange, value } }) => ( // render es una funcion q recibe como primer argumento un objeto y accedo a las cosas que me interesan del objeto, y lo que me interesa esta en field y es onblur, onchange y value  
               <div className="logingroup">
                 <Select className="form-control p-0"
+                placeholder="CON LOS MOVIMIENTOS..."
                   //la libreria necesita que el value sea tanto el objeto de value como el de label, necesita esos dos atributos , para ello podemos ir a buscarlo al data
                   value={excercises.find((excercise) => excercise.value === value)} // el criterio de busqueda que utilizo es que el value que me viene de la libreria de react hook form sea igual a alguno de los values de data, el primero que lo cumpla el find me devuelve el objeto  
                   //para que no coja 
@@ -152,7 +161,8 @@ function WoodForm() {
                   styles={{ // control se refiere a la caja
                     control: (base) => ({
                       ...base, // esa base pisada, es decir lo que ya venia en los estilos y ahora lo que quiero tocar yo
-                      border: 0
+                      border: 0,
+                      color: scaleds.isSelected ? 'red' : 'green',
                     })
                   }}
                 />
@@ -170,9 +180,9 @@ function WoodForm() {
               type="text"
               id="loginemail"
               className={`form-control ${errors.reps ? "is-invalid" : ""}`}
-              placeholder="reps..."
+              placeholder="EL NÚMERO DE REPETICIONES HA SIDO DE..."
               {...register("reps", {
-                required: "reps is required",
+                required: "se requiere el número de repeticiones",
               })}
             />
             {errors.reps && (
@@ -187,9 +197,9 @@ function WoodForm() {
               type="text"
               id="loginemail"
               className={`form-control ${errors.weight ? "is-invalid" : ""}`}
-              placeholder="weight..."
+              placeholder="CON UN PESO DE..."
               {...register("weight", {
-                required: "weight is required",
+                required: "se requiere el peso trabajado",
               })}
             />
             {errors.weight && (
@@ -205,9 +215,9 @@ function WoodForm() {
               type="text"
               id="loginemail"
               className={`form-control ${errors.time ? "is-invalid" : ""}`}
-              placeholder="time..."
+              placeholder="EN UN TIEMPO DE ..."
               {...register("time", {
-                required: "time is required",
+                required: "se requiere el tiempo de duración del entrenamiento",
               })}
             />
             {errors.time && (
@@ -223,9 +233,9 @@ function WoodForm() {
               type="text"
               id="loginemail"
               className={`form-control ${errors.kcal ? "is-invalid" : ""}`}
-              placeholder="kcal..."
+              placeholder="Quemando... kcal"
               {...register("kcal", {
-                required: "kcal is required",
+                required: "se requiere las calorías consumidas",
               })}
             />
             {errors.kcal && (
@@ -241,9 +251,9 @@ function WoodForm() {
               type="text"
               id="loginemail"
               className={`form-control ${errors.description ? "is-invalid" : ""}`}
-              placeholder="description..."
+              placeholder="Anotaciones de interés..."
               {...register("description", {
-                required: "description is required",
+                required: "escribe brevemente sobre tu wod",
                 minLength: { value: 5, message: "Escribe mínimo 5 letras" }
               })}
             />
@@ -315,18 +325,23 @@ function WoodForm() {
             control={control} // este controler necesita saber a que formulario me estoy refiriendo, eso de donde me lo saco del useform me saco el control
             render={({ field: { onBlur, onChange, value } }) => ( // render es una funcion q recibe como primer argumento un objeto y accedo a las cosas que me interesan del objeto, y lo que me interesa esta en field y es onblur, onchange y value  
               <div className="logingroup">
-                <Select className="form-control p-0"
+                <Select className="form-control p-0 "
                   //la libreria necesita que el value sea tanto el objeto de value como el de label, necesita esos dos atributos , para ello podemos ir a buscarlo al data
                   value={efforts.find((effort) => effort.value === value)} // el criterio de busqueda que utilizo es que el value que me viene de la libreria de react hook form sea igual a alguno de los values de data, el primero que lo cumpla el find me devuelve el objeto  
                   //para que no coja 
+                  placeholder="Esfuerzo percibido..."
                   onChange={(effort) => onChange(effort.map(effort => effort.value))} // gracias a esto de un array de objetos que tiene label y value paso a un array de strings simplemente con los values
                   onBlur={onBlur}
                   isMulti
+                  
                   options={efforts}
                   styles={{ // control se refiere a la caja
                     control: (base) => ({
                       ...base, // esa base pisada, es decir lo que ya venia en los estilos y ahora lo que quiero tocar yo
-                      border: 0
+                      border: 0,
+                      color: scaleds.isSelected ? 'red' : 'green',
+      
+            
                     })
                   }}
                 />

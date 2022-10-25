@@ -18,7 +18,12 @@ const schema = new Schema(
     stream: {
       ref: "Stream",
       type: mongoose.Schema.Types.ObjectId,
-      required: true,
+    },
+
+    wood: {
+      ref: "Wood",
+      type: mongoose.Schema.Types.ObjectId,
+
     },
     
   },

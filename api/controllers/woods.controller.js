@@ -1,4 +1,5 @@
 const Wood = require("../models/wood.model")
+const Comment = require("../models/comment.model")
 const Like = require("../models/like.model")
 const DisLike = require("../models/dislike.model")
 // const Warning = require("../models/warning.model")
@@ -119,4 +120,5 @@ module.exports.warnin = (req, res, next) => {
       .then((wood) => res.status(201).json(wood))
       .catch(next);
   }
+
 

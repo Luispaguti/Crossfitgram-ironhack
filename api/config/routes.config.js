@@ -38,10 +38,11 @@ router.post("/streams/:id/like",secure.isAuthenticated, streams.like);
 router.post("/streams/:id/likeu",secure.isAuthenticated, streams.likeu);
 
 router.post("/streams/:id/comments", secure.isAuthenticated, comments.create);
+router.post("/woods/:id/comments", secure.isAuthenticated, comments.createW);
 router.patch("/streams/:id/comments/:commentId",secure.isAuthenticated,streamMid.isCommentOwnedByAuthor, streamMid.isAuthorByUser, comments.update);
 router.delete("/streams/:id/comments/:commentId",secure.isAuthenticated,streamMid.isCommentOwnedByAuthor, streamMid.isAuthorByUser,comments.delete);
 
-router.post("/woods/:id/comments", secure.isAuthenticated, comments.create);
+// router.post("/woods/:id/comments", secure.isAuthenticated, comments.create);
 router.patch("/woods/:id/comments/:commentId",secure.isAuthenticated,streamMid.isCommentOwnedByAuthor, streamMid.isAuthorByUser, comments.update);
 router.delete("/woods/:id/comments/:commentId",secure.isAuthenticated,streamMid.isCommentOwnedByAuthor, streamMid.isAuthorByUser,comments.delete);
 

@@ -157,7 +157,7 @@ function WoodDetail(title) {
                     <span className='verify'><i class="fa-solid fa-thumbs-up"></i> Entrenamiento verificado por el COACH</span> 
                    ) : ( 
                      
-                   <span className='verif'><i class="fa-solid fa-magnifying-glass"></i> Entrenamiento aún no verificado por el COACH</span> 
+                   <span className='verif'><i class="fa-solid fa-magnifying-glass"></i> Entrenamiento aún no ha sido verificado por el COACH</span> 
                    )
  
                    }
@@ -211,9 +211,9 @@ function WoodDetail(title) {
               </button>
             </form>
 
-            {wood.comments.map((comment) => (
+            {wood.comments.slice(0).reverse().map((comment) => (
               <div className="mb-3 py-1">
-                <p class="descriptions"><span>{comment.user.name}</span> <br />{comment.text}</p>
+                <p class="descriptions"><span className='usernames'>{comment.user.name}:</span> {comment.text}</p>
             
             </div>
             ))}
