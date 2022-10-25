@@ -35,6 +35,7 @@ router.post("/woods/:id/dislike",secure.isAuthenticated, woods.dislike);
 router.post("/woods/:id/verif",secure.isAuthenticated,secure.isAdmin, woods.verif);
 router.post("/woods/:id/warnin",secure.isAuthenticated,secure.isAdmin, woods.warnin);
 router.post("/streams/:id/like",secure.isAuthenticated, streams.like);
+router.post("/streams/:id/likeu",secure.isAuthenticated, streams.likeu);
 
 router.post("/streams/:id/comments", secure.isAuthenticated, comments.create);
 router.patch("/streams/:id/comments/:commentId",secure.isAuthenticated,streamMid.isCommentOwnedByAuthor, streamMid.isAuthorByUser, comments.update);

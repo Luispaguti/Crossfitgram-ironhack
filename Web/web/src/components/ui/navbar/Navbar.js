@@ -58,7 +58,7 @@ function Navbar() {
           </NavLink> */}
 
           <NavLink to="/create-wood" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
-            <i class="fas fa-plus">Wod</i>
+            <i class="fas fa-plus"><span className='wodnav'>Wod</span></i>
           </NavLink>
 
           <NavLink to="/streams" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
@@ -68,7 +68,7 @@ function Navbar() {
           
 
           <NavLink to="/woods" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
-            <i class="fas fa-skull-crossbones">Wod</i>
+            <i class="fas fa-skull-crossbones"><span className='wodnav'>Wod</span></i>
           </NavLink>
           {/* <NavLink to="/" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
             <i class="fa fa-home fa-lg"></i>
@@ -78,12 +78,12 @@ function Navbar() {
           </NavLink>
           
           <NavLink to="/profile" className={({ isActive }) => isActive ? "navmy-link active" : 'navmy-link'}>
-            <p class="fa-solid">{value.user.name}</p>
+            <p class="fa-solid"><span className='wodnav me-2'>{value.user.name}</span></p>
     
           </NavLink>
           <NavLink to={`/profile`} >
   
-            <button className='storynav'>
+            <button className='storynav me-4'>
               <span className="profilestorynav">
                 <img src={value.user.image} alt="small-logo" className="imagmy" />
                 </span>

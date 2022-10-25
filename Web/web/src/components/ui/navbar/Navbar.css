@@ -87,7 +87,7 @@
   z-index:1;
   border-bottom: solid #dbdbdb 1px;
     background:linear-gradient(to bottom right, rgb(222, 230, 229),rgb(69, 128, 123) ,rgb(5, 4, 4));
-    
+
 
   /* background-image: url(https://cdn.wodbuster.com/static/2698/HeaderImg.jpg?v=637945455269819673); */
 }
@@ -100,6 +100,7 @@
   justify-content: space-between;
   align-items:center;
   padding: 10px 50px;
+  
 }
 
 
@@ -158,6 +159,10 @@
 
   border: solid 5px #C5B358;
 
+}
+
+.wodnav{
+  font-family: 'capture';
 }
 
 .storynav .profilestorynav img:hover{

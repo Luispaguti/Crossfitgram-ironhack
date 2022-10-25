@@ -59,6 +59,13 @@ streamSchema.virtual("likes", {
   foreignField: "stream",
   count: true, // gracias a esto en vez de obtener todos los likes y meterlos en un array me pone un número
 });
+
+streamSchema.virtual("likeus", {
+  ref: "Likeu",
+  localField: "_id",
+  foreignField: "stream",
+  count: true, // gracias a esto en vez de obtener todos los likes y meterlos en un array me pone un número
+});
 const Stream = mongoose.model('Stream', streamSchema);
 module.exports = Stream;
 

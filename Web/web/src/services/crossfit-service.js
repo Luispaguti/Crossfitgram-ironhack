@@ -40,13 +40,13 @@ export function authenticate(data) { // data es un objeto que tiene el email y l
   return http.post("/authenticate", data);
 }
 
-export function getAuthenticateSlack() {
-  return http.get("/authenticate/slack");
-}
+// export function getAuthenticateSlack() {
+//   return http.get("/authenticate/slack");
+// }
 
-export function getAuthenticateSlackCb() {
-  return http.get("/authenticate/slack/cb");
-}
+// export function getAuthenticateSlackCb() {
+// //   return http.get("/authenticate/slack/cb");
+// }
 export function logout() {
   return http.post("/logout",{});
 }
@@ -106,7 +106,9 @@ export function deleteStream(id) {
 export function likeStream(id) {
   return http.post(`/streams/${id}/like`);
 }
-
+export function likeuStream(id) {
+  return http.post(`/streams/${id}/likeu`);
+}
 export function commentStream(id, text) {
   return http.post(`/streams/${id}/comments`, { text });
 }

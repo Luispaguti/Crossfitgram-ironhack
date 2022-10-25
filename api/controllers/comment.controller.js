@@ -9,6 +9,7 @@ module.exports.create = (req, res, next) => {
     stream: req.params.id,
     user: req.user.id,
   })
+    // .populate("user")
     .then((comment) => res.status(201).json(comment))
     .catch(next);
 };

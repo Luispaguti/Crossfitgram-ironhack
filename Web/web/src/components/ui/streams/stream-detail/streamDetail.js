@@ -27,6 +27,15 @@ function StreamDetail({ title, image, views, author, description }) {
     });
   };
 
+  const handleLikeu = () => {
+    streamService.likeuStream(id).then((data) => {
+      setStream({
+        ...stream,
+        likeus: data.likeus ? stream.likeus + 1 : stream.likeus - 1
+      })
+    });
+  };
+
   const handleNewComment = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -64,12 +73,21 @@ function StreamDetail({ title, image, views, author, description }) {
                 <img src="img/send.PNG" class="icon" alt="" />
                 <img src="img/save.PNG" class="save icon" alt="" />
               </div>
-              <button className="btn btn-danger" onClick={handleLike}>
+              <button className="btn btn-danger me-2" onClick={handleLike}>
                 <i className="fa fa-heart me-2"></i>
                 {stream.likes}
               </button>
 
-              <div className="mb-3 mt-3">
+              <button className="botonlikeu" onClick={handleLikeu}>
+              <i class="fa-solid fa-mask me-1"> </i>
+                {stream.likeus} Crush 
+              </button>
+
+
+              
+
+
+              <div className="mb-5 mt-4">
               <p class="description"><span>{stream.author.name}</span>{stream.description}</p>
               </div>
            
@@ -87,7 +105,7 @@ function StreamDetail({ title, image, views, author, description }) {
 
             {stream.comments.map((comment) => (
               <div className="mb-3  py-1">
-                <p class="descriptions"><span>{comment.user.name}</span> <br />{comment.text}</p>
+                <p class="descriptions"><span>{comment.user.name}</span> : {comment.text}</p>
 
               </div>
             ))}

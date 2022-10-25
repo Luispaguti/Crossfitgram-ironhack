@@ -1,6 +1,7 @@
 const Stream = require("../models/stream.model");
 const Like = require("../models/like.model")
 const createError = require("http-errors");
+const Likeu = require("../models/likeu.model")
 
 
 
@@ -37,7 +38,8 @@ module.exports.detail = (req, res, next) => {
       path: "user",
     },
   }) // gracias al virtual populate del modelo de stream
-  .populate("likes") // gracias al virtual populate del modelo de stream
+  .populate("likes")
+  .populate("likeus") // gracias al virtual populate del modelo de stream
   .then((stream) => {
     if (stream) {
       res.json(stream);
@@ -85,5 +87,25 @@ module.exports.like = (req, res, next) => {
     })
     .then(() => Like.count(detail)) // esto es igual que hacer un find y ver cuantos hay 
     .then((likes) => res.json({ likes }))
+    .catch(next);
+};
+
+
+module.exports.likeu = (req, res, next) => {
+  const detail = {
+    user: req.user.id,// el user es el campo del modelo like, y req.user.id es el que está logado
+    stream: req.params.id, //el stream:  es el campo del modelo like,  req.params.id este stream va a ser el del path
+  };
+
+  Likeu.findOne(detail) // lo busco y pueden pasar dos cosas
+    .then((likeu) => {
+      if (likeu) { // si existe lo borro
+        return Likeu.deleteOne(detail);
+      } else { // que no existe, lo creo
+        return Likeu.create(detail);
+      }
+    })
+    .then(() => Likeu.count(detail)) // esto es igual que hacer un find y ver cuantos hay 
+    .then((likeus) => res.json({ likeus }))
     .catch(next);
 };

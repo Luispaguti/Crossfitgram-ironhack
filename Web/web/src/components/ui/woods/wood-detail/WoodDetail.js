@@ -114,64 +114,85 @@ function WoodDetail(title) {
                 <img src="img/send.PNG" class="icon" alt="" />
                 <img src="img/save.PNG" class="save icon" alt="" />
               </div>
-              <button className="btn btn-danger" onClick={handleLike}>
-                <i className="fa fa-heart me-2"></i>
+              <button className="btn btn-danger me-2" onClick={handleLike}>
+              <i class="fa-solid fa-dumbbell me-2"></i>
                 {wood.likes}
               </button>
 
-              <button className="btn btn-info" onClick={handleDisLike}>
-              <i class="fa-solid fa-ghost"></i>
+              <button className="btn btn-info me-2" onClick={handleDisLike}>
+              <i class="fa-solid fa-ghost me-2"></i>
                 {wood.dislikes}
               </button>
               
 
-              <button className="btn btn-warning " onClick={handleVerify}>
+              <button className="botonlikeus me-2" onClick={handleVerify}>
                <i class="fa-solid fa-medal"></i>
-              </button>
+             
 
-                <div>
+                
                   {wood.verif ? (
-                    <CheckIcon onClick={handleVerify} />
-                    && <i class="dumbel fa-solid fa-dumbbell">verificado</i>
-                  ) : ( 
-                    <CheckIcon onClick={handleVerify} />
-                    && <i class="dumb fa-solid fa-dumbbell"> no verificado</i>
-                  )
-
-                  }
-                  
-                </div>
-
-                <button className="btn btn-outline-dark" onClick={handleWarning}>
-                <i class="fa-solid fa-baseball-bat-ball"></i>
-              </button>
-
-                <div>
-                  {wood.warnin ? (
-                    <CheckIcon onClick={handleWarning} />
                     
-                    && <i class="fa-solid fa-fire-flame-curved"> strick por no recoger</i>
+                   <span>verificado</span> 
                   ) : ( 
-                    <CheckIcon onClick={handleWarning} />
-                   
-                    && <i class="fa-solid fa-broom-ball"> buen alumno</i>
+                    
+                  <span>no verificado</span> 
                   )
 
                   }
                   
-                </div>
-                <div  className="mb-3 mt-3">
-              <p class="description"><span>{wood.author?.name}</span>{wood.description}</p>
-              <p class="description"><span>Modalidad</span>{wood.scaled}</p>
-              <p class="description"><span>Categoría</span>{wood.category}</p>
-              <p class="description"><span>Movimientos</span>{wood.exercise}</p>
-              <p class="description"><span>Repeticiones</span>{wood.reps}</p>
-              <p class="description"><span> Peso</span>{wood.weight} kg</p>
+               
+                </button>
+
+                 
+
+
+                <button className="botonlikeusu me-2" onClick={handleWarning}>
+                <i class="fa-solid fa-baseball-bat-ball"></i> Warning
+                </button>
+
+
+                <div className='mt-2'>
+                    {wood.verif ? (
+                    
+                    <span className='verify'><i class="fa-solid fa-thumbs-up"></i> Entrenamiento verificado por el COACH</span> 
+                   ) : ( 
+                     
+                   <span className='verif'><i class="fa-solid fa-magnifying-glass"></i> Entrenamiento aún no verificado por el COACH</span> 
+                   )
+ 
+                   }
+                    </div>
+
+               <div>
+                  {wood.warnin ? (
+                    
+                    
+                    <span className='strikes'><i class="fa-solid fa-handshake-simple"></i> buen alumno</span> 
+                  ) : ( 
+                    
+                   
+                    <span className='strike'><i class="fa-solid fa-hand-middle-finger"></i> stricke por no recoger</span> 
+                  )
+
+                  }
+                  </div>
+
+                  
+               
+
+               
+                <div  className="mb-3 mt-4">
+              <p class="description"><span>{wood.author?.name} ha completado el siguiente entrenamiento:</span></p>
+              <p class="description"><span>En Modalidad</span>{wood.scaled}</p>
+              <p class="description"><span>Un Wod de</span>{wood.category}</p>
+              <p class="description"><span>Con los Movimientos:</span>{wood.exercise}</p>
+              <p class="description"><span>EL NÚMERO DE REPETICIONES HA SIDO DE</span>{wood.reps}</p>
+              <p class="description"><span> CON UN PESO DE </span>{wood.weight} kg</p>
               <p class="description"><span>En un tiempo de</span>{wood.time} minutos</p>
-              <p class="description"><span>Calorías quemadas</span>{wood.kcal} kcal</p>
-  
-              <p class="description"><span>Puntuacion del Wood</span>{wood.score} puntos</p>
-              <p class="post-time">{wood.location}</p>
+              <p class="description"><span>QUEMANDO </span>{wood.kcal} kcal</p>
+              <p class="description"><span>Anotaciones</span>{wood.description}</p>
+                <p class="description"><span>Puntuacion del Wood</span>{wood.score} puntos</p>
+                <p class="post-time">{wood.location}</p>
               <p class="description"><span></span>{wood.effort}</p>
 
 

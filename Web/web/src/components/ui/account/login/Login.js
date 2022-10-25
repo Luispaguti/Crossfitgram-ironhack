@@ -108,7 +108,11 @@ function Login() {
           </button>
           </NavLink>
 
-          
+          {/* <a
+            className="btn btn-danger mt-2" href='http://localhost:3001/api/v1/authenticate/slack'>
+            <i className="fa fa-slack me-2"></i>
+            Login with Slack
+          </a> */}
 
 
 

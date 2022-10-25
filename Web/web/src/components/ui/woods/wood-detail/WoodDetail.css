@@ -142,11 +142,7 @@
   color:rgb(20, 220, 127);
 }
 
-.fa-fire-flame-curved{
-  margin-top:12px;
-  margin-bottom:12px;
-  color:rgb(220, 20, 30);
-}
+
 
 .dumb{
   margin-top:12px;
@@ -159,7 +155,9 @@
   background: linear-gradient(to bottom right, rgb(222, 230, 229),rgb(69, 128, 123) ,rgb(5, 4, 4));
 } */
 
-
+button{
+  margin-left: 3px;
+}
 .imgdetail{
   height: 70px;
 }
@@ -168,3 +166,67 @@
   font-size: 14px;
   color: rgb(117, 115, 115);
 }
+
+.botonlikeus{
+
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow:    0 8px 0 #bba922, 0 15px 20px #bba922;
+  -moz-box-shadow: 0 8px 0 #bba922, 0 15px 20px #bba922;
+  box-shadow: 0 8px 0 #bba922, 0 15px 20px rgba(0, 0, 0, .35);
+  -webkit-transition: -webkit-box-shadow .1s ease-in-out;
+  -moz-transition: -moz-box-shadow .1s ease-in-out;
+  -o-transition: -o-box-shadow .1s ease-in-out;
+  transition: box-shadow .1s ease-in-out;
+  font-size: 20px;
+  color: #bba922;
+}
+
+.botonlikeusu{
+
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow:    0 8px 0 rgb(69, 128, 123), 0 15px 20px rgb(69, 128, 123);
+  -moz-box-shadow: 0 8px 0 rgb(69, 128, 123), 0 15px 20pxrgb(69, 128, 123);
+  box-shadow: 0 8px 0 rgb(69, 128, 123), 0 15px 20px rgba(0, 0, 0, .35);
+  -webkit-transition: -webkit-box-shadow .1s ease-in-out;
+  -moz-transition: -moz-box-shadow .1s ease-in-out;
+  -o-transition: -o-box-shadow .1s ease-in-out;
+  transition: box-shadow .1s ease-in-out;
+  font-size: 20px;
+  color: rgb(69, 128, 123);
+}
+
+/* .botonlikeusu:hover{
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow:    0 8px 0 rgb(188, 19, 39), 0 15px 20px rgb(188, 19, 39);
+  -moz-box-shadow: 0 8px 0 rgb(188, 19, 39), 0 15px 20px rgb(188, 19, 39);
+  box-shadow: 0 8px 0 rgb(188, 19, 39), 0 15px 20px rgba(0, 0, 0, .35);
+  -webkit-transition: -webkit-box-shadow .1s ease-in-out;
+  -moz-transition: -moz-box-shadow .1s ease-in-out;
+  -o-transition: -o-box-shadow .1s ease-in-out;
+  transition: box-shadow .1s ease-in-out;
+  font-size: 20px;
+  color: rgb(188, 19, 39);
+} */
+
+
+.strikes{
+ color:rgb(101, 233, 184)
+}
+.strike{
+  color:rgb(240, 117, 123)
+ }
+ 
+
+ .verify{
+  color: #0a9ae8;
+ }
+
+ .verif{
+  color: #0ad6e8;
+ }
