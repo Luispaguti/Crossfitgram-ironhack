@@ -8,10 +8,8 @@ import categories from '../../../../data/categories'
 import efforts from '../../../../data/efforts'
 import scaleds from '../../../../data/scaleds'
 import'../wood-form/WoodForm.css'
-
-
-
-
+import chroma from 'chroma-js';
+import makeAnimated from 'react-select/animated'
 
 // esta función de register esta devolviendo un JSON, y ese JSON va a devolver el onchange, el onblur..
 //formState ; sirve para meter las validaciones
@@ -30,6 +28,7 @@ function WoodForm() {
   // y lo que pasa es que coge el objeto entero tanto el value como el label
   //eso a nosotros no nos interesa nos interesa tener exclusivamente el valor 
   //para ello nos vamos al onChange de abajo
+  
 
   // EL HANDEL SUBMIT ME OBLIGA A TENER UNA FUNCION MIA
   const handleCreateStreamSubmit = (data) => {
@@ -51,6 +50,36 @@ function WoodForm() {
       });
   }
 
+  const colourStyle= {
+    control: (styles) => ({ ...styles,
+      backgroundColor: '#white',
+      borderBottomColor: '#blue',
+      borderBottomWidth: 3,}),
+      
+
+      option: (styles,{ data, isDisabled, isFocused, isSelected }) =>{
+        return{
+          ...styles,
+          // color: scaleds.isSelected ? 'red' : 'green',
+          backgroundColor: isDisabled
+        ? undefined
+        : isSelected
+        ? data.color
+        : isFocused
+        ? '#88AFA1'
+        : undefined,
+          ':active': {
+            backgroundColor: '#265947',
+        }
+      } 
+        
+        
+      }
+      
+    }
+   
+  
+
 
   return (
 
@@ -68,12 +97,15 @@ function WoodForm() {
           <div className="logingroup">
 
             <input
+           
               type="file"
               id="loginemail"
               className={`form-control ${errors.image ? "is-invalid" : ""}`}
               placeholder="image..."
-              {...register("image", {
+              {...register("image", 
+              {
                 required: "se requiere una imagen",
+               
               })}
             />
             {errors.image && (
@@ -90,6 +122,7 @@ function WoodForm() {
               <div className="logingroup">
                 <Select className="form-control p-0"
                 placeholder="Tipo de modalidad..."
+                
                   //la libreria necesita que el value sea tanto el objeto de value como el de label, necesita esos dos atributos , para ello podemos ir a buscarlo al data
                   value={scaleds.find((scaled) => scaled.value === value)} // el criterio de busqueda que utilizo es que el value que me viene de la libreria de react hook form sea igual a alguno de los values de data, el primero que lo cumpla el find me devuelve el objeto  
                   //para que no coja 
@@ -97,13 +130,14 @@ function WoodForm() {
                   onBlur={onBlur}
                   isMulti
                   options={scaleds}
-                  styles={{ // control se refiere a la caja
-                    control: (base) => ({
-                      ...base, // esa base pisada, es decir lo que ya venia en los estilos y ahora lo que quiero tocar yo
-                      border: 0,
-                      color: scaleds.isSelected ? 'red' : 'green',
-                    })
-                  }}
+                  styles={colourStyle}
+                  // styles={{ // control se refiere a la caja
+                  //   control: (base) => ({
+                  //     ...base, // esa base pisada, es decir lo que ya venia en los estilos y ahora lo que quiero tocar yo
+                  //     border: 0,
+                  //     color: scaleds.isSelected ? 'red' : 'green',
+                  //   })
+                  // }}
                 />
 
                 {errors.scaled && (<div className="invalid-feedback">{errors.scaled.message}</div>)}
@@ -130,13 +164,14 @@ function WoodForm() {
                   onBlur={onBlur}
                   isMulti
                   options={categories}
-                  styles={{ // control se refiere a la caja
-                    control: (base) => ({
-                      ...base, // esa base pisada, es decir lo que ya venia en los estilos y ahora lo que quiero tocar yo
-                      border: 0,
-                      color: scaleds.isSelected ? 'red' : 'green',
-                    })
-                  }}
+                  styles={colourStyle}
+                  // styles={{ // control se refiere a la caja
+                  //   control: (base) => ({
+                  //     ...base, // esa base pisada, es decir lo que ya venia en los estilos y ahora lo que quiero tocar yo
+                  //     border: 0,
+                  //     color: scaleds.isSelected ? 'red' : 'green',
+                  //   })
+                  // }}
                 />
                 {errors.category && (<div className="invalid-feedback">{errors.category.message}</div>)}
               </div>
@@ -158,13 +193,14 @@ function WoodForm() {
                   onBlur={onBlur}
                   isMulti
                   options={excercises}
-                  styles={{ // control se refiere a la caja
-                    control: (base) => ({
-                      ...base, // esa base pisada, es decir lo que ya venia en los estilos y ahora lo que quiero tocar yo
-                      border: 0,
-                      color: scaleds.isSelected ? 'red' : 'green',
-                    })
-                  }}
+                  styles={colourStyle}
+                  // styles={{ // control se refiere a la caja
+                  //   control: (base) => ({
+                  //     ...base, // esa base pisada, es decir lo que ya venia en los estilos y ahora lo que quiero tocar yo
+                  //     border: 0,
+                  //     color: scaleds.isSelected ? 'red' : 'green',
+                  //   })
+                  // }}
                 />
                 {errors.exercise && (<div className="invalid-feedback">{errors.exercise.message}</div>)}
               </div>
@@ -184,6 +220,14 @@ function WoodForm() {
               {...register("reps", {
                 required: "se requiere el número de repeticiones",
               })}
+              // styles={{ // control se refiere a la caja
+                  //   control: (base) => ({
+                  //     ...base, // esa base pisada, es decir lo que ya venia en los estilos y ahora lo que quiero tocar yo
+                  //     border: 0,
+                  //     color: scaleds.isSelected ? 'red' : 'green',
+                  //   })
+                  // }}
+              
             />
             {errors.reps && (
               <div className="invalid-feedback">{errors.reps.message}</div>
@@ -335,15 +379,16 @@ function WoodForm() {
                   isMulti
                   
                   options={efforts}
-                  styles={{ // control se refiere a la caja
-                    control: (base) => ({
-                      ...base, // esa base pisada, es decir lo que ya venia en los estilos y ahora lo que quiero tocar yo
-                      border: 0,
-                      color: scaleds.isSelected ? 'red' : 'green',
+                  styles={colourStyle}
+                  // styles={{ // control se refiere a la caja
+                  //   control: (base) => ({
+                  //     ...base, // esa base pisada, es decir lo que ya venia en los estilos y ahora lo que quiero tocar yo
+                  //     border: 0,
+                  //     color: scaleds.isSelected ? 'red' : 'green',
       
             
-                    })
-                  }}
+                  //   })
+                  // }}
                 />
 
 
