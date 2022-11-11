@@ -43,7 +43,7 @@ app.use('/api/v1', routes);
 
 
 
-//Middleware de errors, error.message= route not found, res.json +-=res.render xq esta api solo queremos que devuelva json,
+//Middleware de errors, error.messa ge= route not found, res.json +-=res.render xq esta api solo queremos que devuelva json,
 app.use((req, res, next) => next(createError(404, 'Route not found')))
 
 app.use((error, req, res, next) => {
