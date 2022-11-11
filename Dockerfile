@@ -1,5 +1,6 @@
 FROM buildkite/puppeteer:10.0.0 as react-build
 ARG REACT_APP_API_BASE_URL
+
 COPY web /opt/web
 WORKDIR /opt/web
 RUN npm ci --only=production && npm run build
