@@ -1,0 +1,85 @@
+.titleranking {
+  text-align: center;
+  font-family: Capture;
+  font-size: 86px;
+  color: rgb(177, 173, 173);
+  font-weight: bold;
+}
+
+.rankingbody{
+  margin-top:140px;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Capture;
+  height: 100vh;
+  background:radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+  radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: solid 5px #dcdcdc;
+}
+
+.rankinglist{
+  padding-top: 40px;
+  width: 80%;
+  color:#5d5e60;
+}
+
+
+.contentList{
+  width: 90%;
+  display: flex;
+  overflow: auto;
+  border-radius: 8px;
+  max-width: 1200px;
+
+
+
+}
+
+.layerList{
+  width:248px;
+  height:520px;
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  margin-right: 30px;
+
+}
+
+.rankingposition{
+  font-size: 52px;
+  border-bottom: 2px solid red;
+  width: 50%;
+
+
+
+
+}
+
+.woodsDetail{
+  padding: 24px 0px 24px 0px;
+}
+
+
+.woodsauthor{
+  font-size: 24px;
+
+}
+
+.woodsscore{
+  font-size: 18px;
+  color:#656565;
+}
+
+.layerList img{
+  width:200px;
+  border-radius: 8px;
+
+
+}

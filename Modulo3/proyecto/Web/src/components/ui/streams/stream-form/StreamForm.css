@@ -1,0 +1,40 @@
+
+
+
+
+.createstreambody {
+    padding-top:0px;
+    margin: 0;
+    font-family: Capture;
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formmyhistory{
+  background: #dfdfdf;
+  padding: 40px 0;
+  box-shadow: 0 0 16px 0 rgb(67, 100, 94);
+  border-radius: 10px;
+  width:120%;
+  margin: auto;
+ }
+
+ .mybtns{
+  font-family: Capture;
+  background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+  radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+  border: none;
+  display: block;
+  width: 92%;
+  margin: 10px 10px 0px 30px;
+  color: #fff;
+  height: 50px;
+  font-size: 26px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  align-items: center;
+ }

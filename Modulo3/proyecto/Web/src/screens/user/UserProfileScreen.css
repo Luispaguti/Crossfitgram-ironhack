@@ -1,0 +1,110 @@
+*{
+  padding:0;
+  margin: 0;
+  box-sizing:border-box;
+
+
+}
+
+
+.myheader{
+  width: 60%;
+  margin-top: 160px;
+  transform: translateY(50px);
+  padding: 50px 0;
+  font-family:Capture;
+}
+
+.myperfil-container{
+  display: flex;
+}
+
+
+
+.myperfil-container img{
+  height: 250px;
+  width:250px;
+  border-radius: 50%;
+  padding:0;
+  margin: 0;
+  cursor: pointer;
+  border: solid 5px #eec707;
+  background: linear-gradient(36deg, rgb(255,201,0) 13%, rgb(255,0,95) 73%, rgb(255,9,237) 100%);
+  padding: 5px;
+  box-sizing: border-box;
+
+}
+
+.myperfil-container img:hover{
+  
+  transition: all 0.5s linear;
+  transform: rotateY(180deg);
+  transform-style: preserve-3d;
+  
+  
+
+}
+
+.contenedor-cabecera{
+  margin-left:100px;
+
+}
+
+.cabecera1{
+  width:290px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+.cabecera1 h1{
+  color:#616161;
+  font-weight:100;
+  font-size:56px;
+
+
+}
+
+.cabecera2{
+  display: flex;
+  justify-content: space-between;
+  font-size: 25px ;
+  align-items: center;
+  margin-bottom: 15px;
+ 
+}
+
+.cabecera3 h2,
+.cabecera .p-mynickname,
+.cabecera .p-mybio,
+.cabecera .p-myemail,
+.cabecera .p-mybox,
+.cabecera .p-mysnatch,
+.cabecera .p-myclean,
+.cabecera .p-myjerk,
+.cabecera .p-mybacksquat,
+.cabecera .p-mybenchpress,
+.cabecera .p-deadlift {
+  font-size:16px;
+  margin-bottom:5px;
+
+
+
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0rem;
+}
+
+
+
+
+.cabecera3 .p-mynickname {
+  color: #a2a2a2;
+}
+
+
+
+
+

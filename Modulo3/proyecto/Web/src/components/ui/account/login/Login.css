@@ -1,0 +1,53 @@
+.loginbody {
+  font-family: 'Capture';
+  /* fallback for old browsers */
+  height: 650px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+
+
+
+}
+
+.titlelogin {
+  text-align: center;
+  font-family: Capture;
+  font-size: 86px;
+}
+
+
+.formmy {
+  background: #f8f9fa;
+  padding: 40px 0;
+  box-shadow: 0 0 16px 0 rgb(67, 100, 94);
+  border-radius: 10px;
+  width: 120%;
+  margin: auto;
+}
+
+.loginform .logingroup {
+  position: relative;
+  margin: 45px;
+}
+
+
+.mybtn {
+  font-family: Capture;
+  background:linear-gradient(to bottom right, rgb(222, 230, 229),rgb(69, 128, 123) ,rgb(5, 4, 4));
+  border: none;
+  display: block;
+  width: 92%;
+  margin: 10px 10px 0px 30px;
+  color: #fff;
+  height: 50px;
+  font-size: 26px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  align-items: center;
+
+}

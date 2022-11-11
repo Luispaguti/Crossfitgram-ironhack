@@ -1,0 +1,50 @@
+.registerbody {
+  font-family: 'Capture';
+  /* fallback for old browsers */
+  height: 650px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 650px;
+
+
+ } 
+
+ .des-regist{
+  font-family: 'Capture';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(188, 186, 183);
+ }
+
+
+ .registerformmy {
+  background: #fff;
+  padding: 40px 0;
+  box-shadow: 0 0 100px 0 rgb(67 100 94);
+  border-radius: 10px;
+  width: 800px;
+  margin-left:0px;
+}
+
+
+.registerform {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.mybtnregis {
+  font-family: Capture;
+  background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+  radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+  border: none;
+  display: block;
+  width: 740px;
+  margin: 10px 10px 0px 30px;
+  color: #fff;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 5%;
+}
