@@ -17,7 +17,7 @@ module.exports.list = (req, res, next) => {
 
 module.exports.create = (req, res, next) => {
   const wood = req.body;
-  //ahora mismo stream es todo, todos los campos del modelo y ahora lo que no quiero que vaya lo quito con delete.
+  //ahora mismo stream  es todo, todos los campos del modelo y ahora lo que no quiero que vaya lo quito con delete.
   // de esta manera no se lo estoy borrando al body se lo estoy borrando al stream
   delete wood.views;
   //delete se está calzando una propiedad de un objeto
