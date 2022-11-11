@@ -70,5 +70,13 @@ app.use((error, req, res, next) => {
 
 
 
-const port = process.env.PORT || 3001;
-app.listen(port, () => console.log(`crossfit rss listen at port ${port}`))
+// const port = process.env.PORT || 3001;
+// app.listen(port, () => console.log(`crossfit rss listen at port ${port}`))
+
+if (process.env.NODE_ENV !== "test") {
+  const port = process.env.PORT || 3001;
+
+  app.listen(port, () =>
+    console.log(`Crossfitgram running at port ${port}`)
+  );
+}
