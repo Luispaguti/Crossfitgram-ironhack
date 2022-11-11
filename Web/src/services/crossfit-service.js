@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const http = axios.create({
-  baseURL: "http://localhost:3001/api/v1",
+
+  baseURL:process.env.REACT_APP_API_BASE_URL || "http://localhost:3001/api/v1",
   withCredentials: true, // con esto axios cookie que recibe, cookie que manda xq por defecto no lo hace
 });
 
