@@ -1,8 +1,13 @@
 import React from 'react'
 
-function Task({name}) {
+function Task({name, deleteFromList}) {
+const handleClick = () => {
+  deleteFromList(name);
+};
+
+
   return (
-    <li className='list-group-item'>{name}</li>
+    <li onClick={handleClick} className='list-group-item'>{name}</li>
   )
 }
 
